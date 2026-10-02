@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-const MAPANDAN_BARANGAYS = [
+const DEFAULT_BARANGAYS = [
   "Asongan",
   "Baloling",
   "Banaoang",
@@ -80,8 +80,8 @@ const emptyAddress: DeliveryAddress = {
   street: "",
   sitio: "",
   purok: "",
-  municipality: "Mapandan",
-  province: "Pangasinan",
+  municipality: "",
+  province: "",
   landmark: "",
 };
 

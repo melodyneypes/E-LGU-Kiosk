@@ -14,14 +14,14 @@ const transporter = nodemailer.createTransport({
 
 export async function sendOtpEmail(to: string, otp: string, name: string) {
   const mailOptions = {
-    from: `"Mapandan Kiosk" <${senderEmail}>`,
+    from: `"E-LGU Kiosk" <${senderEmail}>`,
     to,
     subject: 'Your Authentication Code',
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
         <h2 style="color: #4caf7d;">Verification Code</h2>
         <p>Hello <strong>${name}</strong>,</p>
-        <p>Your authentication code for the Mapandan Kiosk is:</p>
+        <p>Your authentication code for the E-LGU Kiosk is:</p>
         <div style="background: #f4f4f4; padding: 20px; text-align: center; font-size: 32px; font-weight: bold; letter-spacing: 5px; color: #333; border-radius: 5px; margin: 20px 0;">
           ${otp}
         </div>

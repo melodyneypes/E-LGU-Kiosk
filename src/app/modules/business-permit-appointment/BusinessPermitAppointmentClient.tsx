@@ -99,7 +99,7 @@ function FilePreview({ file, onClick }: { file: File; onClick?: () => void }) {
   );
 }
 
-const MAPANDAN_BARANGAYS = [
+const DEFAULT_BARANGAYS = [
   "Amanoaoac", "Apaya", "Aserda", "Baloling", "Coral", "Golden", "Lanas",
   "Nilombot", "Patland", "Pias", "Poblacion", "Primicias", "Santa Maria", "Torres", "Valenzuela"
 ];
@@ -217,8 +217,8 @@ export function BusinessPermitAppointmentClient({
     houseNumber: resident?.houseNumber || "",
     street: resident?.street || "",
     barangay: resident?.barangay || "",
-    municipality: resident?.municipality || "Mapandan",
-    province: resident?.province || "Pangasinan",
+    municipality: resident?.municipality || "",
+    province: resident?.province || "",
     contactNumber: resident?.contactNumber || "",
     email: resident?.email || "",
     occupation: resident?.occupation || ""
@@ -724,7 +724,7 @@ export function BusinessPermitAppointmentClient({
                       {
                         id: "NEW",
                         label: "Business Permit - New",
-                        desc: "Apply for a new business permit for starting a business in Mapandan.",
+                        desc: "Apply for a new business permit for starting a business in this municipality.",
                         icon: Sparkles
                       },
                       {
@@ -817,7 +817,7 @@ export function BusinessPermitAppointmentClient({
                         type="text"
                         value={formState.businessName}
                         onChange={e => handleInputChange("businessName", e.target.value)}
-                        placeholder="e.g. Mapandan Express Café Inc."
+                        placeholder="e.g. City Express Café Inc."
                         className={cn(
                           "rounded-xl h-12 border-slate-200 transition-all duration-200",
                           showValidationErrors && !formState.businessName && "border-red-500 focus-visible:ring-red-500/20 dark:border-red-500/50"
@@ -831,7 +831,7 @@ export function BusinessPermitAppointmentClient({
                         type="text"
                         value={formState.tradeName}
                         onChange={e => handleInputChange("tradeName", e.target.value)}
-                        placeholder="e.g. Mapandan Express Café"
+                        placeholder="e.g. City Express Café"
                         className="rounded-xl h-12 border-slate-200"
                       />
                     </div>
@@ -869,7 +869,7 @@ export function BusinessPermitAppointmentClient({
                           )}
                         >
                           <option value="" disabled>Select Barangay...</option>
-                          {MAPANDAN_BARANGAYS.map((b) => (
+                          {DEFAULT_BARANGAYS.map((b) => (
                             <option key={b} value={b}>{b}</option>
                           ))}
                         </select>

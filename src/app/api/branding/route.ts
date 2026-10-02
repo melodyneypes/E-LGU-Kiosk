@@ -9,7 +9,6 @@ export async function GET() {
         select: { value: true },
       }),
       prisma.barangayInfo.findFirst({
-        where: { name: "Mapandan" },
         select: { logoUrl: true, coverImageUrl: true },
       }),
     ]);

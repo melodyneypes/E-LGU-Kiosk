@@ -62,7 +62,7 @@ export default function BusinessPermitView({ request, additionalData }: Business
         <div className="space-y-1">
           <span className="text-slate-400 font-bold uppercase tracking-widest text-[9px]">Business Address</span>
           <p className="font-black uppercase text-slate-850 dark:text-white">
-            {[additionalData.building, additionalData.street, additionalData.barangay].filter(Boolean).join(", ")}, Mapandan, Pangasinan
+            {[additionalData.building, additionalData.street, additionalData.barangay, additionalData.municipality, additionalData.province].filter(Boolean).join(", ")}
           </p>
         </div>
 

@@ -36,7 +36,7 @@ export async function getTransactionTypes() {
 
 export async function getBarangaysList() {
     try {
-        // Mocking barangay list based on Mapandan or fetching from db if it exists
+        // Default barangay list fallback or fetching from db if it exists
         return { success: true, data: [
             "Amanoaoac", "Apaya", "Aserda", "Baloling", "Coral", "Golden", "Lanas", "Nilombot", "Patland", "Pias", "Poblacion", "Primicias", "Santa Maria", "Torres", "Valenzuela"
         ] };

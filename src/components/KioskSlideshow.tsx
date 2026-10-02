@@ -113,8 +113,8 @@ const SLIDE_DURATION = 15000; // 15 seconds per slide - well-paced ambient cycle
 
 // ────────── Fallback / Default Data ──────────
 const DEFAULT_HERO = {
-  title: "Welcome to the Municipality of Mapandan",
-  subtitle: "Province of Pangasinan • Republic of the Philippines",
+  title: "Welcome to the Local Government Unit",
+  subtitle: "E-LGU Public Service Portal • Republic of the Philippines",
   tagline: "Empowering our citizens through digital transparency, progressive governance, and rapid public service.",
   bg: "/slide-welcome.png",
 };
@@ -178,13 +178,13 @@ const DEFAULT_HOTLINES = [
     scope: "Flood evacuation, vehicular accidents, 24/7 patient transfer & emergency rescue"
   },
   { 
-    name: "Mapandan Municipal Police Station (PNP)", 
+    name: "Municipal Police Station (PNP)", 
     category: "Law Enforcement", 
     phone: "0998-555-0100",
     scope: "Public peace, immediate crime reporting, anti-criminality response & municipal patrol"
   },
   { 
-    name: "Bureau of Fire Protection (BFP Mapandan)", 
+    name: "Bureau of Fire Protection (BFP)", 
     category: "Fire & Hazmat", 
     phone: "(075) 555-1199",
     scope: "Fire alarms, residential blaze suppression & emergency hazardous material control"
@@ -233,7 +233,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
     name: "HON. KARL CHRISTIAN F. VEGA",
     position: "MUNICIPAL MAYOR",
     imageUrl: null,
-    motto: "Tapat at Progresibong Pamamahala para sa Mapandan",
+    motto: "Tapat at Progresibong Pamamahala para sa Bayan",
     category: "EXECUTIVE",
   },
   {
@@ -337,10 +337,10 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
 const DEFAULT_PROJECTS: ProjectItem[] = [
   {
     id: "proj-1",
-    title: "Construction of Mapandan Super Health Center & Emergency Complex",
+    title: "Construction of Municipal Super Health Center & Emergency Complex",
     category: "Healthcare Infrastructure",
     status: "ONGOING",
-    location: "Brgy. Poblacion, Mapandan",
+    location: "Brgy. Poblacion",
     budget: "₱ 25,000,000.00",
     progress: 78,
     imageUrl: null,
@@ -380,9 +380,9 @@ const DEFAULT_PROJECTS: ProjectItem[] = [
 const DEFAULT_NEWS: NewsItem[] = [
   {
     id: "news-1",
-    title: "LGU Mapandan Launches Modern Digital Citizens Kiosk & Unified RFID System",
-    content: "The Municipal Government of Mapandan officially unveils its high-speed interactive kiosk system, bringing automated service request processing, document tracking, and digital transparency directly to all Mapandanians.",
-    author: "PIO Mapandan",
+    title: "LGU Launches Modern Digital Citizens Kiosk & Unified RFID System",
+    content: "The Municipal Government officially unveils its high-speed interactive kiosk system, bringing automated service request processing, document tracking, and digital transparency directly to all citizens.",
+    author: "PIO Office",
     category: "Governance & Tech",
     imageUrl: "/slide-welcome.png",
     publishDate: new Date().toISOString(),
@@ -391,7 +391,7 @@ const DEFAULT_NEWS: NewsItem[] = [
     id: "news-2",
     title: "Free Medical, Dental Mission & RHU Medicine Distribution Reaches Over 1,200 Residents",
     content: "Municipal health workers and partnered medical volunteers delivered comprehensive primary healthcare checkups, diagnostic screenings, and essential prescription supplies during the outreach in Poblacion.",
-    author: "RHU Mapandan",
+    author: "RHU Office",
     category: "Healthcare",
     imageUrl: null,
     publishDate: new Date(Date.now() - 86400000 * 2).toISOString(),
@@ -399,7 +399,7 @@ const DEFAULT_NEWS: NewsItem[] = [
   {
     id: "news-3",
     title: "Farmers' Fertilizer & High-Yield Seed Subsidy Rollout Commences for Wet Season Planting",
-    content: "The Municipal Agriculture Office distributes certified seed bags and high-grade organic fertilizers to registered RSBSA local farming cooperatives across Mapandan.",
+    content: "The Municipal Agriculture Office distributes certified seed bags and high-grade organic fertilizers to registered RSBSA local farming cooperatives across the municipality.",
     author: "Agriculture Office",
     category: "Agriculture",
     imageUrl: null,
@@ -429,7 +429,7 @@ const DEFAULT_ANNOUNCEMENTS: AnnouncementItem[] = [
   {
     id: "ann-3",
     title: "MSWDO ANNOUNCEMENT: Quarterly Social Pension Distribution for Senior Citizens",
-    content: "Qualified senior citizens are advised to bring their valid Mapandan Senior ID card or valid government identification to the Municipal Gymnasium during scheduled barangay cluster dates.",
+    content: "Qualified senior citizens are advised to bring their valid Senior Citizen ID card or valid government identification to the Municipal Gymnasium during scheduled barangay cluster dates.",
     priority: "NORMAL",
     category: "Social Welfare",
     isPinned: false,
@@ -617,8 +617,8 @@ function ServicesSlideView({ services }: { services: ServiceItem[] }) {
 
       {/* Service Footer Note */}
       <div className="relative z-10 flex items-center justify-between text-[11px] sm:text-xs text-slate-400 pt-2 border-t border-white/10 flex-shrink-0">
-        <span>* Requirements and guidelines are based on the Citizen&apos;s Charter of Mapandan.</span>
-        <span className="font-semibold text-emerald-400">Mapandan Municipal Frontline Services</span>
+        <span>* Requirements and guidelines are based on the Citizen&apos;s Charter.</span>
+        <span className="font-semibold text-emerald-400">Municipal Frontline Services</span>
       </div>
     </div>
   );
@@ -749,7 +749,7 @@ function LeadershipSlideView({ officials }: { officials: OfficialItem[] }) {
 
       {/* Footer Note */}
       <div className="relative z-10 flex items-center justify-between text-[10px] sm:text-xs text-slate-400 pt-1.5 border-t border-white/10 flex-shrink-0">
-        <span>Sangguniang Bayan of Mapandan, Pangasinan • 2025–2028 Term</span>
+        <span>Sangguniang Bayan Office • 2025–2028 Term</span>
         <span className="font-semibold text-rose-500">Official Municipal Council</span>
       </div>
     </div>
@@ -865,7 +865,7 @@ function ProjectsSlideView({ projects }: { projects: ProjectItem[] }) {
       {/* Footer Note */}
       <div className="relative z-10 flex items-center justify-between text-[11px] sm:text-xs text-slate-400 pt-2 border-t border-white/10 flex-shrink-0">
         <span>Public Funds Transparency Act • Municipal Engineering & Planning Development Office</span>
-        <span className="font-semibold text-emerald-400">Municipality of Mapandan Portal</span>
+        <span className="font-semibold text-emerald-400">E-LGU Citizen Portal</span>
       </div>
     </div>
   );
@@ -894,7 +894,7 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
             Latest Municipal News
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 mt-0.5">
-            Verified updates, developmental milestones, and community dispatches from the Municipality of Mapandan.
+            Verified updates, developmental milestones, and community dispatches from the Municipal Government.
           </p>
         </div>
         <div className="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 flex-shrink-0">
@@ -967,7 +967,7 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
                 <span className="font-semibold text-blue-400">
                   Official Public Release
                 </span>
-                <span>Verified by PIO Mapandan</span>
+                <span>Verified by Public Information Office</span>
               </div>
             </div>
           </div>
@@ -1042,7 +1042,7 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
 
       {/* Footer Meta */}
       <div className="relative z-10 flex items-center justify-between text-xs text-slate-400 pt-3 border-t border-white/10 flex-shrink-0">
-        <span>Information & Communications Technology Office (ICTO) • Mapandan</span>
+        <span>Information & Communications Technology Office (ICTO)</span>
         <span className="font-semibold text-blue-400">Official Municipal Gazette & Press Feed</span>
       </div>
     </div>
@@ -1142,7 +1142,7 @@ function NoticesSlideView({ announcements }: { announcements: AnnouncementItem[]
                   Official Compliance Notice
                 </span>
                 <span className={`font-bold ${isUrgent ? "text-rose-400" : "text-amber-400"}`}>
-                  LGU Mapandan
+                  Local Government Unit
                 </span>
               </div>
             </div>
@@ -1274,7 +1274,7 @@ function EmergencySlideView({ hotlines }: { hotlines: HotlineItem[] }) {
 
           const scopeText = "scope" in h 
             ? (h as { scope: string }).scope 
-            : "Emergency dispatch, public assistance, and incident coordination within Mapandan.";
+            : "Emergency dispatch, public assistance, and incident coordination within the municipality.";
 
           const style = getDeptStyling(h.category, idx);
 
@@ -1334,7 +1334,7 @@ function EmergencySlideView({ hotlines }: { hotlines: HotlineItem[] }) {
         <div className="flex items-center gap-3 font-semibold text-rose-400">
           <span>Official Dispatch Terminal</span>
           <span className="text-white/20">•</span>
-          <span className="text-slate-400 font-normal">Municipality of Mapandan, Pangasinan</span>
+          <span className="text-slate-400 font-normal">Local Government Unit</span>
         </div>
       </div>
     </div>
@@ -1455,10 +1455,10 @@ export default function KioskSlideshow() {
           <div>
             <div className="flex items-center gap-2">
               <h1 className="text-base sm:text-lg md:text-xl font-black uppercase tracking-wider text-white">
-                Municipality of Mapandan
+                Local Government Unit
               </h1>
               <span className="hidden md:inline-block px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 text-[10px] font-black uppercase tracking-widest border border-emerald-500/30">
-                Pangasinan
+                E-LGU
               </span>
             </div>
             <p className="text-[10px] sm:text-xs text-slate-400 font-medium line-clamp-1">
@@ -1501,7 +1501,7 @@ export default function KioskSlideshow() {
                 </Fragment>
               ))
             ) : null}
-            <span>Welcome to the Municipal Hall of Mapandan • Office hours: Mon to Fri, 8:00 AM – 5:00 PM</span>
+            <span>Welcome to the Municipal Hall • Office hours: Mon to Fri, 8:00 AM – 5:00 PM</span>
             <span className="mx-4 sm:mx-6 text-emerald-400">●</span>
             <span>For inquiries, contact the Mayor&apos;s Information Desk at (075) 555-0000</span>
             <span className="mx-4 sm:mx-6 text-emerald-400">●</span>

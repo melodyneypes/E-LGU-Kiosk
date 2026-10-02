@@ -134,7 +134,7 @@ const TRANSLATIONS = {
     portal: "Portal",
     exit: "Exit",
     services: "Services",
-    availableIn: "Available in Mapandan Government Portal",
+    availableIn: "Available in E-LGU Portal",
     session: "Session",
     total: "TOTAL",
     servicesCount: "SERVICES",
@@ -161,7 +161,7 @@ const TRANSLATIONS = {
     portal: "Portal",
     exit: "Labas",
     services: "mga Serbisyo",
-    availableIn: "Magagamit sa Portal ng Pamahalaan ng Mapandan",
+    availableIn: "Magagamit sa E-LGU Portal",
     session: "Sesyon",
     total: "KABUUAN",
     servicesCount: "SERBISYO",
@@ -188,7 +188,7 @@ const TRANSLATIONS = {
     portal: "Portal",
     exit: "Paway",
     services: "saray Serbisyo",
-    availableIn: "Nalmo ed Portal na Gobyerno na Mapandan",
+    availableIn: "Nalmo ed E-LGU Portal",
     session: "Sesyon",
     total: "AMIN",
     servicesCount: "SERBISYO",
@@ -215,7 +215,7 @@ const TRANSLATIONS = {
     portal: "Portal",
     exit: "Rummuar",
     services: "dagiti Serbisio",
-    availableIn: "Adda iti Portal ti Gobierno ti Mapandan",
+    availableIn: "Adda iti E-LGU Portal",
     session: "Sesyon",
     total: "DAGUP",
     servicesCount: "SERBISIO",
@@ -523,14 +523,14 @@ function DashboardContent() {
           <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center p-2 shadow-lg shadow-theme-primary/10 border border-slate-200/60 dark:border-white/10 transition-transform active:scale-95">
             <Image
               src="/logo.png"
-              alt="Mapandan Logo"
+              alt="LGU Logo"
               width={48}
               height={48}
               className="object-contain"
             />
           </div>
           <div className="block md:hidden">
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Mapandan</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">E-LGU</span>
             <h2 className="text-xs font-black text-slate-800 dark:text-white uppercase tracking-tight">Kiosk Portal</h2>
           </div>
         </div>
@@ -583,7 +583,7 @@ function DashboardContent() {
           {/* SIDEBAR CIVIC FOOTER */}
           <div className="hidden md:flex flex-col items-center text-center mt-3 pt-3 border-t border-slate-200/60 dark:border-white/5 w-full">
             <span className="text-[7px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">
-              Municipality of Mapandan
+              Local Government Unit
             </span>
             <span className="text-[7px] font-bold text-slate-400/80 dark:text-slate-500/80 tracking-wider mt-0.5">
               © 2026
@@ -690,7 +690,7 @@ function DashboardContent() {
                         {resident.fullName}
                       </p>
                       <p className="text-xs font-semibold text-slate-400 dark:text-slate-500 truncate mt-0.5">
-                        {resident.barangay ? `Brgy. ${resident.barangay}` : "Mapandan Resident"}
+                        {resident.barangay ? `Brgy. ${resident.barangay}` : "LGU Resident"}
                       </p>
                     </div>
 
@@ -977,7 +977,7 @@ function DashboardContent() {
                 <ProfileRow label="Email" value={resident.email} />
                 <ProfileRow label="Contact Number" value={resident.contactNumber} />
                 <ProfileRow label="Barangay" value={resident.barangay} />
-                <ProfileRow label="Municipality" value={resident.municipality || "Mapandan"} />
+                <ProfileRow label="Municipality" value={resident.municipality || "Local Municipality"} />
               </div>
 
               <div className="mt-4">

@@ -166,7 +166,7 @@ export default function BirthCertificatePage() {
     certSuffix: "",
     sex: "",
     dateOfEvent: "",
-    placeOfEvent: "Mapandan, Pangasinan",
+    placeOfEvent: "",
     fatherFirstName: "",
     fatherMiddleName: "",
     fatherLastName: "",
@@ -207,7 +207,7 @@ export default function BirthCertificatePage() {
         certSuffix: residentData.suffix || "",
         sex: (residentData.gender || "").toUpperCase(),
         dateOfEvent: residentData.dateOfBirth ? new Date(residentData.dateOfBirth).toISOString().split('T')[0] : "",
-        placeOfEvent: residentData.placeOfBirth || "Mapandan, Pangasinan",
+        placeOfEvent: residentData.placeOfBirth || (residentData.municipality ? `${residentData.municipality}, ${residentData.province || ""}`.trim() : ""),
         fatherFirstName: residentData.fatherFirstName || "",
         fatherMiddleName: residentData.fatherMiddleName || "",
         fatherLastName: residentData.fatherLastName || "",
@@ -224,7 +224,7 @@ export default function BirthCertificatePage() {
         certSuffix: "",
         sex: "",
         dateOfEvent: "",
-        placeOfEvent: "Mapandan, Pangasinan",
+        placeOfEvent: "",
         fatherFirstName: "",
         fatherMiddleName: "",
         fatherLastName: "",
@@ -392,7 +392,7 @@ export default function BirthCertificatePage() {
               certSuffix: addData.certSuffix || "",
               sex: (addData.gender || addData.sex || "").toUpperCase(),
               dateOfEvent: addData.dateOfEvent || "",
-              placeOfEvent: addData.placeOfEvent || "Mapandan, Pangasinan",
+              placeOfEvent: addData.placeOfEvent || "",
               fatherFirstName: addData.fatherFirstName || "",
               fatherMiddleName: addData.fatherMiddleName || "",
               fatherLastName: addData.fatherLastName || "",
@@ -425,7 +425,7 @@ export default function BirthCertificatePage() {
               certSuffix: data.suffix || "",
               sex: (data.gender || "").toUpperCase(),
               dateOfEvent: data.dateOfBirth ? new Date(data.dateOfBirth).toISOString().split('T')[0] : "",
-              placeOfEvent: data.placeOfBirth || "Mapandan, Pangasinan",
+              placeOfEvent: data.placeOfBirth || (data.municipality ? `${data.municipality}, ${data.province || ""}`.trim() : ""),
               fatherFirstName: data.fatherFirstName || "",
               fatherMiddleName: data.fatherMiddleName || "",
               fatherLastName: data.fatherLastName || "",
@@ -1126,7 +1126,7 @@ export default function BirthCertificatePage() {
                     <Input
                       required
                       id="placeOfEvent"
-                      placeholder="e.g. Mapandan, Pangasinan"
+                      placeholder="e.g. City / Municipality, Province"
                       value={formData.placeOfEvent}
                       onChange={e => !isSelf && handleFormChange("placeOfEvent", e.target.value)}
                       disabled={isSelf}
@@ -1618,7 +1618,7 @@ export default function BirthCertificatePage() {
                 <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                   <div>
                     <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">MUNICIPAL CIVIL REGISTRY</h3>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                   </div>
                   <div className="text-right">
                     <span className="bg-theme-primary/20 text-slate-900 dark:text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-theme-primary/30">

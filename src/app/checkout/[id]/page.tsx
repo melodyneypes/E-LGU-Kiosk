@@ -36,8 +36,8 @@ const emptyAddress: DeliveryAddress = {
   street: "",
   sitio: "",
   purok: "",
-  municipality: "Mapandan",
-  province: "Pangasinan",
+  municipality: "",
+  province: "",
   landmark: "",
 };
 

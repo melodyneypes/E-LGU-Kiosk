@@ -119,8 +119,8 @@ export function CedulaAppointmentClient({
     houseNumber: resident?.houseNumber || "",
     street: resident?.street || "",
     barangay: resident?.barangay || "",
-    municipality: resident?.municipality || "Mapandan",
-    province: resident?.province || "Pangasinan",
+    municipality: resident?.municipality || "",
+    province: resident?.province || "",
     contactNumber: resident?.contactNumber || "",
     email: resident?.email || "",
     // Calculations

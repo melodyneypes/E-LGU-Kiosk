@@ -64,12 +64,14 @@ export default function LocationPickerInner({
   const [position, setPosition] = useState<[number, number] | null>(
     value ? [value.lat, value.lng] : (compact ? null : [initialLat, initialLng])
   );
-  const [mapandanBorder, setMapandanBorder] = useState<GeoJSONData | null>(null);
+  const [municipalityBorder, setMunicipalityBorder] = useState<GeoJSONData | null>(null);
 
   useEffect(() => {
-    fetch("/mapandan-border.json")
-      .then(res => res.json())
-      .then(data => setMapandanBorder(data))
+    fetch("/lgu-border.json")
+      .then(res => (res.ok ? res.json() : null))
+      .then(data => {
+        if (data) setMunicipalityBorder(data);
+      })
       .catch(err => console.error("Failed to load map borders:", err));
   }, []);
 
@@ -105,9 +107,9 @@ export default function LocationPickerInner({
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
           />
 
-          {mapandanBorder && (
+          {municipalityBorder && (
             <GeoJSON
-              data={mapandanBorder}
+              data={municipalityBorder}
               style={{
                 color: "var(--primary-theme)",
                 weight: 2,
@@ -165,9 +167,9 @@ export default function LocationPickerInner({
             url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
           />
 
-          {mapandanBorder && (
+          {municipalityBorder && (
             <GeoJSON
-              data={mapandanBorder}
+              data={municipalityBorder}
               style={{
                 color: "var(--primary-theme)",
                 weight: 2,

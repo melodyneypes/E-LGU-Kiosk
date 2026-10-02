@@ -1358,7 +1358,7 @@ export default function OccupancyPermitPage() {
                   <Book className="w-3 h-3" /> Citizen's Charter
                 </span>
                 <h4 className="text-sm font-black tracking-widest text-slate-700 dark:text-white italic">
-                  Based on Mapandan Occupancy Permit Process
+                  Based on Municipal Occupancy Permit Process
                 </h4>
                 <div className="text-xs text-theme-primary dark:text-theme-primary/90 font-bold bg-theme-primary/[0.02] border border-theme-primary/10 p-4 rounded-xl mt-2 italic font-sans leading-relaxed">
                   &quot;Compliant with PD 1096 (National Building Code), RA 11032 (EODB Act), and RA 10173 (Data Privacy Act). Ensure all requirements are duly signed and notarized where applicable.&quot;
@@ -1596,7 +1596,7 @@ export default function OccupancyPermitPage() {
                         <div className="md:col-span-2">
                           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Complete Address</p>
                           <p className="font-bold text-slate-800 dark:text-slate-200 mt-1 uppercase text-sm">
-                            {displayResident?.houseNumber ? `#${displayResident.houseNumber} ${displayResident.street || ""}, Brgy. ${displayResident.barangay || ""}, Mapandan, Pangasinan` : "N/A"}
+                            {displayResident?.houseNumber ? `#${displayResident.houseNumber} ${displayResident.street || ""}, Brgy. ${displayResident.barangay || ""}, ${displayResident.municipality || "Local Municipality"}` : "N/A"}
                           </p>
                         </div>
                       </div>
@@ -2407,7 +2407,7 @@ export default function OccupancyPermitPage() {
                 <div className="space-y-1">
                   <p className="text-xs font-black italic uppercase tracking-tight text-slate-900 dark:text-white">Data Privacy and Terms Agreement</p>
                   <p className="text-[8px] md:text-[10px] text-slate-500 font-medium leading-relaxed italic uppercase tracking-widest">
-                    I officially accept the EMapandan Data Privacy Agreement & Terms. I declare under penalty of perjury that all submitted details are 100% legal and genuine. Click to review agreement.
+                    I officially accept the E-LGU Data Privacy Agreement & Terms. I declare under penalty of perjury that all submitted details are 100% legal and genuine. Click to review agreement.
                   </p>
                 </div>
               </div>
@@ -3023,7 +3023,7 @@ You cancelled this occupancy permit application. You can still view your details
 
                     <div className="mt-4 bg-amber-50 dark:bg-amber-500/5 border border-amber-100 dark:border-amber-500/10 text-amber-700 dark:text-amber-500 text-xs font-medium px-4 py-3 rounded-lg flex items-start gap-2">
                       <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
-                      <p>Please proceed to the LGU Mapandan Treasury Office to pay the required fees. After payment, upload your official receipt here. Receipt verification takes 24 hours.</p>
+                      <p>Please proceed to the Municipal Treasury Office to pay the required fees. After payment, upload your official receipt here. Receipt verification takes 24 hours.</p>
                     </div>
                   </>
                 ) : selectedApplication?.status === "UNPAID" && selectedApplication?.paymentReference ? (

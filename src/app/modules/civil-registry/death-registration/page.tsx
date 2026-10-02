@@ -501,7 +501,7 @@ export default function DeathRegistrationPage() {
             if (!form.deceasedDateOfBirth) newErrors.deceasedDateOfBirth = "Required";
             if (!form.deceasedDateOfDeath) newErrors.deceasedDateOfDeath = "Required";
             if (!form.deceasedPlaceOfDeath) newErrors.deceasedPlaceOfDeath = "Required";
-            if (form.deceasedPlaceOfDeath === "OUTSIDE_MAPANDAN" && !form.deceasedPlaceOfDeathCustom?.trim()) {
+            if (form.deceasedPlaceOfDeath === "OUTSIDE_MUNICIPALITY" && !form.deceasedPlaceOfDeathCustom?.trim()) {
                 newErrors.deceasedPlaceOfDeathCustom = "Required";
             }
             if (!form.deceasedCauseOfDeath?.trim()) newErrors.deceasedCauseOfDeath = "Required";
@@ -600,7 +600,7 @@ export default function DeathRegistrationPage() {
     };
 
     const getPlaceOfDeathText = () => {
-        if (form.deceasedPlaceOfDeath === "OUTSIDE_MAPANDAN") {
+        if (form.deceasedPlaceOfDeath === "OUTSIDE_MUNICIPALITY") {
             return form.deceasedPlaceOfDeathCustom || "N/A";
         }
         return form.deceasedPlaceOfDeath || "N/A";
@@ -621,7 +621,7 @@ export default function DeathRegistrationPage() {
 
         setSubmitting(true);
         try {
-            const placeOfDeathResolved = form.deceasedPlaceOfDeath === "OUTSIDE_MAPANDAN"
+            const placeOfDeathResolved = form.deceasedPlaceOfDeath === "OUTSIDE_MUNICIPALITY"
                 ? form.deceasedPlaceOfDeathCustom
                 : form.deceasedPlaceOfDeath;
 
@@ -1050,7 +1050,7 @@ export default function DeathRegistrationPage() {
                                 <span className="w-2 h-2 rounded-full bg-theme-primary animate-pulse" /> SEARCH DECEASED IN RESIDENT DATABASE
                             </h3>
                             <p className="text-[9px] font-bold text-slate-500 uppercase tracking-wider italic leading-normal">
-                                IF THE DECEASED WAS A REGISTERED RESIDENT OF MAPANDAN, YOU CAN SEARCH AND SELECT THEIR PROFILE TO AUTOMATICALLY PRE-FILL ALL AVAILABLE INFORMATION.
+                                IF THE DECEASED WAS A REGISTERED LOCAL RESIDENT, YOU CAN SEARCH AND SELECT THEIR PROFILE TO AUTOMATICALLY PRE-FILL ALL AVAILABLE INFORMATION.
                             </p>
                             <div className="relative">
                                 <Input
@@ -1148,22 +1148,22 @@ export default function DeathRegistrationPage() {
                                         </SelectTrigger>
                                         <SelectContent className="bg-white/95 dark:bg-[#0d120f]/95 border-slate-200/85 dark:border-white/10 rounded-2xl shadow-2xl backdrop-blur-2xl max-h-60 overflow-y-auto">
                                             {barangaysList.map(b => (
-                                                <SelectItem key={b} value={`${b.toUpperCase()}, MAPANDAN, PANGASINAN`} className="font-bold uppercase text-xs">{b.toUpperCase()}, MAPANDAN</SelectItem>
+                                                <SelectItem key={b} value={b.toUpperCase()} className="font-bold uppercase text-xs">{b.toUpperCase()}</SelectItem>
                                             ))}
-                                            <SelectItem value="OUTSIDE_MAPANDAN" className="font-bold uppercase text-xs">OUTSIDE MAPANDAN (SPECIFY...)</SelectItem>
+                                            <SelectItem value="OUTSIDE_MUNICIPALITY" className="font-bold uppercase text-xs">OUTSIDE MUNICIPALITY (SPECIFY...)</SelectItem>
                                         </SelectContent>
                                     </Select>
                                     {errors.deceasedPlaceOfDeath && <p className="text-xs text-red-500 font-semibold">{errors.deceasedPlaceOfDeath}</p>}
                                 </div>
 
-                                {form.deceasedPlaceOfDeath === "OUTSIDE_MAPANDAN" && (
+                                {form.deceasedPlaceOfDeath === "OUTSIDE_MUNICIPALITY" && (
                                     <div className="space-y-2 md:col-span-2 animate-in fade-in duration-200">
                                         <Label className="text-[10px] font-black uppercase tracking-widest text-slate-400">Specify Place of Death <span className="text-red-500">*</span></Label>
                                         <Input
                                             id="deceasedPlaceOfDeathCustom"
                                             value={form.deceasedPlaceOfDeathCustom}
                                             onChange={e => handleInputChange("deceasedPlaceOfDeathCustom", e.target.value.toUpperCase())}
-                                            placeholder="ENTER CITY / MUNICIPALITY & PROVINCE (E.G. DAGUPAN CITY, PANGASINAN)"
+                                            placeholder="ENTER CITY / MUNICIPALITY & PROVINCE"
                                             className={cn("rounded-2xl border-slate-200 dark:border-white/10 h-12 uppercase font-bold", errors.deceasedPlaceOfDeathCustom && "border-red-500")}
                                         />
                                         {errors.deceasedPlaceOfDeathCustom && <p className="text-xs text-red-500 font-semibold">{errors.deceasedPlaceOfDeathCustom}</p>}
@@ -1488,7 +1488,7 @@ export default function DeathRegistrationPage() {
                                     <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                                         <div>
                                             <h3 className="text-lg font-black uppercase tracking-tight">MUNICIPAL CIVIL REGISTRY</h3>
-                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                                         </div>
                                         <div className="text-right">
                                             <span className={cn("text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border",

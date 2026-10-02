@@ -938,7 +938,7 @@ export default function BuildingPermitPage() {
       office: "Assessor's Office",
       icon: <FileText className="w-5 h-5 text-slate-400" />,
       steps: [
-        "Go to the Municipal Assessor's Office at the Municipal Hall, Mapandan.",
+        "Go to the Municipal Assessor's Office at the Municipal Hall.",
         "Request for a \"Certified True Copy of Tax Declaration\" for your property.",
         "Provide the Tax Declaration number or the lot owner's name and location.",
         "Pay the certification fee at the Treasury Office (usually ₱50-₱100).",
@@ -970,7 +970,7 @@ export default function BuildingPermitPage() {
       office: "Treasury Office",
       icon: <ClipboardList className="w-5 h-5 text-red-400" />,
       steps: [
-        "Go to the Municipal Treasury Office at the Mapandan Municipal Hall.",
+        "Go to the Municipal Treasury Office at the Municipal Hall.",
         "Request for a Community Tax Certificate (Cedula).",
         "Provide your name, address, and declare your annual income (for tax classification).",
         "Pay the community tax (₱5.00 basic + ₱1.00 for every ₱1,000 income, minimum ₱10-₱20).",
@@ -1320,7 +1320,7 @@ export default function BuildingPermitPage() {
       data.append("occupancyUse", finalOccupancy);
 
       data.append("estimatedCost", formData.estimatedCost);
-      const finalLocation = formData.locHouseNo ? `#${formData.locHouseNo} ${formData.locStreet}, Brgy. ${formData.locBarangay}, Mapandan, Pangasinan` : formData.locationOfConstruction;
+      const finalLocation = formData.locHouseNo ? `#${formData.locHouseNo} ${formData.locStreet}, Brgy. ${formData.locBarangay}, ${formData.locMunicipality || "Local Municipality"}` : formData.locationOfConstruction;
       data.append("locationOfConstruction", finalLocation);
       data.append("totalFloors", formData.totalFloors);
       data.append("isLotOwner", formData.isLotOwner);
@@ -1641,7 +1641,7 @@ export default function BuildingPermitPage() {
                   <Book className="w-3 h-3" /> Citizen's Charter
                 </span>
                 <h4 className="text-sm font-black tracking-widest text-slate-700 dark:text-white italic">
-                  Based on Mapandan Building Permit Process
+                  Based on Municipal Building Permit Process
                 </h4>
                 <div className="text-xs text-theme-primary dark:text-theme-primary/90 font-bold bg-theme-primary/[0.02] border border-theme-primary/10 p-4 rounded-xl mt-2 italic font-sans leading-relaxed">
                   &quot;Compliant with PD 1096 (National Building Code), RA 11032 (EODB Act), and RA 10173 (Data Privacy Act). Ensure all requirements are duly signed and notarized where applicable.&quot;
@@ -1877,7 +1877,7 @@ export default function BuildingPermitPage() {
                           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Complete Address</p>
                           <p className="font-bold text-slate-800 dark:text-slate-200 mt-1 uppercase text-sm">
                             {displayResident?.houseNumber
-                              ? `#${displayResident.houseNumber} ${displayResident.street || ""}, Brgy. ${displayResident.barangay || ""}, Mapandan, Pangasinan`
+                              ? `#${displayResident.houseNumber} ${displayResident.street || ""}, Brgy. ${displayResident.barangay || ""}, ${displayResident.municipality || "Local Municipality"}`
                               : displayResident?.address || "N/A"}
                           </p>
                         </div>
@@ -3428,7 +3428,7 @@ export default function BuildingPermitPage() {
                     Data Privacy &amp; Consent Agreement <span className="text-red-500 font-bold">*</span>
                   </h4>
                   <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                    I declare under oath that all files, properties, and documents uploaded match the physical copy on file, and I voluntarily consent to Mapandan processing my data pursuant to the Data Privacy Act of 2012.
+                    I declare under oath that all files, properties, and documents uploaded match the physical copy on file, and I voluntarily consent to the Local Government Unit processing my data pursuant to the Data Privacy Act of 2012.
                   </p>
                 </div>
               </div>
@@ -3666,8 +3666,8 @@ export default function BuildingPermitPage() {
           street: selectedApplication?.deliveryAddress?.street || residentData?.street || "",
           sitio: selectedApplication?.deliveryAddress?.sitio || residentData?.sitio || "",
           purok: selectedApplication?.deliveryAddress?.purok || residentData?.purok || "",
-          municipality: selectedApplication?.deliveryAddress?.municipality || residentData?.municipality || "Mapandan",
-          province: selectedApplication?.deliveryAddress?.province || residentData?.province || "Pangasinan",
+          municipality: selectedApplication?.deliveryAddress?.municipality || residentData?.municipality || "",
+          province: selectedApplication?.deliveryAddress?.province || residentData?.province || "",
           landmark: selectedApplication?.deliveryAddress?.landmark || selectedApplication?.deliveryLandmark || "",
         }}
         onBeforeCheckout={handleSaveCheckoutDetails}

@@ -432,7 +432,7 @@ export default function MarriagePsaEndorsementPage() {
                         r.sitio && `Sitio ${r.sitio}`,
                         r.barangay && `Brgy. ${r.barangay}`,
                         r.municipality || "",
-                        r.province || "Pangasinan"
+                        r.province || ""
                     ].filter(Boolean);
                     const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -1042,7 +1042,7 @@ export default function MarriagePsaEndorsementPage() {
                                     <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                                         <div>
                                             <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">MUNICIPAL CIVIL REGISTRY</h3>
-                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                                         </div>
                                         <div className="text-right">
                                             <span className={cn("text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border",
@@ -1307,7 +1307,7 @@ export default function MarriagePsaEndorsementPage() {
                                             name="placeOfMarriage"
                                             value={formData.placeOfMarriage}
                                             onChange={handleInputChange}
-                                            placeholder="E.G. MAPANDAN, PANGASINAN"
+                                            placeholder="E.G. CITY / MUNICIPALITY, PROVINCE"
                                             className={cn(
                                                 "rounded-2xl border-slate-200 dark:border-white/10 h-12 text-slate-900 dark:text-white font-black uppercase italic bg-slate-50/20 dark:bg-black/20 backdrop-blur-md transition-all hover:border-theme-primary/45 focus-visible:border-theme-primary focus-visible:ring-theme-primary/25 focus-visible:ring-[3px] shadow-sm",
                                                 showErrors && !formData.placeOfMarriage && "border-red-500"

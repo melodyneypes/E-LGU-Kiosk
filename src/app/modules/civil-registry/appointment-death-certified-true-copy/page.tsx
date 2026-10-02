@@ -268,7 +268,7 @@ export default function AppointmentDeathCertifiedTrueCopyPage() {
                         r.sitio && `Sitio ${r.sitio}`,
                         r.barangay && `Brgy. ${r.barangay}`,
                         r.municipality || "",
-                        r.province || "Pangasinan"
+                        r.province || ""
                     ].filter(Boolean);
                     const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -456,7 +456,7 @@ export default function AppointmentDeathCertifiedTrueCopyPage() {
                 resident.sitio && `Sitio ${resident.sitio}`,
                 resident.barangay && `Brgy. ${resident.barangay}`,
                 resident.municipality || "",
-                resident.province || "Pangasinan"
+                resident.province || ""
             ].filter(Boolean);
             const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -999,13 +999,14 @@ export default function AppointmentDeathCertifiedTrueCopyPage() {
                                                                                 type="button"
                                                                                 onMouseDown={e => e.preventDefault()}
                                                                                 onClick={() => {
-                                                                                    setFormData(prev => ({ ...prev, placeOfDeath: `Brgy. ${brgy}, Mapandan, Pangasinan` }));
+                                                                                    const locStr = `Brgy. ${brgy}${resident?.municipality ? `, ${resident.municipality}` : ""}${resident?.province ? `, ${resident.province}` : ""}`;
+                                                                                    setFormData(prev => ({ ...prev, placeOfDeath: locStr }));
                                                                                     setPlaceOfDeathOpen(false);
                                                                                     setPlaceOfDeathSearch("");
                                                                                 }}
                                                                                 className="w-full text-left px-4 py-3 text-xs font-bold hover:bg-slate-100 dark:hover:bg-white/10 transition-colors border-b border-slate-50 dark:border-white/5 last:border-0"
                                                                             >
-                                                                                Brgy. {brgy}, Mapandan, Pangasinan
+                                                                                Brgy. {brgy}{resident?.municipality ? `, ${resident.municipality}` : ""}
                                                                             </button>
                                                                         ))
                                                                     }

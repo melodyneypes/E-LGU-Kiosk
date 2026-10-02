@@ -201,7 +201,7 @@ export default function PrintQueueTicket({
         <body>
           <div class="ticket-card">
             ${branding?.logo ? `<img src="${branding.logo}" class="header-logo" alt="Seal" />` : ""}
-            <div class="muni-title">Municipality of Mapandan</div>
+            <div class="muni-title">Local Government Unit</div>
 
             <div class="dotted-sep"></div>
 

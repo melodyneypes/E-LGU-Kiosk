@@ -1434,7 +1434,7 @@ export default function BirthRegistrationPage() {
                                         <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                                             <div>
                                                 <h3 className="text-lg font-black uppercase tracking-tight">MUNICIPAL CIVIL REGISTRY</h3>
-                                                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                                                <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                                             </div>
                                             <div className="text-right">
                                                 <span className={cn("text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border",
@@ -1728,7 +1728,7 @@ export default function BirthRegistrationPage() {
                                         <Select
                                             value={barangaysList.find(b => (form.placeOfEvent || "").toUpperCase().includes(b.toUpperCase())) || ""}
                                             onValueChange={(val) => {
-                                                setForm(prev => ({ ...prev, placeOfEvent: `${val.toUpperCase()}, MAPANDAN, PANGASINAN` }));
+                                                setForm(prev => ({ ...prev, placeOfEvent: val.toUpperCase() }));
                                                 setErrors(prev => { const c = { ...prev }; delete c.placeOfEvent; return c; });
                                             }}
                                         >

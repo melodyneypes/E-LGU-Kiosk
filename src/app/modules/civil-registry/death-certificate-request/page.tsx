@@ -368,7 +368,7 @@ export default function DeathCertificatePage() {
         const upperVal = val.toUpperCase();
         const found = barangaysList.find(b => upperVal.includes(b.toUpperCase()));
         if (found) {
-            return `${found.toUpperCase()}, MAPANDAN, PANGASINAN`;
+            return found.toUpperCase();
         }
         return val;
     };
@@ -931,7 +931,7 @@ export default function DeathCertificatePage() {
                                 </Label>
                             </div>
                             <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider italic">
-                                If the deceased was a registered resident of Mapandan, you can search and select their profile to automatically pre-fill the name fields below.
+                                If the deceased was a registered local resident, you can search and select their profile to automatically pre-fill the name fields below.
                             </p>
                             <ResidentSearch
                                 currentResidentId={residentData?.id}
@@ -1168,7 +1168,7 @@ export default function DeathCertificatePage() {
                                             {barangaysList.map((brgy) => (
                                                 <SelectItem
                                                     key={brgy}
-                                                    value={`${brgy.toUpperCase()}, MAPANDAN, PANGASINAN`}
+                                                    value={brgy.toUpperCase()}
                                                     className="focus:bg-theme-primary focus:text-white hover:bg-theme-primary/10 dark:hover:bg-theme-primary/15 font-black uppercase text-xs tracking-wider transition-colors"
                                                 >
                                                     {brgy.toUpperCase()}
@@ -1546,7 +1546,7 @@ export default function DeathCertificatePage() {
                                 <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                                     <div>
                                         <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">MUNICIPAL CIVIL REGISTRY</h3>
-                                        <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                                        <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                                     </div>
                                     <div className="text-right">
                                         <span className="bg-theme-primary/20 text-slate-900 dark:text-white text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border border-theme-primary/30">

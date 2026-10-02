@@ -11,9 +11,9 @@ import { Toaster } from "@/components/ui/sonner";
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: "LGU Mapandan - Public Kiosk",
+  title: "E-LGU - Public Information Kiosk",
   description:
-    "Official public information kiosk for the Municipality of Mapandan, Pangasinan.",
+    "Official public information kiosk for Local Government Unit citizen frontline services.",
 };
 
 export default function RootLayout({

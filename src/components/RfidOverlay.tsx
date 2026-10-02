@@ -106,7 +106,7 @@ export default function RfidOverlay() {
           middleName: "",
           hasFaceAuth: false,
           barangay: "Poblacion",
-          email: "tester@mapandan.gov.ph"
+          email: "tester@elgu.gov.ph"
         });
         setStep("SERVICES");
         return;

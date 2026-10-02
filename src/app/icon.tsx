@@ -13,7 +13,6 @@ export default async function Icon() {
         select: { value: true },
       }),
       prisma.barangayInfo.findFirst({
-        where: { name: "Mapandan" },
         select: { logoUrl: true },
       }),
     ]);
@@ -63,7 +62,7 @@ export default async function Icon() {
           borderRadius: "9999px",
         }}
       >
-        M
+        E
       </div>
     ),
     size

@@ -478,7 +478,7 @@ export default function MarriageLicenseApplicationPage() {
                         r.sitio && `Sitio ${r.sitio}`,
                         r.barangay && `Brgy. ${r.barangay}`,
                         r.municipality || "",
-                        r.province || "Pangasinan"
+                        r.province || ""
                     ].filter(Boolean);
                     const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -608,7 +608,7 @@ export default function MarriageLicenseApplicationPage() {
                 r.sitio && `Sitio ${r.sitio}`,
                 r.barangay && `Brgy. ${r.barangay}`,
                 r.municipality || "",
-                r.province || "Pangasinan"
+                r.province || ""
             ].filter(Boolean);
             const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -1159,7 +1159,7 @@ export default function MarriageLicenseApplicationPage() {
                                     <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                                         <div>
                                             <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">MUNICIPAL CIVIL REGISTRY</h3>
-                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                                            <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                                         </div>
                                         <div className="text-right">
                                             <span className={cn("text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border",
@@ -1376,7 +1376,7 @@ export default function MarriageLicenseApplicationPage() {
                                                 });
                                             }}
                                         />
-                                        <label htmlFor="app2Resident" className="text-xs font-bold italic text-slate-700 dark:text-slate-400 cursor-pointer">Applicant 2 is a resident of Mapandan</label>
+                                        <label htmlFor="app2Resident" className="text-xs font-bold italic text-slate-700 dark:text-slate-400 cursor-pointer">Applicant 2 is a local resident</label>
                                     </div>
                                 </div>
 
@@ -1419,7 +1419,7 @@ export default function MarriageLicenseApplicationPage() {
                                             <div className="flex items-center justify-between p-4 bg-slate-100 dark:bg-white/5 rounded-2xl border border-slate-200 dark:border-white/10">
                                                 <div>
                                                     <p className="text-xs font-black uppercase italic text-slate-900 dark:text-white">{form.app2FullName}</p>
-                                                    <p className="text-[10px] text-slate-700 dark:text-slate-400 font-bold uppercase tracking-wider">Mapandan Resident</p>
+                                                    <p className="text-[10px] text-slate-700 dark:text-slate-400 font-bold uppercase tracking-wider">Local Resident</p>
                                                 </div>
                                                 <Button
                                                     type="button"
@@ -1432,7 +1432,7 @@ export default function MarriageLicenseApplicationPage() {
                                             </div>
                                         ) : (
                                             <>
-                                                <Label className="text-[10px] font-black uppercase tracking-widest text-blue-500">Search Mapandan Records</Label>
+                                                <Label className="text-[10px] font-black uppercase tracking-widest text-blue-500">Search Resident Records</Label>
                                                 <ResidentSearch onSelect={handleApp2Select} placeholder="Search by first or last name..." />
                                             </>
                                         )}

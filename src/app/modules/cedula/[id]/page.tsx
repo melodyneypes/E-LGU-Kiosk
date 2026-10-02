@@ -419,7 +419,7 @@ export default function CedulaTrackerPage() {
                   <div>
                     <span className="block text-[10px] font-black text-slate-500 uppercase tracking-widest">BARANGAY MATRIX</span>
                     <span className="block text-sm font-black italic uppercase text-slate-200 mt-1">
-                      {request.residentSnapshot?.barangay ? `${request.residentSnapshot.barangay.toUpperCase()}, MAPANDAN` : "BANGAN-ODA, MAPANDAN"}
+                      {request.residentSnapshot?.barangay ? request.residentSnapshot.barangay.toUpperCase() : "—"}
                     </span>
                   </div>
                 </div>
@@ -529,8 +529,8 @@ export default function CedulaTrackerPage() {
                             request.deliveryAddress?.houseNumber,
                             request.deliveryAddress?.street,
                             request.deliveryAddress?.barangay,
-                            request.deliveryAddress?.municipality || "Mapandan",
-                            request.deliveryAddress?.province || "Pangasinan"
+                            request.deliveryAddress?.municipality,
+                            request.deliveryAddress?.province
                           ].filter(Boolean).join(", ")}
                         </p>
                       </div>

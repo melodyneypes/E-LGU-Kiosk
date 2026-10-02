@@ -175,7 +175,7 @@ export default function ServiceHeader() {
                     {displayName}
                   </p>
                   <p className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 truncate">
-                    {resident?.barangay ? `Brgy. ${resident.barangay}` : "Mapandan Resident"}
+                    {resident?.barangay ? `Brgy. ${resident.barangay}` : "LGU Resident"}
                   </p>
                 </div>
 
@@ -300,7 +300,7 @@ export default function ServiceHeader() {
               <ProfileRow label="Email" value={resident.email} />
               <ProfileRow label="Contact Number" value={resident.contactNumber} />
               <ProfileRow label="Barangay" value={resident.barangay} />
-              <ProfileRow label="Municipality" value={resident.municipality || "Mapandan"} />
+              <ProfileRow label="Municipality" value={resident.municipality || "Local Municipality"} />
             </div>
 
             <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">

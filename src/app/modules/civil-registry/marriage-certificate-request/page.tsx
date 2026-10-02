@@ -82,7 +82,7 @@ const LOCAL_FALLBACK_PROVINCES = [
 ];
 
 const LOCAL_FALLBACK_CITIES = [
-  "MAPANDAN", "DAGUPAN", "URDANETA", "SAN CARLOS", "ALAMINOS", "MANGALDAN", "CALASIAO", "SAN JACINTO", "MANAOAG", "STA. BARBARA", "BINALONAN", "POZORRUBIO", "LAOAC"
+  "CENTRAL", "EAST DISTRICT", "WEST DISTRICT", "NORTH DISTRICT", "SOUTH DISTRICT"
 ];
 
 
@@ -119,8 +119,8 @@ export default function MarriageCertificateRequestPage() {
 
   // Place of marriage dropdown and text states
   const [placeCountry, setPlaceCountry] = useState("PHILIPPINES");
-  const [placeProvince, setPlaceProvince] = useState("PANGASINAN");
-  const [placeCity, setPlaceCity] = useState("MAPANDAN");
+  const [placeProvince, setPlaceProvince] = useState("");
+  const [placeCity, setPlaceCity] = useState("");
   const [customCountry, setCustomCountry] = useState("");
   const [customProvince, setCustomProvince] = useState("");
   const [customCity, setCustomCity] = useState("");
@@ -205,11 +205,8 @@ export default function MarriageCertificateRequestPage() {
             const sorted = data.sort((a: any, b: any) => (a.name || "").localeCompare(b.name || ""));
             setCitiesList(sorted);
 
-            if (placeProvince.toUpperCase() === "PANGASINAN") {
-              const mapandanObj = sorted.find((c: any) => c && c.name && c.name.toUpperCase().includes("MAPANDAN"));
-              if (mapandanObj && mapandanObj.name) {
-                setPlaceCity(mapandanObj.name.toUpperCase());
-              }
+            if (sorted.length > 0 && !placeCity) {
+              setPlaceCity(sorted[0].name.toUpperCase());
             }
           } else {
             setCitiesList(LOCAL_FALLBACK_CITIES.map(n => ({ code: n, name: n })));
@@ -334,7 +331,7 @@ export default function MarriageCertificateRequestPage() {
             r.sitio && `Sitio ${r.sitio}`,
             r.barangay && `Brgy. ${r.barangay}`,
             r.municipality || "",
-            r.province || "Pangasinan"
+            r.province || ""
           ].filter(Boolean);
           const constructedAddr = parts.join(", ").toUpperCase();
 
@@ -1251,8 +1248,8 @@ export default function MarriageCertificateRequestPage() {
                       setPlaceProvince("OTHER");
                       setPlaceCity("OTHER");
                     } else {
-                      setPlaceProvince("PANGASINAN");
-                      setPlaceCity("MAPANDAN");
+                      setPlaceProvince("");
+                      setPlaceCity("");
                     }
                   }}>
                     <SelectTrigger className="h-10 rounded-xl border border-slate-200 dark:border-white/10 focus:ring-rose-500 shadow-sm text-xs bg-white dark:bg-slate-900 font-bold text-slate-950 dark:text-white">
@@ -1275,11 +1272,7 @@ export default function MarriageCertificateRequestPage() {
                     <Label className="text-[10px] font-black uppercase tracking-widest text-slate-800 dark:text-slate-400">Province <span className="text-red-500">*</span></Label>
                     <Select value={placeProvince} onValueChange={(val) => {
                       setPlaceProvince(val);
-                      if (val === "PANGASINAN") {
-                        setPlaceCity("MAPANDAN");
-                      } else {
-                        setPlaceCity("OTHER");
-                      }
+                      setPlaceCity("");
                     }}>
                       <SelectTrigger className="h-10 rounded-xl border border-slate-200 dark:border-white/10 focus:ring-rose-500 shadow-sm text-xs bg-white dark:bg-slate-900 font-bold text-slate-950 dark:text-white">
                         <div className="flex items-center gap-1.5 truncate">
@@ -1656,7 +1649,7 @@ export default function MarriageCertificateRequestPage() {
                 <div className="flex justify-between items-start gap-4 flex-wrap border-b border-slate-200 dark:border-white/10 pb-6">
                   <div>
                     <h3 className="text-lg font-black uppercase tracking-tight text-slate-900 dark:text-white">MUNICIPAL CIVIL REGISTRY</h3>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Municipality of Mapandan, Pangasinan</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-theme-primary">Local Civil Registry Office</p>
                   </div>
                   <div className="text-right">
                     <span className={cn("text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest border",

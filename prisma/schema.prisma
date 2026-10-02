@@ -300,8 +300,8 @@ model Resident {
   sitio                 String?
   purok                 String?
   barangay              String
-  municipality          String            @default("Mapandan")
-  province              String            @default("Pangasinan")
+  municipality          String            @default("")
+  province              String            @default("")
   contactNumber         String?
   email                 String?
   isHead                Boolean           @default(false)

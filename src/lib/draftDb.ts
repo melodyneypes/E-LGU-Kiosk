@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * EMapandan Draft Files Storage (IndexedDB)
+ * E-LGU Draft Files Storage (IndexedDB)
  * 
  * Why IndexedDB?
  * - localStorage has a strict 5MB limit and only stores strings (Base64 bloat is ~33%).
@@ -11,7 +11,7 @@
  * This file is client-only. We check for `window` to prevent Next.js SSR build errors.
  */
 
-const DB_NAME = "EMapandanDraftsDb";
+const DB_NAME = "ELguDraftsDb";
 const STORE_NAME = "draft_files";
 const DB_VERSION = 1;
 

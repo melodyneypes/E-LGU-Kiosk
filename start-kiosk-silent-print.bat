@@ -1,12 +1,12 @@
 @echo off
-title LGU Mapandan Kiosk Runner (Silent Thermal Print)
+title E-LGU Kiosk Runner (Silent Thermal Print)
 echo ============================================================
-echo   STARTING LGU MAPANDAN KIOSK WITH SILENT PRINTING
+echo   STARTING E-LGU KIOSK WITH SILENT PRINTING
 echo ============================================================
 echo.
 
-:: Set URL of kiosk (Official Vercel Production URL)
-set KIOSK_URL=https://kiosk.emapandan.com/
+:: Set URL of kiosk (Official Vercel Production URL or local dev)
+set KIOSK_URL=https://e-lgu-kiosk.vercel.app/
 
 :: Set a dedicated temp profile directory so Chrome ignores your currently open windows
 set KIOSK_DATA_DIR=%LOCALAPPDATA%\LguKioskBrowserSession

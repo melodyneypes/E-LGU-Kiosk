@@ -245,7 +245,7 @@ export default function AppointmentBirthCertifiedTrueCopyPage() {
                         r.sitio && `Sitio ${r.sitio}`,
                         r.barangay && `Brgy. ${r.barangay}`,
                         r.municipality || "",
-                        r.province || "Pangasinan"
+                        r.province || ""
                     ].filter(Boolean);
                     const constructedAddr = parts.join(", ").toUpperCase();
 

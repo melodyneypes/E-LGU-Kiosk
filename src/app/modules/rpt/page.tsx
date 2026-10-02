@@ -738,7 +738,7 @@ export default function RptAppointmentPage() {
                                                                 Property Address / Location <span className="text-red-500">*</span>
                                                             </Label>
                                                             <Input
-                                                                placeholder="Lot / Block No., Street, Sitio, Mapandan"
+                                                                placeholder="Lot / Block No., Street, Sitio"
                                                                 value={propertyAddress}
                                                                 onChange={(e) => {
                                                                     setPropertyAddress(e.target.value);
@@ -1117,7 +1117,7 @@ export default function RptAppointmentPage() {
                                                     </div>
                                                     <div className="space-y-1">
                                                         <p className="text-xs font-bold text-slate-800 dark:text-slate-200 leading-relaxed">
-                                                            I agree to the <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="text-theme-primary underline">Data Privacy Terms & Governance Policies</button> of the Municipality of Mapandan.
+                                                            I agree to the <button type="button" onClick={() => setIsPrivacyModalOpen(true)} className="text-theme-primary underline">Data Privacy Terms & Governance Policies</button> of the Local Government Unit.
                                                         </p>
                                                         <p className="text-[10px] text-slate-400 italic">All uploaded tax documents will be safely evaluated by Municipal Assessor & Treasury staff.</p>
                                                     </div>
