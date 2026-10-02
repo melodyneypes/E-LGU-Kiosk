@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 import { prisma } from "@/lib/prisma";
+import fs from "fs";
+import path from "path";
 
 export const runtime = "nodejs";
 export const size = { width: 32, height: 32 };
@@ -17,9 +19,23 @@ export default async function Icon() {
       }),
     ]);
 
-    const logoUrl = logoSetting?.value || barangay?.logoUrl || null;
+    let logoUrl = logoSetting?.value || barangay?.logoUrl || null;
 
-    if (logoUrl) {
+    if (logoUrl && logoUrl.startsWith("/")) {
+      try {
+        const filePath = path.join(process.cwd(), "public", logoUrl.replace(/^\//, ""));
+        if (fs.existsSync(filePath)) {
+          const buffer = fs.readFileSync(filePath);
+          logoUrl = `data:image/png;base64,${buffer.toString("base64")}`;
+        } else {
+          logoUrl = null;
+        }
+      } catch {
+        logoUrl = null;
+      }
+    }
+
+    if (logoUrl && (logoUrl.startsWith("http://") || logoUrl.startsWith("https://") || logoUrl.startsWith("data:"))) {
       return new ImageResponse(
         (
           <div
@@ -36,8 +52,7 @@ export default async function Icon() {
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
-          >
-          </div>
+          />
         ),
         size
       );
@@ -56,7 +71,7 @@ export default async function Icon() {
           alignItems: "center",
           justifyContent: "center",
           background: "#0f172a",
-          color: "var(--primary-theme-secondary)",
+          color: "#10b981",
           fontWeight: 700,
           fontSize: 18,
           borderRadius: "9999px",
