@@ -230,15 +230,15 @@ const DEFAULT_HOTLINES = [
 const DEFAULT_OFFICIALS: OfficialItem[] = [
   {
     id: "off-1",
-    name: "HON. KARL CHRISTIAN F. VEGA",
+    name: "HON. ROBERTO V. SANTOS",
     position: "MUNICIPAL MAYOR",
     imageUrl: null,
-    motto: "Tapat at Progresibong Pamamahala para sa Bayan",
+    motto: "Tapat, Mabilis, at Serbisyong Diretso sa Mamamayan",
     category: "EXECUTIVE",
   },
   {
     id: "off-2",
-    name: "ANTHONY C. PENULIAR",
+    name: "HON. MARIA CLARA E. REYES",
     position: "VICE MAYOR",
     imageUrl: null,
     motto: null,
@@ -246,7 +246,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-3",
-    name: "ALICIA A. MARIANO",
+    name: "HON. JUAN D. DELA CRUZ",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -254,7 +254,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-4",
-    name: "PERCIVAL Z. BIAGTAN",
+    name: "HON. TERESA M. GARCIA",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -262,7 +262,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-5",
-    name: "BLANDO B. QUINTO",
+    name: "HON. EDUARDO S. BAUTISTA",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -270,7 +270,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-6",
-    name: "FREDERICK LALAS",
+    name: "HON. CARMEN L. MENDOZA",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -278,7 +278,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-7",
-    name: "MICHEAL A. CALIMLIM",
+    name: "HON. ROLANDO G. VILLANUEVA",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -286,7 +286,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-8",
-    name: "FREDDIE R. PENULIAR",
+    name: "HON. PATRICIA A. NAVARRO",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -294,7 +294,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-9",
-    name: "JOHN ERICSON L. PARAYNO",
+    name: "HON. JOSE MARI P. TAN",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -302,7 +302,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-10",
-    name: "GEM T. CASTRO",
+    name: "HON. BEATRIZ C. RAMOS",
     position: "COUNCILOR",
     imageUrl: null,
     motto: null,
@@ -310,7 +310,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-11",
-    name: "ALEXANDER AQUINO",
+    name: "HON. ANTONIO S. LOPEZ",
     position: "LNB PRESIDENT",
     imageUrl: null,
     motto: null,
@@ -318,7 +318,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-12",
-    name: "DIEGO CASTRO",
+    name: "HON. MIGUEL B. TORRES",
     position: "SK FEDERATION PRESIDENT",
     imageUrl: null,
     motto: null,
@@ -326,7 +326,7 @@ const DEFAULT_OFFICIALS: OfficialItem[] = [
   },
   {
     id: "off-13",
-    name: "JOHN MANUEL",
+    name: "HON. DANIEL K. CORPUZ",
     position: "PCL PRESIDENT",
     imageUrl: null,
     motto: null,
