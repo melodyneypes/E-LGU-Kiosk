@@ -1320,7 +1320,7 @@ export default function BuildingPermitPage() {
       data.append("occupancyUse", finalOccupancy);
 
       data.append("estimatedCost", formData.estimatedCost);
-      const finalLocation = formData.locHouseNo ? `#${formData.locHouseNo} ${formData.locStreet}, Brgy. ${formData.locBarangay}, ${formData.locMunicipality || "Local Municipality"}` : formData.locationOfConstruction;
+      const finalLocation = formData.locHouseNo ? `#${formData.locHouseNo} ${formData.locStreet}, Brgy. ${formData.locBarangay}${residentData?.municipality ? `, ${residentData.municipality}` : ""}` : formData.locationOfConstruction;
       data.append("locationOfConstruction", finalLocation);
       data.append("totalFloors", formData.totalFloors);
       data.append("isLotOwner", formData.isLotOwner);
