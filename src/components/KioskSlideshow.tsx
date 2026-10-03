@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef, Fragment } from "react";
+import { useState, useEffect, useCallback, useRef, Fragment, useMemo } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import LGULogo from "./shared/LGULogo";
