@@ -116,13 +116,19 @@ export async function GET() {
       }),
     ]);
 
+    const resolveImg = (url: string | null) => {
+      if (!url) return null;
+      if (url.startsWith('/images/')) return `https://e-lgu.vercel.app${url}`;
+      return url;
+    };
+
     return NextResponse.json({
-      heroSlides,
+      heroSlides: heroSlides.map(h => ({ ...h, imageUrl: resolveImg(h.imageUrl) || h.imageUrl })),
       announcements,
-      newsList,
+      newsList: newsList.map(n => ({ ...n, imageUrl: resolveImg(n.imageUrl) })),
       services,
-      officials,
-      projects,
+      officials: officials.map(o => ({ ...o, imageUrl: resolveImg(o.imageUrl) })),
+      projects: projects.map(p => ({ ...p, imageUrl: resolveImg(p.imageUrl) })),
       hotlines,
     });
   } catch (err) {

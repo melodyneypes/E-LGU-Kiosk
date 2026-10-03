@@ -19,6 +19,11 @@ const nextConfig: NextConfig = {
         hostname: "bweqpzpmpxkczajorinb.supabase.co",
         pathname: "/storage/v1/object/public/**",
       },
+      {
+        protocol: "https",
+        hostname: "e-lgu.vercel.app",
+        pathname: "/**",
+      },
     ],
   },
 };

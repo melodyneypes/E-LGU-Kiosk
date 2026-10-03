@@ -35,7 +35,16 @@ export async function GET() {
       }),
     ]);
 
-    return NextResponse.json({ announcements, news });
+    const resolveImg = (url: string | null) => {
+      if (!url) return null;
+      if (url.startsWith('/images/')) return `https://e-lgu.vercel.app${url}`;
+      return url;
+    };
+
+    return NextResponse.json({ 
+      announcements, 
+      news: news.map(n => ({ ...n, imageUrl: resolveImg(n.imageUrl) }))
+    });
   } catch (err) {
     console.error("[/api/slides] DB error:", err);
     return NextResponse.json(
