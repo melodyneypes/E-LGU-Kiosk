@@ -49,6 +49,7 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { submitCedulaAppointment } from "./actions";
 import PrintQueueTicket from "@/components/shared/PrintQueueTicket";
+import lguConfig from "@/lgu.config.json";
 
 import SecureIdleTimer from "@/components/shared/SecureIdleTimer";
 
@@ -101,7 +102,7 @@ export function CedulaAppointmentClient({
   const [printTriggered, setPrintTriggered] = useState(false);
 
   const branding = {
-    logo: "/logo.png",
+    logo: lguConfig.assets.logo,
     word1: "MUNICIPALITY",
     word2: "PORTAL"
   };

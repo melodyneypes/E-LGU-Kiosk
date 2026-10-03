@@ -1,12 +1,24 @@
 @echo off
-title E-LGU Kiosk Runner (Silent Thermal Print)
+title Generic e-LGU Kiosk Runner (Silent Thermal Print)
 echo ============================================================
 echo   STARTING E-LGU KIOSK WITH SILENT PRINTING
 echo ============================================================
 echo.
 
-:: Set URL of kiosk (Official Vercel Production URL or local dev)
-set KIOSK_URL=https://e-lgu-kiosk.vercel.app/
+pushd "%~dp0"
+for /f "delims=" %%i in ('node -p "require('./src/lgu.config.json').identity.kioskUrl" 2^>nul') do set "KIOSK_URL=%%i"
+if not defined KIOSK_URL (
+    echo Unable to read identity.kioskUrl from src\lgu.config.json. Ensure Node.js is installed.
+    popd
+    exit /b 1
+)
+echo(%KIOSK_URL%|findstr /b "{{" >nul
+if not errorlevel 1 (
+    echo Configure identity.kioskUrl in src\lgu.config.json before starting the kiosk.
+    popd
+    exit /b 1
+)
+popd
 
 :: Set a dedicated temp profile directory so Chrome ignores your currently open windows
 set KIOSK_DATA_DIR=%LOCALAPPDATA%\LguKioskBrowserSession

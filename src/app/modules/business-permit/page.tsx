@@ -22,6 +22,7 @@ import {
     AlertCircle
 } from "lucide-react";
 import Image from "next/image";
+import lguConfig from "@/lgu.config.json";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -97,23 +98,7 @@ const STEPS: { id: Step; label: string; icon: React.ElementType }[] = [
     { id: "SUBMIT", label: "Submit", icon: CheckCircle2 },
 ];
 
-const DEFAULT_BARANGAYS = [
-    "Amanoaoac",
-    "Apaya",
-    "Aserda",
-    "Baloling",
-    "Coral",
-    "Golden",
-    "Lanas",
-    "Nilombot",
-    "Patland",
-    "Pias",
-    "Poblacion",
-    "Primicias",
-    "Santa Maria",
-    "Torres",
-    "Valenzuela"
-];
+const DEFAULT_BARANGAYS = lguConfig.barangays;
 
 const LINE_OF_BUSINESS_OPTIONS = [
     "Agriculture & Forestry",
@@ -2807,4 +2792,3 @@ export default function BusinessPermitWizardPage() {
         </>
     );
 }
-

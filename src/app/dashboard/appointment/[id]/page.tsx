@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import lguConfig from "@/lgu.config.json";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
   getTransactionById,
@@ -99,13 +100,13 @@ export default function KioskAppointmentDetailsPage() {
     try {
       const [themeRes, logoRes, word1Res, word2Res] = await Promise.all([
         getSystemSettingAction("theme_color", "#10B981"),
-        getSystemSettingAction("logo", "/logo.png"),
+        getSystemSettingAction("logo", lguConfig.assets.logo),
         getSystemSettingAction("brand_word_1", "MUNICIPALITY"),
         getSystemSettingAction("brand_word_2", "PORTAL")
       ]);
       setThemeColor(themeRes.data);
       setBranding({
-        logo: logoRes.data || "/logo.png",
+        logo: logoRes.data || lguConfig.assets.logo,
         word1: word1Res.data || "MUNICIPALITY",
         word2: word2Res.data || "PORTAL"
       });

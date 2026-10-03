@@ -127,7 +127,7 @@ export default function ServiceHeader() {
     <>
       <header className="z-50 flex min-h-[4.5rem] md:min-h-[5.5rem] py-3 shrink-0 items-center justify-between border-b border-slate-200/80 bg-white/95 px-4 shadow-sm backdrop-blur-2xl transition-colors dark:border-slate-800/80 dark:bg-[#0b1020]/95 sm:px-6 md:px-8 gap-4">
         <div className="flex min-w-0 items-center gap-3 sm:gap-4">
-          <Link href="/dashboard" className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-slate-500 transition hover:bg-emerald-50 hover:text-theme-primary dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-emerald-950/50 active:scale-95" aria-label="Dashboard">
+          <Link href="/dashboard" className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-2xl bg-slate-100 text-slate-500 transition hover:bg-sky-50 hover:text-theme-primary dark:bg-slate-900 dark:text-slate-300 dark:hover:bg-sky-950/50 active:scale-95" aria-label="Dashboard">
             <Home className="h-5 w-5" />
           </Link>
           <span className="hidden h-10 w-1 rounded-full bg-theme-primary sm:block shrink-0" />
@@ -144,17 +144,17 @@ export default function ServiceHeader() {
             <button
               type="button"
               onClick={() => setProfileMenuOpen((prev) => !prev)}
-              className="flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white px-2.5 py-1.5 text-left shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-700 dark:hover:bg-slate-800 sm:px-3 active:scale-[0.98] cursor-pointer"
+              className="flex items-center gap-2.5 rounded-2xl border border-slate-200/80 bg-white px-2.5 py-1.5 text-left shadow-sm transition hover:border-sky-300 hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 dark:hover:bg-slate-800 sm:px-3 active:scale-[0.98] cursor-pointer"
               aria-expanded={profileMenuOpen}
             >
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-theme-primary/40 bg-emerald-100 text-theme-primary dark:bg-emerald-950/60 dark:text-emerald-300 shadow-sm ring-2 ring-theme-primary/10">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-theme-primary/40 bg-sky-100 text-theme-primary dark:bg-sky-950/60 dark:text-cyan-300 shadow-sm ring-2 ring-theme-primary/10">
                 {residentPhotoUrl ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img src={residentPhotoUrl} alt="" className="h-full w-full object-cover" />
                 ) : <User className="h-5 w-5" />}
               </span>
               <span className="hidden sm:block max-w-[140px] md:max-w-[200px] lg:max-w-xs">
-                <span className="block text-[7px] font-black uppercase tracking-widest text-emerald-600">Verified Resident</span>
+                <span className="block text-[7px] font-black uppercase tracking-widest text-sky-600 dark:text-cyan-400">Verified Resident</span>
                 <span className="block truncate text-xs font-black text-slate-800 dark:text-slate-100">{displayName}</span>
               </span>
               <ChevronDown
@@ -168,7 +168,7 @@ export default function ServiceHeader() {
             {profileMenuOpen && (
               <div className="absolute right-0 mt-3 w-72 origin-top-right rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0c1120] p-2.5 shadow-2xl ring-1 ring-black/5 dark:shadow-black/70 z-50 animate-in fade-in zoom-in-95 duration-150 text-left">
                 <div className="p-3 border-b border-slate-100 dark:border-slate-800/80 mb-1">
-                  <p className="text-[9px] font-black uppercase tracking-[0.25em] text-emerald-600 dark:text-emerald-400">
+                  <p className="text-[9px] font-black uppercase tracking-[0.25em] text-sky-600 dark:text-cyan-400">
                     Verified Resident
                   </p>
                   <p className="text-sm font-black text-slate-900 dark:text-white truncate mt-0.5">
@@ -187,10 +187,10 @@ export default function ServiceHeader() {
                       setProfileMenuOpen(false);
                       router.push("/dashboard/appointment");
                     }}
-                    className="w-full flex items-center justify-between p-2.5 rounded-2xl hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-left transition-colors group cursor-pointer"
+                    className="w-full flex items-center justify-between p-2.5 rounded-2xl hover:bg-sky-50 dark:hover:bg-sky-950/40 text-left transition-colors group cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-theme-primary dark:text-emerald-300 flex items-center justify-center shrink-0">
+                      <div className="w-9 h-9 rounded-xl bg-sky-100 dark:bg-sky-950/60 text-theme-primary dark:text-cyan-300 flex items-center justify-center shrink-0">
                         <Ticket className="w-4 h-4" />
                       </div>
                       <div>
@@ -248,8 +248,8 @@ export default function ServiceHeader() {
                           onClick={() => applyFontSize(sz.value)}
                           className={`flex flex-col items-center justify-center rounded-xl border py-2 transition-all cursor-pointer ${
                             activeFontSize === sz.value
-                              ? "border-theme-primary bg-emerald-50 text-theme-primary dark:border-theme-primary dark:bg-emerald-950/40 dark:text-emerald-300 font-bold shadow-sm"
-                              : "border-slate-200 bg-white text-slate-700 hover:border-emerald-300 hover:bg-emerald-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-emerald-700"
+                              ? "border-theme-primary bg-sky-50 text-theme-primary dark:border-theme-primary dark:bg-sky-950/40 dark:text-cyan-300 font-bold shadow-sm"
+                              : "border-slate-200 bg-white text-slate-700 hover:border-sky-300 hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300 dark:hover:border-sky-700"
                           }`}
                         >
                           <span style={{ fontSize: sz.preview }} className="leading-none font-sans">A</span>
@@ -307,7 +307,7 @@ export default function ServiceHeader() {
               <button
                 type="button"
                 onClick={() => setTheme(isDarkMode ? "light" : "dark")}
-                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-emerald-300 hover:bg-emerald-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-700 dark:hover:bg-slate-800"
+                className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3 text-left transition hover:border-sky-300 hover:bg-sky-50 dark:border-slate-800 dark:bg-slate-900 dark:hover:border-sky-700 dark:hover:bg-slate-800"
               >
                 <span>
                   <span className="block text-[9px] font-black uppercase tracking-[0.25em] text-slate-400 dark:text-slate-500">Theme</span>

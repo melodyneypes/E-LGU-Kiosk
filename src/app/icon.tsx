@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { prisma } from "@/lib/prisma";
+import lguConfig from "@/lgu.config.json";
 import fs from "fs";
 import path from "path";
 
@@ -9,17 +9,7 @@ export const contentType = "image/png";
 
 export default async function Icon() {
   try {
-    const [logoSetting, barangay] = await Promise.all([
-      prisma.systemSetting.findUnique({
-        where: { key: "kiosk_logo_url" },
-        select: { value: true },
-      }),
-      prisma.barangayInfo.findFirst({
-        select: { logoUrl: true },
-      }),
-    ]);
-
-    let logoUrl = logoSetting?.value || barangay?.logoUrl || null;
+    let logoUrl: string | null = lguConfig.assets.logo;
 
     if (logoUrl && logoUrl.startsWith("/")) {
       try {
@@ -70,8 +60,8 @@ export default async function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#0f172a",
-          color: "#10b981",
+          background: "#0b1a3b",
+          color: "#00A3FF",
           fontWeight: 700,
           fontSize: 18,
           borderRadius: "9999px",

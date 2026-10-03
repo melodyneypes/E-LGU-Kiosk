@@ -43,7 +43,7 @@ export default function ServiceMarquee() {
   }, []);
 
   return (
-    <div className="flex h-9 shrink-0 border-b border-emerald-700/30 bg-theme-secondary text-[#0d1b13]">
+    <div className="flex h-9 shrink-0 border-b border-sky-500/20 bg-theme-secondary text-slate-900">
       <div className="z-10 flex shrink-0 items-center gap-2 bg-theme-primary px-4 text-[9px] font-black uppercase tracking-widest text-white shadow-md md:px-6">
         <Megaphone className="h-3.5 w-3.5" />
         <span className="hidden sm:inline">Announcements</span>

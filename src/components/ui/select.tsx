@@ -77,6 +77,7 @@ export function SelectContent({ className, children, ...props }: React.Component
         top: rect.bottom + 6,
         left: rect.left,
         width: rect.width,
+        maxHeight: "240px",
         zIndex: 9999,
       });
     }
@@ -98,7 +99,7 @@ export function SelectContent({ className, children, ...props }: React.Component
     <div
       style={style}
       className={cn(
-        "max-h-60 overflow-auto rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 p-1 shadow-md focus:outline-none",
+        "overflow-auto rounded-xl border border-slate-200 dark:border-white/10 bg-white dark:bg-slate-900 p-1 shadow-md focus:outline-none",
         className
       )}
       {...props}
@@ -125,7 +126,7 @@ export function SelectItem({ className, value, children, ...props }: React.Compo
         setOpen?.(false);
       }}
       className={cn(
-        "relative flex w-full cursor-pointer select-none items-center rounded-lg py-1.5 px-3 text-sm outline-none hover:bg-slate-100 dark:hover:bg-white/5",
+        "relative flex w-full cursor-pointer select-none items-center rounded-lg px-2.5 py-1 text-[14px] leading-5 outline-none hover:bg-slate-100 dark:hover:bg-white/5",
         isSelected && "bg-slate-50 dark:bg-white/5 font-semibold",
         className
       )}

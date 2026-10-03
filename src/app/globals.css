@@ -5,11 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --primary-theme: #1a6b3a;
-  --primary-theme-hover: #155b31;
-  --primary-theme-dark: #0f4423;
-  --primary-theme-light: #e8f5e9;
-  --primary-theme-secondary: #4caf7d;
+  --primary-theme: #0038a8;
+  --primary-theme-hover: #002b80;
+  --primary-theme-dark: #001f5c;
+  --primary-theme-light: #eff6ff;
+  --primary-theme-secondary: #00a3ff;
+  --primary-theme-accent: #f59e0b;
 
   /* Overwrite Tailwind's emerald palette with our dynamic primary theme */
   --color-emerald-50: var(--primary-theme-light);
@@ -27,7 +28,7 @@
   --color-primary: var(--primary-theme);
   --color-secondary: var(--primary-theme-secondary);
   --color-accent: var(--primary-theme-light);
-  --color-dark: #0d1b13;
+  --color-dark: #081225;
   --color-light: var(--primary-theme-light);
   --page-bg: #ffffff;
   --card: oklch(1 0 0);
@@ -70,6 +71,12 @@ html {
   font-size: 19px;
 }
 
+select,
+select option {
+  font-size: 14px !important;
+  line-height: 1.25 !important;
+}
+
 html,
 body {
   width: 100%;
@@ -77,6 +84,23 @@ body {
   overflow: hidden;
   background-color: var(--page-bg);
   font-family: "Inter", "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+button,
+a {
+  text-wrap: pretty;
 }
 
 .dark {
@@ -1154,4 +1178,96 @@ body.hide-kiosk-cursor * {
   html {
     @apply font-sans;
   }
+}
+
+.light .kiosk-screen {
+  color: #0f172a;
+  background: #f1f5f9;
+}
+
+.light .kiosk-screen > header,
+.light .kiosk-screen > footer {
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.96);
+  border-color: #cbd5e1;
+}
+
+.light .kiosk-screen > header h1,
+.light .kiosk-screen > header p,
+.light .kiosk-screen > header .text-slate-400,
+.light .kiosk-screen > header .text-white,
+.light .kiosk-screen > footer .text-slate-300 {
+  color: #334155;
+}
+
+.light .kiosk-screen > header button,
+.light .kiosk-screen > footer button {
+  color: #334155;
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.light .kiosk-screen > header button:hover,
+.light .kiosk-screen > footer button:hover {
+  background: #e2e8f0;
+}
+
+.light .kiosk-screen > header .bg-white {
+  background: #fff;
+}
+
+.light .kiosk-screen main > div > div {
+  color: #0f172a;
+  background-color: #f8fafc;
+  background-image: none;
+}
+
+.light .kiosk-screen main > div:first-child > div > .bg-cover {
+  filter: brightness(0.9);
+}
+
+.light .kiosk-screen main > div:first-child > div > .bg-gradient-to-t {
+  background-image: linear-gradient(
+    to top,
+    rgb(248 250 252 / 88%),
+    rgb(255 255 255 / 8%),
+    rgb(255 255 255 / 70%)
+  ) !important;
+}
+
+.light .kiosk-screen main > div:not(:nth-child(4)):not(:nth-child(7)) [class~="text-white"] {
+  color: #0f172a;
+}
+
+.light .kiosk-screen main > div:not(:nth-child(4)):not(:nth-child(7)) [class*="text-slate-200"],
+.light .kiosk-screen main > div:not(:nth-child(4)):not(:nth-child(7)) [class*="text-slate-300"],
+.light .kiosk-screen main > div:not(:nth-child(4)):not(:nth-child(7)) [class*="text-slate-400"] {
+  color: #475569;
+}
+
+.light .kiosk-screen main [class~="bg-slate-900/70"],
+.light .kiosk-screen main [class~="bg-slate-900/80"],
+.light .kiosk-screen main [class~="bg-slate-900/90"],
+.light .kiosk-screen main [class~="bg-slate-950/80"],
+.light .kiosk-screen main [class~="bg-slate-950/90"],
+.light .kiosk-screen main [class*="bg-gradient-to-b from-slate-900"] {
+  background-color: #fff;
+  background-image: none;
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgb(15 23 42 / 8%);
+}
+
+.light .kiosk-screen main > div:nth-child(6) [class*="bg-gradient-to-br from-rose-950"] {
+  background-color: #fff;
+  background-image: none;
+  border-color: #fecdd3;
+}
+
+.light .kiosk-screen main [class*="border-white/"] {
+  border-color: #cbd5e1;
+}
+
+.light .kiosk-screen main [class~="bg-white/5"],
+.light .kiosk-screen main [class~="bg-white/10"] {
+  background-color: #e2e8f0;
 }

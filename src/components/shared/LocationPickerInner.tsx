@@ -5,12 +5,16 @@ import { MapContainer, TileLayer, Marker, GeoJSON, useMapEvents, useMap } from "
 import { MapPin, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import L from "leaflet";
+import lguConfig from "@/lgu.config.json";
 import "leaflet/dist/leaflet.css";
 
 interface GeoJSONData {
   type: "Feature" | "FeatureCollection" | "Point" | "MultiPoint" | "LineString" | "MultiLineString" | "Polygon" | "MultiPolygon" | "GeometryCollection";
   [key: string]: unknown;
 }
+
+const hasConfiguredMapCenter =
+  lguConfig.map.latitude !== null && lguConfig.map.longitude !== null;
 
 export interface LocationPickerInnerProps {
   initialLat?: number;
@@ -53,8 +57,8 @@ function MapEvents({ onMapClick }: { onMapClick: (lat: number, lng: number) => v
 }
 
 export default function LocationPickerInner({
-  initialLat = 16.0270,
-  initialLng = 120.4570,
+  initialLat = lguConfig.map.latitude ?? 0,
+  initialLng = lguConfig.map.longitude ?? 0,
   value,
   onSelect,
   onClose,
@@ -62,7 +66,11 @@ export default function LocationPickerInner({
   compact = false
 }: LocationPickerInnerProps) {
   const [position, setPosition] = useState<[number, number] | null>(
-    value ? [value.lat, value.lng] : (compact ? null : [initialLat, initialLng])
+    value
+      ? [value.lat, value.lng]
+      : compact || !hasConfiguredMapCenter
+        ? null
+        : [initialLat, initialLng]
   );
   const [municipalityBorder, setMunicipalityBorder] = useState<GeoJSONData | null>(null);
 
@@ -98,7 +106,7 @@ export default function LocationPickerInner({
       <div className="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl [&_.leaflet-control-zoom]:max-md:hidden">
         <MapContainer
           center={position || [initialLat, initialLng]}
-          zoom={14}
+          zoom={position || hasConfiguredMapCenter ? 14 : 2}
           style={{ height: "100%", width: "100%", zIndex: 1 }}
           scrollWheelZoom={true}
         >
@@ -158,7 +166,7 @@ export default function LocationPickerInner({
       <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl [&_.leaflet-control-zoom]:max-md:hidden">
         <MapContainer
           center={position || [initialLat, initialLng]}
-          zoom={14}
+          zoom={position || hasConfiguredMapCenter ? 14 : 2}
           style={{ height: "300px", width: "100%", zIndex: 1 }}
           scrollWheelZoom={true}
         >

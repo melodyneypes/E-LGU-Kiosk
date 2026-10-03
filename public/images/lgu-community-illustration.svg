@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">A community connected to local services</title>
+  <desc id="description">An original, location-neutral illustration of neighbors sharing information in a public garden.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#123b68"/>
+      <stop offset="1" stop-color="#58b5aa"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#155c58"/>
+      <stop offset=".5" stop-color="#267965"/>
+      <stop offset="1" stop-color="#154a55"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v900H0z"/>
+  <circle cx="1260" cy="180" r="93" fill="#ffd992"/>
+  <path d="M0 521c154-130 316-139 478-35 139-133 283-133 426-17 159-157 312-143 458 40 83-69 161-86 238-51v442H0z" fill="#236a72"/>
+  <path d="M0 616c173-95 333-95 480 0 173-102 355-99 547 5 167-95 364-94 573 2v277H0z" fill="url(#ground)"/>
+  <g fill="#103e46">
+    <path d="M98 605V354h28v251z"/><circle cx="112" cy="330" r="106"/>
+    <path d="M1390 618V296h31v322z"/><circle cx="1406" cy="271" r="127"/>
+    <path d="M255 614V414h23v200z"/><circle cx="266" cy="395" r="79"/>
+  </g>
+  <g fill="#4e9b74">
+    <circle cx="76" cy="310" r="54"/><circle cx="143" cy="272" r="69"/><circle cx="1417" cy="232" r="73"/>
+    <circle cx="1353" cy="286" r="61"/><circle cx="271" cy="375" r="55"/>
+  </g>
+  <g transform="translate(436 492)">
+    <path d="M0 198h724l-62 62H70z" fill="#d9c7a3"/>
+    <path d="M67 194h592v22H67z" fill="#f1dfbd"/>
+    <path d="M83 216v90m560-90v90" stroke="#b5a07c" stroke-width="18"/>
+    <path d="M118 103c0-52 36-88 80-88s80 36 80 88v88H118z" fill="#c98760"/>
+    <path d="M109 105c3-66 34-105 88-105 47 0 74 32 82 84-36-7-63-27-80-52-22 29-50 53-90 73z" fill="#34445a"/>
+    <path d="M89 194 123 174h145l45 99H62z" fill="#ebbb75"/>
+    <path d="M350 103c0-51 36-86 80-86s80 35 80 86v88H350z" fill="#e4ad7e"/>
+    <path d="M343 100c3-59 35-98 88-98 43 0 74 27 82 75-36-6-62-23-81-46-23 27-51 51-89 69z" fill="#28394e"/>
+    <path d="M326 194 357 174h145l54 100H304z" fill="#55aeb0"/>
+    <path d="M560 111c0-48 33-81 74-81s74 33 74 81v79H560z" fill="#9a654e"/>
+    <path d="M553 112c0-60 31-96 81-96 43 0 69 29 77 74-29-5-53-23-69-43-22 26-49 47-89 65z" fill="#303847"/>
+    <path d="m533 194 35-21h132l45 101H512z" fill="#9ad2bf"/>
+  </g>
+  <g fill="none" stroke="#fff0c4" stroke-width="5" opacity=".9">
+    <path d="M324 238c46-43 99-43 145 0m-107 41c22-21 47-21 69 0"/>
+    <path d="M1129 337c46-43 99-43 145 0m-107 41c22-21 47-21 69 0"/>
+  </g>
+  <path d="M0 834c313-43 550-29 795 5s489 30 805-14v75H0z" fill="#103e46" opacity=".82"/>
+</svg>

@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import * as dotenv from "dotenv";
+import { readFileSync } from "fs";
 import { resolve } from "path";
 
 dotenv.config({ path: resolve(process.cwd(), ".env.local") });
@@ -8,13 +9,23 @@ dotenv.config({ path: resolve(process.cwd(), ".env") });
 
 const dbUrl = process.env.DIRECT_URL || process.env.DIRECT_DATABASE_URL || process.env.DATABASE_URL;
 console.log(`[DB URL loaded]:`, dbUrl ? "Present" : "Missing");
+const lguConfig = JSON.parse(
+  readFileSync(resolve(process.cwd(), "src", "lgu.config.json"), "utf8")
+);
 
 const adapter = new PrismaPg({ connectionString: dbUrl });
 const prisma = new PrismaClient({ adapter });
 
 async function main() {
-  const targetRfid = "0637573799";
-  console.log(`[Register Admin RFID] Registering card: "${targetRfid}"`);
+  const targetRfid = lguConfig.identity.adminRfidUid;
+  const adminEmail = lguConfig.identity.adminEmail;
+  const adminName = lguConfig.identity.adminName;
+  if ([targetRfid, adminEmail, adminName].some(
+    (value) => typeof value !== "string" || value.includes("{{")
+  )) {
+    throw new Error("Configure identity.adminRfidUid, identity.adminEmail, and identity.adminName first.");
+  }
+  console.log("[Register Admin RFID] Registering configured admin card.");
 
   // 1. Clear this RFID from any other user or resident to avoid unique constraint violations
   await prisma.$executeRawUnsafe(
@@ -45,9 +56,8 @@ async function main() {
       rfid: adminUser.rfid,
     });
   } else {
-    // Check if admin@elgu.gov.ph exists
     const emailAdmin = await prisma.user.findFirst({
-      where: { email: "admin@elgu.gov.ph" },
+      where: { email: adminEmail },
     });
 
     if (emailAdmin) {
@@ -58,8 +68,8 @@ async function main() {
     } else {
       adminUser = await prisma.user.create({
         data: {
-          name: "System Admin",
-          email: "admin@elgu.gov.ph",
+          name: adminName,
+          email: adminEmail,
           role: "ADMIN",
           rfid: targetRfid,
         },

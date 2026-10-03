@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Welcome to your local government</title>
+  <desc id="description">An original, location-neutral illustration of a civic building at sunrise.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#071a3b"/>
+      <stop offset=".55" stop-color="#123b68"/>
+      <stop offset="1" stop-color="#167b91"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#a8f0ef" stop-opacity=".8"/>
+      <stop offset="1" stop-color="#39a6ca" stop-opacity=".28"/>
+    </linearGradient>
+    <radialGradient id="sun">
+      <stop stop-color="#fff6c9"/>
+      <stop offset="1" stop-color="#ffc86a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1600v900H0z"/>
+  <circle cx="1270" cy="194" r="250" fill="url(#sun)"/>
+  <circle cx="1270" cy="194" r="82" fill="#ffe6a0"/>
+  <path d="M0 590c218-83 351-22 551 18s365 36 574-38 333-67 475-18v348H0z" fill="#0a2948" opacity=".72"/>
+  <path d="M0 686c282-67 448-28 692 31s501 57 908-18v201H0z" fill="#081b32"/>
+  <g transform="translate(255 260)">
+    <path d="M26 176 542 0l520 176z" fill="#e9f2f5"/>
+    <path d="M75 180h960v38H75z" fill="#80c4d5"/>
+    <path d="M108 218h894v330H108z" fill="#d9e7eb"/>
+    <path d="M138 245h188v303H138zm232 0h188v303H370zm232 0h188v303H602zm232 0h108v303H834z" fill="url(#glass)"/>
+    <path d="M138 340h804M138 438h804M326 245v303m232-303v303m232-303v303" fill="none" stroke="#e8fbfa" stroke-width="14" opacity=".68"/>
+    <path d="M75 548h960v35H75z" fill="#a4c7cc"/>
+    <path d="M0 583h1112v34H0z" fill="#f3e7cd"/>
+    <path d="M42 617h1028l-48 56H92z" fill="#8dd0d6"/>
+    <path d="M164 673h790v24H164z" fill="#ecdfc8"/>
+    <path d="M529 92h28v66h-28z" fill="#123b68"/>
+    <circle cx="543" cy="81" r="29" fill="#f3bd68"/>
+  </g>
+  <g fill="#f7ce7a" opacity=".9">
+    <circle cx="179" cy="266" r="4"/><circle cx="234" cy="191" r="3"/><circle cx="411" cy="114" r="4"/>
+    <circle cx="1000" cy="142" r="3"/><circle cx="1452" cy="399" r="4"/><circle cx="1369" cy="552" r="3"/>
+  </g>
+  <path d="M0 816c260-33 429-23 664 3s545 20 936-20v101H0z" fill="#061426" opacity=".7"/>
+</svg>

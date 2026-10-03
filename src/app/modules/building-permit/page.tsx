@@ -6,6 +6,7 @@ import QRCode from "qrcode";
 import PrivacyTermsModal from "@/components/shared/PrivacyTermsModal";
 import PaymentModal, { CheckoutDetails } from "@/components/shared/PaymentModal";
 import { compressImage } from "@/lib/image-compression";
+import lguConfig from "@/lgu.config.json";
 import {
   Book,
   CheckCircle,
@@ -1032,7 +1033,7 @@ export default function BuildingPermitPage() {
       office: "Barangay Hall",
       icon: <Scroll className="w-5 h-5 text-stone-500" />,
       steps: [
-        "Go to the Barangay Hall where your property is located (e.g., Brgy. Poblacion).",
+        `Go to the Barangay Hall where your property is located (e.g., Brgy. ${lguConfig.barangays[0]}).`,
         "Request for a \"Barangay Clearance for Building Construction\" or \"Certification\".",
         "Fill out the application form and provide details of your construction project.",
         "Pay the barangay clearance fee (usually ₱50-₱100 depending on barangay ordinance).",

@@ -344,13 +344,13 @@ export default function GlobalKeyboard() {
 
   const renderKey = (key: string, index: number) => {
     // Large special keys classes
-    let keyClass = "h-12 flex-1 font-semibold rounded-lg text-sm transition-all duration-100 flex items-center justify-center select-none active:scale-95 active:bg-emerald-500 text-white shadow-md ";
+    let keyClass = "h-12 flex-1 font-semibold rounded-lg text-sm transition-all duration-100 flex items-center justify-center select-none active:scale-95 active:bg-sky-500 text-white shadow-md ";
 
     if (key === "shift") {
       const isShifted = isShiftActive || isCapsLock;
       keyClass += isShifted 
-        ? "bg-emerald-500 hover:bg-emerald-400 text-slate-900 border border-emerald-400" 
-        : "bg-emerald-900/60 hover:bg-emerald-800/80 border border-emerald-800/50";
+        ? "bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-bold border border-cyan-300 shadow-[0_0_12px_rgba(0,210,255,0.5)]" 
+        : "bg-slate-900/80 hover:bg-sky-950/80 border border-sky-900/60 text-slate-300";
       return (
         <Button
           key={`shift-${index}`}
@@ -361,13 +361,13 @@ export default function GlobalKeyboard() {
             toggleShift();
           }}
         >
-          <ArrowUp className={`w-4 h-4 ${isCapsLock ? "fill-slate-900" : ""}`} />
+          <ArrowUp className={`w-4 h-4 ${isCapsLock ? "fill-slate-950" : ""}`} />
         </Button>
       );
     }
 
     if (key === "backspace") {
-      keyClass += "bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-800/50 max-w-[90px] md:max-w-[120px]";
+      keyClass += "bg-slate-900/90 hover:bg-slate-800 border border-sky-900/50 text-slate-300 max-w-[90px] md:max-w-[120px]";
       return (
         <Button
           key={`backspace-${index}`}
@@ -384,7 +384,7 @@ export default function GlobalKeyboard() {
     }
 
     if (key === "enter") {
-      keyClass += "bg-emerald-600 hover:bg-emerald-500 hover:text-emerald-50 border border-emerald-500 flex-grow font-black";
+      keyClass += "bg-gradient-to-r from-[#0038a8] to-[#0070f3] hover:from-[#002b80] hover:to-[#005bb5] text-white border border-cyan-400/40 flex-grow font-black shadow-[0_0_15px_rgba(0,163,255,0.35)]";
       return (
         <Button
           key={`enter-${index}`}
@@ -402,7 +402,7 @@ export default function GlobalKeyboard() {
     }
 
     if (key === "space") {
-      keyClass += "bg-emerald-900/40 hover:bg-emerald-900/70 border border-emerald-800/30 flex-[3]";
+      keyClass += "bg-slate-900/70 hover:bg-slate-800/80 border border-sky-900/40 flex-[3]";
       return (
         <Button
           key={`space-${index}`}
@@ -419,7 +419,7 @@ export default function GlobalKeyboard() {
     }
 
     if (key === "123") {
-      keyClass += "bg-emerald-950 hover:bg-emerald-900 border border-emerald-800/50 text-xs tracking-wider max-w-[80px]";
+      keyClass += "bg-slate-900/90 hover:bg-sky-950/80 border border-sky-900/60 text-xs font-bold tracking-wider max-w-[80px] text-cyan-400";
       return (
         <Button
           key={`layout-${index}`}
@@ -436,7 +436,7 @@ export default function GlobalKeyboard() {
     }
 
     if (key === "abc") {
-      keyClass += "bg-emerald-950 hover:bg-emerald-900 border border-emerald-800/50 text-xs tracking-wider max-w-[80px]";
+      keyClass += "bg-slate-900/90 hover:bg-sky-950/80 border border-sky-900/60 text-xs font-bold tracking-wider max-w-[80px] text-cyan-400";
       return (
         <Button
           key={`layout-${index}`}
@@ -470,7 +470,7 @@ export default function GlobalKeyboard() {
     }
 
     // Standard character key
-    keyClass += "bg-emerald-900/50 hover:bg-emerald-800/75 border border-emerald-800/30 text-base md:text-lg font-medium";
+    keyClass += "bg-[#0c1c38]/90 hover:bg-[#132c57] border border-sky-500/20 hover:border-cyan-400/40 text-base md:text-lg font-medium text-white shadow-sm";
     return (
       <Button
         key={`key-${key}-${index}`}
@@ -497,30 +497,30 @@ export default function GlobalKeyboard() {
       <div
         ref={keyboardRef}
         data-keyboard="true"
-        className={`fixed left-0 right-0 bottom-0 z-[999999] w-full p-4 pb-6 transition-all duration-300 ease-in-out transform shadow-[0_-15px_30px_-5px_rgba(4,120,87,0.3)] bg-gradient-to-b from-slate-950/95 to-slate-900/98 backdrop-blur-xl border-t border-emerald-500/20 ${
+        className={`fixed left-0 right-0 bottom-0 z-[999999] w-full p-4 pb-6 transition-all duration-300 ease-in-out transform shadow-[0_-15px_30px_-5px_rgba(0,163,255,0.2)] bg-gradient-to-b from-[#081225]/98 to-[#040914]/99 backdrop-blur-xl border-t border-sky-500/30 ${
           isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0 pointer-events-none"
         }`}
       >
         <div className="max-w-4xl mx-auto flex flex-col gap-2">
           {/* Header toolbar */}
-          <div className="flex justify-between items-center px-1 border-b border-emerald-500/10 pb-2 mb-1">
+          <div className="flex justify-between items-center px-1 border-b border-sky-500/20 pb-2 mb-1">
             <div className="flex items-center gap-2">
-              <div className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1">
+              <div className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(0,210,255,0.8)]" />
+              <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest flex items-center gap-1">
                 Kiosk Keyboard
-                <Sparkles className="w-3 h-3 text-emerald-300" />
+                <Sparkles className="w-3 h-3 text-cyan-300" />
               </span>
             </div>
             
             <div className="flex items-center gap-2">
               {/* Layout switcher quick helpers */}
               {layout !== "numeric" && (
-                <div className="flex rounded-md overflow-hidden border border-emerald-500/20 bg-slate-950/50 p-0.5">
+                <div className="flex rounded-md overflow-hidden border border-sky-500/30 bg-slate-950/60 p-0.5">
                   <Button
                     variant="ghost"
                     className={`h-6 px-2 text-[10px] uppercase font-bold rounded ${
                       layout === "lowercase" || layout === "uppercase"
-                        ? "bg-emerald-900/50 text-emerald-400"
+                        ? "bg-sky-600/40 text-cyan-300"
                         : "text-slate-400"
                     }`}
                     onMouseDown={(e) => {
@@ -533,7 +533,7 @@ export default function GlobalKeyboard() {
                   <Button
                     variant="ghost"
                     className={`h-6 px-2 text-[10px] uppercase font-bold rounded ${
-                      layout === "symbols" ? "bg-emerald-900/50 text-emerald-400" : "text-slate-400"
+                      layout === "symbols" ? "bg-sky-600/40 text-cyan-300" : "text-slate-400"
                     }`}
                     onMouseDown={(e) => {
                       e.preventDefault();
@@ -547,7 +547,7 @@ export default function GlobalKeyboard() {
               
               <Button
                 variant="ghost"
-                className="h-7 w-7 rounded-full hover:bg-emerald-950 text-emerald-400 hover:text-emerald-300 flex items-center justify-center p-0"
+                className="h-7 w-7 rounded-full hover:bg-sky-950 text-cyan-400 hover:text-cyan-300 flex items-center justify-center p-0"
                 onClick={() => setIsVisible(false)}
               >
                 <ChevronDown className="w-5 h-5" />

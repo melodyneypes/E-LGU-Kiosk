@@ -28,6 +28,7 @@ import {
   Sun,
   Moon
 } from "lucide-react";
+import lguConfig from "@/lgu.config.json";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -522,7 +523,7 @@ function DashboardContent() {
         <div className="md:mb-8 flex items-center gap-3 md:flex-col">
           <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl md:rounded-3xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center p-2 shadow-lg shadow-theme-primary/10 border border-slate-200/60 dark:border-white/10 transition-transform active:scale-95">
             <Image
-              src="/logo.png"
+              src={lguConfig.assets.logo}
               alt="LGU Logo"
               width={48}
               height={48}
@@ -932,7 +933,7 @@ function DashboardContent() {
             {[
               { id: "en", label: "English" },
               { id: "fil", label: "Filipino" },
-              { id: "pang", label: "Pangasinan" },
+              { id: "pang", label: lguConfig.localization.localLanguageName },
               { id: "ilo", label: "Ilocano" }
             ].map(({ id, label }) => {
               const isSelected = lang === id;

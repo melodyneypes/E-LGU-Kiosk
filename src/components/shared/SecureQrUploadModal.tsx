@@ -80,7 +80,7 @@ export default function SecureQrUploadModal({
 
             {/* Header Title with Badge */}
             <div className="flex items-center gap-3 self-start mb-6">
-              <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-theme-primary">
+              <div className="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-theme-primary">
                 <QrCode className="w-5 h-5 text-indigo-600" style={{ color: themeColor || "currentColor" }} />
               </div>
               <h3 className="text-lg font-black tracking-tighter text-[#0F172A] uppercase italic leading-none">
@@ -107,8 +107,8 @@ export default function SecureQrUploadModal({
             </div>
 
             {/* Expiration Status Badge */}
-            <div className="w-full py-3 px-5 rounded-2xl bg-emerald-500/10 flex items-center justify-center gap-2 text-theme-primary font-bold text-xs">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <div className="w-full py-3 px-5 rounded-2xl bg-sky-500/10 flex items-center justify-center gap-2 text-theme-primary font-bold text-xs">
+              <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 animate-pulse shrink-0" />
               <span className="font-black uppercase tracking-wider text-[10px]">
                 Waiting for secure upload • Expires {formattedTime}
               </span>

@@ -5,8 +5,10 @@ import LGULogo from "./shared/LGULogo";
 import FaceVerification from "./FaceVerification";
 import OtpVerification from "./OtpVerification";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 import { sanitizeRfid } from "@/lib/rfidSanitizer";
+import lguConfig from "@/lgu.config.json";
 
 type Resident = {
   id: string;
@@ -100,13 +102,13 @@ export default function RfidOverlay() {
         setActive(true);
         setResident({
           id: "dev-01",
-          fullName: "Development Tester",
-          firstName: "Tester",
-          lastName: "Tester",
+          fullName: lguConfig.defaults.residentCard.residentName,
+          firstName: lguConfig.defaults.residentCard.residentFirstName,
+          lastName: lguConfig.defaults.residentCard.residentLastName,
           middleName: "",
           hasFaceAuth: false,
-          barangay: "Poblacion",
-          email: "tester@elgu.gov.ph"
+          barangay: lguConfig.barangays[0],
+          email: lguConfig.defaults.residentCard.email
         });
         setStep("SERVICES");
         return;
@@ -161,38 +163,86 @@ export default function RfidOverlay() {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-md transition-all animate-in fade-in duration-300">
-      <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-[#0d1b13]/90 p-8 shadow-2xl">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-sky-500/30 bg-gradient-to-b from-[#0a192f]/95 via-[#081225]/95 to-[#040915]/95 p-8 shadow-[0_0_60px_rgba(0,163,255,0.2)] backdrop-blur-xl">
+        {/* Futuristic accent glow lines */}
+        <div className="pointer-events-none absolute -top-24 left-1/2 h-48 w-96 -translate-x-1/2 rounded-full bg-sky-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 right-0 h-48 w-48 rounded-full bg-blue-600/20 blur-3xl" />
+
         {/* Close btn */}
         <button 
           onClick={close}
-          className="absolute right-6 top-6 z-10 text-white/40 hover:text-white"
+          className="absolute right-6 top-6 z-10 rounded-full border border-white/10 bg-white/5 p-2 text-white/50 transition hover:border-white/30 hover:bg-white/10 hover:text-white"
         >
-          <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-8 w-20 h-20 bg-white rounded-full flex items-center justify-center p-2 shadow-xl">
-             <LGULogo size={64} className="object-contain" />
+        <div className="relative z-10 flex flex-col items-center text-center">
+          <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-2xl border border-sky-400/30 bg-gradient-to-br from-blue-900/60 to-slate-900/80 p-3 shadow-[0_0_25px_rgba(56,189,248,0.25)]">
+             <LGULogo size={56} className="object-contain drop-shadow" />
           </div>
+
           {step === "VERIFYING" && (
             <div className="flex flex-col items-center py-12">
-              <div className="h-16 w-16 animate-spin rounded-full border-4 border-theme-secondary border-t-transparent" />
-              <p className="mt-6 text-xl font-medium text-white/80">Identifying Resident...</p>
+              <div className="relative flex h-20 w-20 items-center justify-center">
+                <div className="absolute inset-0 animate-ping rounded-full bg-sky-400/20" />
+                <div className="h-16 w-16 animate-spin rounded-full border-4 border-sky-400 border-t-transparent shadow-[0_0_20px_rgba(56,189,248,0.4)]" />
+              </div>
+              <p className="mt-6 text-xl font-bold tracking-wide text-white">Verifying e-LGU Smart Card...</p>
+              <p className="mt-1 text-xs uppercase tracking-widest text-sky-400/80">Reading biometric security credential</p>
             </div>
           )}
 
           {step === "TAP" && !error && (
-            <div className="w-full max-w-md py-6">
-              <div className="mb-4 rounded-2xl border border-white/10 bg-white/5 p-4 text-left">
-                <p className="text-xs font-black uppercase tracking-[0.28em] text-white/50">
-                  Temporary RFID Login
+            <div className="w-full max-w-md py-4">
+              {/* Modern Smart Card visual preview */}
+              <div className="relative mx-auto mb-6 w-full max-w-[340px] overflow-hidden rounded-2xl border border-sky-400/40 bg-gradient-to-br from-[#0c2a5c] via-[#081e42] to-[#040e22] p-4 text-left shadow-[0_10px_35px_rgba(0,56,168,0.35)]">
+                <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-cyan-400/15 blur-2xl pointer-events-none" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-sky-300">e-LGU Resident Smart Card</span>
+                  </div>
+                  {/* NFC Wave */}
+                  <div className="flex items-center text-cyan-300 animate-pulse">
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" d="M8.5 16.5a5 5 0 0 1 0-9M12 19a8.5 8.5 0 0 0 0-14M15.5 21.5a12 12 0 0 0 0-19" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div className="my-4 flex items-center gap-3">
+                  {/* Microchip */}
+                  <div className="relative h-9 w-11 rounded-md border border-amber-300/60 bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 shadow-inner flex items-center justify-center overflow-hidden">
+                    <div className="absolute inset-0 grid grid-cols-2 grid-rows-2 gap-[1px] opacity-40">
+                      <div className="border-r border-b border-amber-900/60" />
+                      <div className="border-b border-amber-900/60" />
+                      <div className="border-r border-amber-900/60" />
+                      <div />
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Contactless RFID / NFC</p>
+                    <p className="text-sm font-bold text-white tracking-wide">Hold Card Near Reader</p>
+                  </div>
+                </div>
+
+                <div className="flex items-end justify-between border-t border-white/10 pt-2 text-[10px] text-slate-300">
+                  <span>ISO/IEC 7810 ID-1 Standard</span>
+                  <span className="text-sky-400 font-mono">13.56 MHz / 125 kHz</span>
+                </div>
+              </div>
+
+              <div className="mb-4 rounded-2xl border border-sky-500/20 bg-sky-950/20 p-4 text-left backdrop-blur-sm">
+                <p className="text-xs font-black uppercase tracking-[0.28em] text-sky-400">
+                  Manual RFID Input
                 </p>
-                <p className="mt-2 text-sm text-white/60">
-                  Type the RFID card ID here and press Enter to log in.
+                <p className="mt-1 text-xs text-slate-300">
+                  Tap physical card on scanner, or type your card RFID number below and press Enter.
                 </p>
               </div>
+
               <input
                 value={manualCardId}
                 onChange={(e) => setManualCardId(e.target.value)}
@@ -202,8 +252,8 @@ export default function RfidOverlay() {
                     handleManualLogin();
                   }
                 }}
-                placeholder="Enter RFID card ID"
-                className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-4 text-lg font-semibold tracking-[0.14em] text-white outline-none ring-0 transition placeholder:text-white/25 focus:border-theme-secondary focus:bg-black/40"
+                placeholder="RFID UID (e.g. 0008472910)"
+                className="w-full rounded-2xl border border-sky-400/30 bg-black/40 px-4 py-4 text-lg font-mono font-semibold tracking-[0.14em] text-white outline-none ring-0 transition placeholder:text-white/30 focus:border-sky-400 focus:bg-black/60 focus:shadow-[0_0_20px_rgba(56,189,248,0.25)]"
                 autoComplete="off"
                 autoCorrect="off"
                 spellCheck={false}
@@ -212,10 +262,20 @@ export default function RfidOverlay() {
               <button
                 type="button"
                 onClick={handleManualLogin}
-                className="mt-4 inline-flex items-center justify-center rounded-full bg-theme-secondary px-6 py-3 text-sm font-black uppercase tracking-[0.2em] text-white transition hover:scale-[1.01]"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 via-sky-600 to-blue-700 py-3.5 text-sm font-black uppercase tracking-[0.2em] text-white shadow-[0_0_25px_rgba(37,99,235,0.4)] transition hover:brightness-110 active:scale-[0.99]"
               >
-                Login with RFID
+                Scan / Authenticate Card
               </button>
+
+              <div className="mt-3 flex items-center justify-center">
+                <Link
+                  href="/resident-card"
+                  onClick={close}
+                  className="text-xs font-bold text-sky-400/80 hover:text-cyan-300 underline underline-offset-4 transition"
+                >
+                  Preview & Print e-LGU Resident Smart Card Studio →
+                </Link>
+              </div>
             </div>
           )}
 

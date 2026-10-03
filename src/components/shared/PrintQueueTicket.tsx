@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import QRCode from "qrcode";
+import lguConfig from "@/lgu.config.json";
 
 interface PrintQueueTicketProps {
   queueNumber: string;
@@ -201,7 +202,7 @@ export default function PrintQueueTicket({
         <body>
           <div class="ticket-card">
             ${branding?.logo ? `<img src="${branding.logo}" class="header-logo" alt="Seal" />` : ""}
-            <div class="muni-title">Local Government Unit</div>
+            <div class="muni-title">${lguConfig.identity.lguName}</div>
 
             <div class="dotted-sep"></div>
 

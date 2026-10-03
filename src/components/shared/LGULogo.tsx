@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import lguConfig from "@/lgu.config.json";
 
 type BrandingState = {
   logoUrl: string | null;
@@ -30,7 +31,7 @@ export default function LGULogo({ size = 48, className = "" }: { size?: number; 
     };
   }, []);
 
-  const fallback = "/logo.png";
+  const fallback = lguConfig.assets.logo;
 
   return (
     <Image

@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from "react";
 import SecureIdleTimer from "@/components/shared/SecureIdleTimer";
 import PrivacyTermsModal from "@/components/shared/PrivacyTermsModal";
+import lguConfig from "@/lgu.config.json";
 import {
   Book,
   CheckCircle,
@@ -1583,7 +1584,7 @@ export default function OccupancyPermitPage() {
                             value={formData.contactNumber ?? (displayResident?.contactNumber || "")}
                             onChange={e => setFormData({ ...formData, contactNumber: e.target.value })}
                             disabled={!isEditable}
-                            placeholder="e.g. 09123456789"
+                            placeholder={lguConfig.identity.residentContactNumber}
                           />
                           {showValidationErrors && !formData.contactNumber && (
                             <p className="text-[10px] text-red-500 font-medium mt-0.5">Contact number is required</p>

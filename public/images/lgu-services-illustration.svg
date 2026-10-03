@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">Local government digital services</title>
+  <desc id="description">An original illustration of residents accessing civic services at a digital kiosk.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#071a3b"/>
+      <stop offset=".56" stop-color="#153b68"/>
+      <stop offset="1" stop-color="#087e89"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#b8f6ed"/>
+      <stop offset="1" stop-color="#54c4d0"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1600v900H0z"/>
+  <circle cx="250" cy="175" r="190" fill="#1b8ea0" opacity=".12"/>
+  <circle cx="1390" cy="670" r="300" fill="#56d7c3" opacity=".1"/>
+  <path d="M0 732c338-72 558-27 777 19s476 39 823-37v186H0z" fill="#06162e"/>
+  <g transform="translate(596 144)">
+    <rect x="0" y="0" width="408" height="514" rx="36" fill="#06152e" stroke="#83e5e2" stroke-width="9"/>
+    <rect x="24" y="26" width="360" height="405" rx="20" fill="url(#screen)"/>
+    <path d="M70 94h270" stroke="#1a5473" stroke-width="14" stroke-linecap="round"/>
+    <path d="M70 139h165" stroke="#37758b" stroke-width="9" stroke-linecap="round" opacity=".7"/>
+    <g fill="#f7ffff" stroke="#4b9aa7" stroke-width="5">
+      <rect x="58" y="190" width="123" height="95" rx="16"/>
+      <rect x="225" y="190" width="123" height="95" rx="16"/>
+      <rect x="58" y="310" width="123" height="95" rx="16"/>
+      <rect x="225" y="310" width="123" height="95" rx="16"/>
+    </g>
+    <g fill="#1599a4">
+      <path d="M98 250h43v8H98zm9-30 12-10 12 10v24h-24z"/>
+      <path d="M266 226h41v33h-41zm6 7h29v5h-29zm0 11h20v5h-20z"/>
+      <path d="M95 375h49v8H95zm24-42h10v34h-10z"/>
+      <circle cx="286" cy="356" r="20"/><path d="M270 379h32l10 17h-52z"/>
+    </g>
+    <path d="M146 462h116l34 54H112z" fill="#193d5e"/>
+    <path d="M61 518h286" stroke="#3e8096" stroke-width="16" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(278 448)">
+    <path d="M65 112c0-54 37-91 82-91s82 37 82 91v95H65z" fill="#f2b989"/>
+    <path d="M60 110c-4-65 33-109 91-109 48 0 85 32 91 91-23-20-48-34-74-37-25 22-62 38-108 55z" fill="#273a51"/>
+    <path d="M34 335 74 176h147l47 159z" fill="#64bdba"/>
+    <path d="M104 193h85l-17 100h-55z" fill="#eaf3ec"/>
+    <path d="M115 210h63v8h-63zm0 20h63v8h-63zm0 20h49v8h-49z" fill="#347b8d"/>
+    <path d="M73 192 5 269l62 36 39-66m111-47 53 86-61 35-42-63" fill="#f2b989"/>
+  </g>
+  <g transform="translate(1110 458)">
+    <path d="M64 97c0-47 33-80 74-80s74 33 74 80v86H64z" fill="#d89465"/>
+    <path d="M58 98c0-60 31-99 82-99 47 0 76 32 79 85-27-9-49-28-63-48-24 25-58 43-98 62z" fill="#28384b"/>
+    <path d="M30 323 66 170h143l44 153z" fill="#e5ad68"/>
+    <path d="M98 179h64l13 103h-92z" fill="#f4e9cf"/>
+    <path d="m53 189-44 84 60 34 34-68m101-49 58 80-59 38-43-61" fill="#d89465"/>
+  </g>
+  <path d="M234 788h1137" stroke="#5ad3c7" stroke-width="3" opacity=".45"/>
+</svg>

@@ -42,6 +42,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import lguConfig from "@/lgu.config.json";
 import {
   getCurrentUserResident,
   ensureCivilRegistryTransactionTypes,
@@ -78,12 +79,17 @@ const RELATION_OPTIONS = [
 ];
 
 const LOCAL_FALLBACK_PROVINCES = [
-  "PANGASINAN", "METRO MANILA", "LA UNION", "TARLAC", "BENGUET", "ILOCOS SUR", "ILOCOS NORTE", "NUEVA ECIJA", "PAMPANGA", "BULACAN"
+  lguConfig.identity.provinceName.toUpperCase(),
+  "METRO MANILA",
+  "LA UNION",
+  "TARLAC",
+  "BENGUET",
+  "NUEVA ECIJA",
+  "PAMPANGA",
+  "BULACAN",
 ];
 
-const LOCAL_FALLBACK_CITIES = [
-  "CENTRAL", "EAST DISTRICT", "WEST DISTRICT", "NORTH DISTRICT", "SOUTH DISTRICT"
-];
+const LOCAL_FALLBACK_CITIES = [lguConfig.identity.municipalityName.toUpperCase()];
 
 
 
@@ -1320,7 +1326,7 @@ export default function MarriageCertificateRequestPage() {
                             <SelectItem value="OTHER">OTHER CITY/MUNICIPALITY...</SelectItem>
                           </>
                         ) : (
-                          placeProvince.toUpperCase() === "PANGASINAN" ? (
+                          placeProvince.toUpperCase() === lguConfig.identity.provinceName.toUpperCase() ? (
                             <>
                               {LOCAL_FALLBACK_CITIES.map((c) => (
                                 <SelectItem key={c} value={c}>{c}</SelectItem>

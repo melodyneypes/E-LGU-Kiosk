@@ -404,10 +404,10 @@ export default function CheckoutPage() {
 
                 {fulfillment === "DELIVERY" && (
                   <div className="flex items-end justify-between border-b border-white/5 pb-3">
-                    <span className="max-w-[70%] text-[10px] font-black uppercase tracking-wider text-emerald-400">
+                    <span className="max-w-[70%] text-[10px] font-black uppercase tracking-wider text-cyan-400">
                       Logistics Delivery Service
                     </span>
-                    <span className="text-lg font-black italic text-emerald-400">
+                    <span className="text-lg font-black italic text-cyan-400">
                       ₱{appliedDeliveryFee.toFixed(2)}
                     </span>
                   </div>
@@ -417,21 +417,21 @@ export default function CheckoutPage() {
               {/* Grand Total area */}
               <div className="flex items-end justify-between pt-6 border-t-2 border-dashed border-white/10">
                 <div>
-                  <p className="text-[10px] font-black italic uppercase tracking-[0.3em] text-emerald-400">Total Payable</p>
+                  <p className="text-[10px] font-black italic uppercase tracking-[0.3em] text-cyan-400">Total Payable</p>
                   <p className="text-[8px] font-bold uppercase text-slate-500">Payable via secure channel</p>
                 </div>
-                <p className="text-3xl font-black italic text-emerald-400 leading-none">₱{formattedTotal}</p>
+                <p className="text-3xl font-black italic text-cyan-400 leading-none">₱{formattedTotal}</p>
               </div>
             </div>
           </section>
 
           {/* Right Column: Checkout choices and payment */}
-          <section className="bg-[#11131a] rounded-[2.5rem] border border-white/5 p-8 shadow-2xl space-y-8 text-left">
+          <section className="bg-[#081225] rounded-[2.5rem] border border-sky-500/20 p-8 shadow-2xl space-y-8 text-left">
             
             {/* Fulfillment Type */}
             <div className="space-y-4">
               <div className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-950/40 text-theme-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-950/60 border border-sky-800/40 text-cyan-400">
                   <Truck className="h-5 w-5" />
                 </span>
                 <h3 className="text-lg font-black italic uppercase tracking-tight">Fulfillment Type</h3>
@@ -444,13 +444,13 @@ export default function CheckoutPage() {
                   className={cn(
                     "relative flex min-h-24 flex-col items-center justify-center gap-2 rounded-2xl border-2 p-3 text-center transition active:scale-95 cursor-pointer",
                     fulfillment === "PICK_UP" 
-                      ? "border-theme-primary bg-theme-primary/10 text-white" 
-                      : "border-white/5 bg-white/5 text-slate-400 hover:border-emerald-500/30"
+                      ? "border-cyan-400 bg-sky-900/30 text-white shadow-[0_0_15px_rgba(0,210,255,0.2)]" 
+                      : "border-white/5 bg-white/5 text-slate-400 hover:border-sky-500/30"
                   )}
                 >
                   <Building2 className="h-6 w-6" />
                   <span className="text-[9px] font-black uppercase tracking-wider">Office Pickup</span>
-                  {fulfillment === "PICK_UP" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-theme-primary"><Check size={10} className="text-white" /></span>}
+                  {fulfillment === "PICK_UP" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 text-slate-950"><Check size={10} className="stroke-[3]" /></span>}
                 </button>
 
                 <button
@@ -459,8 +459,8 @@ export default function CheckoutPage() {
                   className={cn(
                     "relative flex min-h-24 flex-col items-center justify-center gap-2 rounded-2xl border-2 p-3 text-center transition active:scale-95 cursor-pointer",
                     fulfillment === "DELIVERY" 
-                      ? "border-theme-primary bg-theme-primary/10 text-white" 
-                      : "border-white/5 bg-white/5 text-slate-400 hover:border-emerald-500/30"
+                      ? "border-cyan-400 bg-sky-900/30 text-white shadow-[0_0_15px_rgba(0,210,255,0.2)]" 
+                      : "border-white/5 bg-white/5 text-slate-400 hover:border-sky-500/30"
                   )}
                 >
                   <Truck className="h-6 w-6" />
@@ -603,7 +603,7 @@ export default function CheckoutPage() {
             {/* Payment Method Options */}
             <div className="space-y-4 border-t border-white/5 pt-6">
               <div className="flex items-center gap-3 text-left">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-950/40 text-theme-primary">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-950/60 border border-sky-800/40 text-cyan-400">
                   <CreditCard className="h-5 w-5" />
                 </span>
                 <h3 className="text-lg font-black italic uppercase tracking-tight">Payment Method</h3>
@@ -616,13 +616,13 @@ export default function CheckoutPage() {
                   className={cn(
                     "relative flex min-h-24 flex-col items-center justify-center gap-2 rounded-2xl border-2 p-3 text-center transition active:scale-95 cursor-pointer",
                     paymentMethod === "gcash" 
-                      ? "border-emerald-400 bg-white text-slate-950" 
-                      : "border-white/5 bg-white/5 text-slate-400 hover:border-emerald-500/30"
+                      ? "border-cyan-400 bg-white text-slate-950 shadow-[0_0_15px_rgba(0,210,255,0.3)]" 
+                      : "border-white/5 bg-white/5 text-slate-400 hover:border-sky-500/30"
                   )}
                 >
-                  <Wallet className={cn("h-6 w-6", paymentMethod === "gcash" && "text-theme-primary")} />
+                  <Wallet className={cn("h-6 w-6", paymentMethod === "gcash" && "text-[#0038a8]")} />
                   <span className="text-[9px] font-black uppercase tracking-wider">GCash Wallet</span>
-                  {paymentMethod === "gcash" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-theme-primary border border-white"><Check size={8} className="text-white" /></span>}
+                  {paymentMethod === "gcash" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 text-slate-950"><Check size={8} className="stroke-[3]" /></span>}
                 </button>
 
                 <button
@@ -631,13 +631,13 @@ export default function CheckoutPage() {
                   className={cn(
                     "relative flex min-h-24 flex-col items-center justify-center gap-2 rounded-2xl border-2 p-3 text-center transition active:scale-95 cursor-pointer",
                     paymentMethod === "qrph" 
-                      ? "border-emerald-400 bg-white text-slate-950" 
-                      : "border-white/5 bg-white/5 text-slate-400 hover:border-emerald-500/30"
+                      ? "border-cyan-400 bg-white text-slate-950 shadow-[0_0_15px_rgba(0,210,255,0.3)]" 
+                      : "border-white/5 bg-white/5 text-slate-400 hover:border-sky-500/30"
                   )}
                 >
-                  <QrCode className={cn("h-6 w-6", paymentMethod === "qrph" && "text-theme-primary")} />
+                  <QrCode className={cn("h-6 w-6", paymentMethod === "qrph" && "text-[#0038a8]")} />
                   <span className="text-[9px] font-black uppercase tracking-wider">QRPH Scan</span>
-                  {paymentMethod === "qrph" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-theme-primary border border-white"><Check size={8} className="text-white" /></span>}
+                  {paymentMethod === "qrph" && <span className="absolute right-2 top-2 flex h-4 w-4 items-center justify-center rounded-full bg-cyan-400 text-slate-950"><Check size={8} className="stroke-[3]" /></span>}
                 </button>
               </div>
 
@@ -653,7 +653,7 @@ export default function CheckoutPage() {
                 type="button"
                 onClick={handleCheckout}
                 disabled={isSubmitting}
-                className="flex h-14 w-full items-center justify-center rounded-2xl bg-theme-primary hover:bg-emerald-700 text-white px-4 text-xs font-black uppercase tracking-widest transition shadow-lg shadow-theme-primary/20 active:scale-98 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
+                className="flex h-14 w-full items-center justify-center rounded-2xl bg-gradient-to-r from-[#0038a8] to-[#0070f3] hover:from-[#002b80] hover:to-[#005bb5] text-white border border-cyan-400/30 px-4 text-xs font-black uppercase tracking-widest transition shadow-lg shadow-blue-500/30 active:scale-98 disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer"
               >
                 {isSubmitting ? (
                   <>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1360 768" role="img" aria-labelledby="title">
+  <title id="title">Generic resident card placeholder</title>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a3d"/>
+      <stop offset="1" stop-color="#164b82"/>
+    </linearGradient>
+  </defs>
+  <rect width="1360" height="768" rx="48" fill="url(#background)"/>
+  <rect x="24" y="24" width="1312" height="720" rx="36" fill="none" stroke="#54c8ec" stroke-opacity=".65" stroke-width="4"/>
+  <image href="/images/generic-lgu-logo.png" x="72" y="92" width="180" height="180" preserveAspectRatio="xMidYMid meet"/>
+  <text x="300" y="150" fill="#fff" font-family="Arial, sans-serif" font-size="46" font-weight="700">LOCAL GOVERNMENT</text>
+  <text x="300" y="215" fill="#aee8f8" font-family="Arial, sans-serif" font-size="30">RESIDENT IDENTIFICATION CARD</text>
+  <text x="300" y="350" fill="#fff" font-family="Arial, sans-serif" font-size="34">RESIDENT NAME</text>
+  <text x="300" y="408" fill="#dbeafe" font-family="Arial, sans-serif" font-size="26">BARANGAY / MUNICIPALITY</text>
+  <text x="300" y="466" fill="#dbeafe" font-family="Arial, sans-serif" font-size="24">IDENTIFICATION NUMBER</text>
+  <rect x="72" y="574" width="1216" height="2" fill="#ffffff" fill-opacity=".28"/>
+  <text x="72" y="642" fill="#aee8f8" font-family="Arial, sans-serif" font-size="24">TEMPLATE PREVIEW - NOT AN OFFICIAL IDENTIFICATION CARD</text>
+</svg>

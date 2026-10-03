@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { uploadFile } from "@/lib/storage";
 import { revalidatePath } from "next/cache";
+import lguConfig from "@/lgu.config.json";
 
 export async function getCurrentUserResident() {
     // Note: Mocking auth for LGU-KIOSK context. In a real app, use auth() or getServerSession()
@@ -36,10 +37,7 @@ export async function getTransactionTypes() {
 
 export async function getBarangaysList() {
     try {
-        // Default barangay list fallback or fetching from db if it exists
-        return { success: true, data: [
-            "Amanoaoac", "Apaya", "Aserda", "Baloling", "Coral", "Golden", "Lanas", "Nilombot", "Patland", "Pias", "Poblacion", "Primicias", "Santa Maria", "Torres", "Valenzuela"
-        ] };
+        return { success: true, data: lguConfig.barangays };
     } catch {
         return { success: false, error: "Failed to fetch barangays list" };
     }

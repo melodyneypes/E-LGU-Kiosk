@@ -7,13 +7,18 @@ import KioskMaintenanceGuard from "@/components/shared/KioskMaintenanceGuard";
 import ThemeProvider from "@/components/shared/ThemeProvider";
 import DynamicTheme from "@/components/shared/DynamicTheme";
 import { Toaster } from "@/components/ui/sonner";
+import lguConfig from "@/lgu.config.json";
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: "E-LGU - Public Information Kiosk",
-  description:
-    "Official public information kiosk for Local Government Unit citizen frontline services.",
+  title: lguConfig.seo.title,
+  description: lguConfig.seo.description,
+  openGraph: {
+    title: lguConfig.seo.title,
+    description: lguConfig.seo.description,
+    siteName: lguConfig.identity.lguName,
+  },
 };
 
 export default function RootLayout({

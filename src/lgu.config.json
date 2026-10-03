@@ -1,0 +1,388 @@
+{
+  "identity": {
+    "lguName": "San Isidro Demo Municipality",
+    "municipalityName": "San Isidro Demo Municipality",
+    "provinceName": "Sample Province",
+    "regionName": "Sample Region",
+    "mayorName": "Alex Demo",
+    "viceMayorName": "Jamie Sample",
+    "officialTermPeriod": "Demo Term 2025-2028",
+    "adminName": "Demo Administrator",
+    "adminEmail": "admin@example.invalid",
+    "adminRfidUid": "DEMO-RFID-0001",
+    "residentContactNumber": "DEMO CONTACT NUMBER",
+    "mayorTitle": "Municipal Mayor (Demo)",
+    "municipalHallAddress": "100 Civic Center Road, Central District, San Isidro Demo Municipality",
+    "contactNumber": "(000) 000-0000",
+    "email": "info@example.invalid",
+    "officeHours": "Demo hours: Monday-Friday, 8:00 AM-5:00 PM",
+    "residentIdInstruction": "Demo notice: bring your sample Resident ID for testing.",
+    "websiteUrl": "https://example.invalid",
+    "kioskUrl": "https://e-lgu-kiosk.vercel.app",
+    "socialMediaUrl": "https://example.invalid/community",
+    "dataPrivacyOfficer": "Demo Data Privacy Officer"
+  },
+  "localization": {
+    "localLanguageName": "Demo Local Language"
+  },
+  "localContent": {
+    "history": "This is fictional sample history for preview purposes only.",
+    "demographics": "Fictional demo demographics; replace with verified local information.",
+    "population": "100,000 (demo estimate; not official)",
+    "landArea": "100.00 sq. km. (demo value; not official)",
+    "mission": "Demo mission: provide accessible, transparent, and responsive public services.",
+    "vision": "Demo vision: a connected, inclusive, and resilient community.",
+    "festival": "Community Day (Demo)",
+    "touristSpots": [
+      "Riverside Community Park (Demo)",
+      "Civic Garden (Demo)"
+    ],
+    "localProducts": [
+      "Handcrafted Goods (Demo)",
+      "Community Produce (Demo)"
+    ],
+    "ordinances": [
+      "Sample Ordinance No. 001 (Demo only)",
+      "Sample Ordinance No. 002 (Demo only)"
+    ]
+  },
+  "barangays": [
+    "Northview",
+    "Riverside",
+    "Greenfield",
+    "Eastwood",
+    "Westfield",
+    "Hillcrest",
+    "Lakeside",
+    "Meadow Park",
+    "Central Heights",
+    "Brookside",
+    "Sunnyvale",
+    "Pine Grove",
+    "Maplewood",
+    "Gardenia",
+    "Fairview",
+    "Southridge",
+    "Cedar Grove",
+    "Willow Creek",
+    "Grandview",
+    "Orchard Lane",
+    "Summit Park",
+    "Harbor Point",
+    "Silver Oaks",
+    "Stonebridge",
+    "Rosewood",
+    "Bluewater",
+    "Parkside",
+    "Springvale",
+    "Westhaven",
+    "Eastgate"
+  ],
+  "map": {
+    "latitude": null,
+    "longitude": null
+  },
+  "assets": {
+    "logo": "/images/generic-lgu-logo.png",
+    "welcomeSlide": "/images/lgu-welcome-illustration.svg",
+    "servicesSlide": "/images/lgu-services-illustration.svg",
+    "announcementsSlide": "/images/lgu-community-illustration.svg",
+    "municipalGovernmentPortraits": {
+      "mayor": "/images/municipal-government/mayor-centered.jpg",
+      "viceMayor": "/images/municipal-government/councilor-portrait-2-centered.jpg",
+      "councilors": [
+        "/images/municipal-government/councilor-portrait-1-centered.jpg",
+        "/images/municipal-government/group-official-02.jpg",
+        "/images/municipal-government/group-official-03.jpg",
+        "/images/municipal-government/group-official-04.jpg",
+        "/images/municipal-government/group-official-07.jpg",
+        "/images/municipal-government/group-official-08.jpg",
+        "/images/municipal-government/group-official-09.jpg",
+        "/images/municipal-government/group-official-05.jpg"
+      ],
+      "barangayLeague": "/images/municipal-government/barangay-league-representative-centered.jpg",
+      "skPresident": "/images/municipal-government/sk-representative-centered.jpg",
+      "pclPresident": "/images/municipal-government/group-official-06.jpg"
+    },
+    "residentCardFront": "/resident-card-front-placeholder.svg",
+    "residentCardBack": "/resident-card-back-placeholder.svg"
+  },
+  "seo": {
+    "title": "San Isidro Demo Municipality - Public Information Kiosk",
+    "description": "Demonstration e-LGU portal using fictional sample information. Replace all demo content before official use.",
+    "privacyPolicyUrl": "/privacy-policy (demo)",
+    "termsUrl": "/terms (demo)"
+  },
+  "footer": {
+    "copyright": "Demo content for preview only"
+  },
+  "defaults": {
+    "hero": {
+      "title": "San Isidro Demo Municipality",
+      "subtitle": "Your demo gateway to local public services",
+      "tagline": "Demonstration e-LGU portal using fictional sample information. Replace all demo content before official use.",
+      "background": "/images/lgu-welcome-illustration.svg"
+    },
+    "officials": [
+      {
+        "id": "official-mayor",
+        "name": "Alex Demo",
+        "position": "MUNICIPAL MAYOR",
+        "imageUrl": "/images/municipal-government/mayor-centered.jpg",
+        "motto": "Serving the community (Demo)",
+        "category": "EXECUTIVE"
+      },
+      {
+        "id": "official-vice-mayor",
+        "name": "Jamie Sample",
+        "position": "VICE MAYOR",
+        "imageUrl": "/images/municipal-government/councilor-portrait-2-centered.jpg",
+        "motto": null,
+        "category": "EXECUTIVE"
+      },
+      {
+        "id": "official-councilor-1",
+        "name": "Casey Example",
+        "position": "COUNCILOR",
+        "imageUrl": "/images/municipal-government/councilor-portrait-1-centered.jpg",
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-2",
+        "name": "Riley Sample",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-3",
+        "name": "Avery Demo",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-4",
+        "name": "Quinn Example",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-5",
+        "name": "Drew Sample",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-6",
+        "name": "Skyler Demo",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-7",
+        "name": "Reese Example",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-councilor-8",
+        "name": "Parker Sample",
+        "position": "COUNCILOR",
+        "imageUrl": null,
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-barangay-representative",
+        "name": "Taylor Example",
+        "position": "BARANGAY REPRESENTATIVE",
+        "imageUrl": "/images/municipal-government/barangay-league-representative-centered.jpg",
+        "motto": null,
+        "category": "COUNCIL"
+      },
+      {
+        "id": "official-sk-representative",
+        "name": "Morgan Demo",
+        "position": "SK FEDERATION PRESIDENT",
+        "imageUrl": "/images/municipal-government/sk-representative-centered.jpg",
+        "motto": null,
+        "category": "COUNCIL"
+      }
+    ],
+    "services": [
+      {
+        "name": "Community Certificate Request",
+        "category": "Community Services",
+        "processingTime": "1-2 business days",
+        "desc": "Request a sample community certificate for testing the online application flow."
+      },
+      {
+        "name": "Business Permit Application",
+        "category": "Business Services",
+        "processingTime": "3-5 business days",
+        "desc": "Submit a demo application for a new or renewed local business permit."
+      },
+      {
+        "name": "Civil Registry Document Request",
+        "category": "Civil Registry",
+        "processingTime": "2-3 business days",
+        "desc": "Request a sample birth, marriage, or death record document."
+      }
+    ],
+    "hotlines": [
+      {
+        "name": "Demo Emergency Desk",
+        "category": "Emergency Assistance",
+        "phone": "(000) 000-0001",
+        "scope": "Fictional demo contact. Do not use for real emergencies."
+      },
+      {
+        "name": "Demo Health Helpdesk",
+        "category": "Health Services",
+        "phone": "(000) 000-0002",
+        "scope": "Fictional demo contact. Do not use for real medical assistance."
+      },
+      {
+        "name": "Demo Public Safety Desk",
+        "category": "Public Safety",
+        "phone": "(000) 000-0003",
+        "scope": "Fictional demo contact. Do not use for real emergencies."
+      }
+    ],
+    "projects": [
+      {
+        "id": "project-1",
+        "title": "Community Center Upgrade (Demo)",
+        "category": "Public Facilities",
+        "status": "PLANNING",
+        "location": "Northview",
+        "budget": null,
+        "progress": 0,
+        "imageUrl": null
+      },
+      {
+        "id": "project-2",
+        "title": "Neighborhood Road Improvement (Demo)",
+        "category": "Infrastructure",
+        "status": "ONGOING",
+        "location": "Riverside",
+        "budget": null,
+        "progress": 0,
+        "imageUrl": null
+      },
+      {
+        "id": "project-3",
+        "title": "Digital Service Access Program (Demo)",
+        "category": "Digital Services",
+        "status": "PLANNING",
+        "location": "Central Heights",
+        "budget": null,
+        "progress": 0,
+        "imageUrl": null
+      }
+    ],
+    "residentCard": {
+      "residentName": "Jordan Sample",
+      "residentFirstName": "Jordan",
+      "residentLastName": "Sample",
+      "residentRole": "Resident (Demo)",
+      "barangayName": "Northview",
+      "issueDate": "01/01/2025 (Demo)",
+      "expiryDate": "01/01/2027 (Demo)",
+      "idNumber": "DEMO-ID-000001",
+      "rfidUid": "DEMO-RFID-0001",
+      "email": "resident@example.invalid"
+    },
+    "databaseReset": {
+      "bankAccountName": "DEMO ACCOUNT - NOT FOR PAYMENT",
+      "brandWord1": "DEMO",
+      "brandWord2": "PORTAL",
+      "news": {
+        "title": "Demo news item",
+        "content": "Fictional sample news content for preview only.",
+        "author": "Demo Information Office",
+        "category": "Demo News"
+      },
+      "announcement": {
+        "title": "Demo announcement",
+        "content": "Fictional sample announcement for preview only.",
+        "category": "Demo Notice"
+      },
+      "hotline": {
+        "name": "Demo hotline",
+        "category": "Demo Contact"
+      },
+      "project": {
+        "title": "Demo community project",
+        "description": "Fictional sample project description for preview only.",
+        "category": "Demo Project",
+        "status": "PLANNING (DEMO)",
+        "location": "Central District (Demo)"
+      }
+    },
+    "news": [
+      {
+        "id": "news-1",
+        "title": "Demo: Online Service Portal Opens",
+        "content": "Residents can explore sample services and test the online request process in this demonstration portal.",
+        "author": "Demo Information Office",
+        "category": "Public Service",
+        "imageUrl": "/images/lgu-services-illustration.svg"
+      },
+      {
+        "id": "news-2",
+        "title": "Demo: Community Center Improvement",
+        "content": "A fictional project update showing how local project announcements may appear.",
+        "author": "Demo Projects Office",
+        "category": "Infrastructure",
+        "imageUrl": "/images/lgu-community-illustration.svg"
+      },
+      {
+        "id": "news-3",
+        "title": "Demo: Digital Access Program",
+        "content": "Sample news content for testing the kiosk information display.",
+        "author": "Demo Information Office",
+        "category": "Digital Services",
+        "imageUrl": "/images/lgu-welcome-illustration.svg"
+      }
+    ],
+    "announcements": [
+      {
+        "id": "announcement-1",
+        "title": "DEMO NOTICE: Sample service hours",
+        "content": "This demonstration portal uses fictional information. Confirm all details with your local government before relying on them.",
+        "priority": "NORMAL",
+        "category": "Demo Information",
+        "isPinned": false
+      },
+      {
+        "id": "announcement-2",
+        "title": "DEMO NOTICE: Sample appointment process",
+        "content": "Appointments and processing times shown here are examples for preview only.",
+        "priority": "NORMAL",
+        "category": "Demo Services",
+        "isPinned": false
+      },
+      {
+        "id": "announcement-3",
+        "title": "DEMO NOTICE: Sample community update",
+        "content": "This sample announcement is not an official notice.",
+        "priority": "NORMAL",
+        "category": "Demo Community",
+        "isPinned": false
+      }
+    ]
+  }
+}

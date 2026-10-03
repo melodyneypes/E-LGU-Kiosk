@@ -38,6 +38,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { submitBusinessAppointment } from "./actions";
 import PrintQueueTicket from "@/components/shared/PrintQueueTicket";
+import lguConfig from "@/lgu.config.json";
 import { calculateBusinessPermit } from "@/lib/business-permit";
 
 import SecureIdleTimer from "@/components/shared/SecureIdleTimer";
@@ -99,10 +100,7 @@ function FilePreview({ file, onClick }: { file: File; onClick?: () => void }) {
   );
 }
 
-const DEFAULT_BARANGAYS = [
-  "Amanoaoac", "Apaya", "Aserda", "Baloling", "Coral", "Golden", "Lanas",
-  "Nilombot", "Patland", "Pias", "Poblacion", "Primicias", "Santa Maria", "Torres", "Valenzuela"
-];
+const DEFAULT_BARANGAYS = lguConfig.barangays;
 
 const LINE_OF_BUSINESS_OPTIONS = [
   "Retail Store",
@@ -174,7 +172,7 @@ export function BusinessPermitAppointmentClient({
   const [printTriggered, setPrintTriggered] = useState(false);
 
   const branding = {
-    logo: "/logo.png",
+    logo: lguConfig.assets.logo,
     word1: "MUNICIPALITY",
     word2: "PORTAL"
   };

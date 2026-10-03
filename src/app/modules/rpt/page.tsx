@@ -42,6 +42,7 @@ import { toast } from "sonner";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { submitRptAppointment, fetchPropertyByTdnOrPin } from "./actions";
+import lguConfig from "@/lgu.config.json";
 
 type Step = "CATEGORY" | "PROPERTY" | "SCHEDULE" | "CONFIRM" | "SUCCESS";
 
@@ -52,11 +53,7 @@ const STEPS: { id: Step; label: string; icon: any }[] = [
     { id: "CONFIRM", label: "Submit", icon: CheckCircle2 },
 ];
 
-const DEFAULT_BARANGAYS = [
-    "Abalos", "Amis", "Amanperez", "Apaya", "Calaocan",
-    "Coral", "Golden", "Jimenez", "Nilombot", "Poblacion",
-    "Primicias", "Santa Barbara", "Torres", "Luyan"
-];
+const DEFAULT_BARANGAYS = lguConfig.barangays;
 
 interface RptAppointmentClientProps {
     resident?: any;
