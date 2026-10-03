@@ -27,6 +27,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import Link from "next/link";
 import QRCode from "qrcode";
 import { cn } from "@/lib/utils";
@@ -1530,49 +1531,54 @@ export default function BusinessPermitWizardPage() {
                                             <div className="space-y-2">
                                                 <Label className="text-[10px] font-black uppercase tracking-wider text-slate-500 italic">Organization Type <span className="text-rose-500 ml-0.5">*</span></Label>
                                                 <div className="relative">
-                                                    <select
-                                                        id="profile-orgType"
+                                                    <Select
                                                         value={formData.orgType}
-                                                        onChange={e => handleInputChange("orgType", e.target.value)}
+                                                        onValueChange={val => handleInputChange("orgType", val)}
                                                         disabled={isAutofilledFromPrevious}
-                                                        className={cn(
-                                                            "w-full appearance-none rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 pr-10 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all cursor-pointer shadow-sm hover:border-slate-300 dark:hover:border-white/20",
-                                                            showValidationErrors && !formData.orgType && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
-                                                            isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
-                                                        )}
                                                     >
-                                                        <option value="SOLE_PROPRIETORSHIP" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Sole Proprietorship</option>
-                                                        <option value="PARTNERSHIP" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Partnership</option>
-                                                        <option value="CORPORATION" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Corporation</option>
-                                                    </select>
-                                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                                        <ChevronDown className="w-4 h-4" />
-                                                    </div>
+                                                        <SelectTrigger
+                                                            id="profile-orgType"
+                                                            className={cn(
+                                                                "w-full rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all shadow-sm hover:border-slate-300 dark:hover:border-white/20",
+                                                                showValidationErrors && !formData.orgType && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
+                                                                isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
+                                                            )}
+                                                        >
+                                                            <SelectValue placeholder="Select Organization Type..." />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectItem value="SOLE_PROPRIETORSHIP" className="font-bold">Sole Proprietorship</SelectItem>
+                                                            <SelectItem value="PARTNERSHIP" className="font-bold">Partnership</SelectItem>
+                                                            <SelectItem value="CORPORATION" className="font-bold">Corporation</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
                                                 </div>
                                             </div>
 
                                             <div className="space-y-2">
                                                 <Label className="text-[10px] font-black uppercase tracking-wider text-slate-500 italic">Business Barangay Location <span className="text-rose-500 ml-0.5">*</span></Label>
                                                 <div className="relative">
-                                                    <select
-                                                        id="profile-barangay"
+                                                    <Select
                                                         value={formData.barangay}
-                                                        onChange={e => handleInputChange("barangay", e.target.value)}
+                                                        onValueChange={val => handleInputChange("barangay", val)}
                                                         disabled={isAutofilledFromPrevious}
-                                                        className={cn(
-                                                            "w-full appearance-none rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 pr-10 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all cursor-pointer shadow-sm hover:border-slate-300 dark:hover:border-white/20",
-                                                            showValidationErrors && !formData.barangay && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
-                                                            isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
-                                                        )}
                                                     >
-                                                        <option value="" disabled className="dark:bg-[#0c0d12] text-slate-400">Select Barangay...</option>
-                                                        {(dbBarangays.length > 0 ? dbBarangays : DEFAULT_BARANGAYS).map((b) => (
-                                                            <option key={b} value={b} className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">{b}</option>
-                                                        ))}
-                                                    </select>
-                                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                                        <ChevronDown className="w-4 h-4" />
-                                                    </div>
+                                                        <SelectTrigger
+                                                            id="profile-barangay"
+                                                            className={cn(
+                                                                "w-full rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all shadow-sm hover:border-slate-300 dark:hover:border-white/20",
+                                                                showValidationErrors && !formData.barangay && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
+                                                                isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
+                                                            )}
+                                                        >
+                                                            <SelectValue placeholder="Select Barangay..." />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            {(dbBarangays.length > 0 ? dbBarangays : DEFAULT_BARANGAYS).map((b) => (
+                                                                <SelectItem key={b} value={b} className="font-bold">{b}</SelectItem>
+                                                            ))}
+                                                        </SelectContent>
+                                                    </Select>
                                                 </div>
                                             </div>
 
@@ -1623,24 +1629,26 @@ export default function BusinessPermitWizardPage() {
                                                     </div>
                                                 ) : !isOtherLine ? (
                                                     <div className="relative">
-                                                        <select
-                                                            id="profile-lineOfBusiness-select"
+                                                        <Select
                                                             value={formData.lineOfBusiness || ""}
-                                                            onChange={e => handleLineOfBusinessSelect(e.target.value)}
-                                                            className={cn(
-                                                                "w-full appearance-none rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 pr-10 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all cursor-pointer shadow-sm hover:border-slate-300 dark:hover:border-white/20",
-                                                                showValidationErrors && !formData.lineOfBusiness && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50"
-                                                            )}
+                                                            onValueChange={val => handleLineOfBusinessSelect(val)}
                                                         >
-                                                            <option value="" disabled className="dark:bg-[#0c0d12] text-slate-400">Select Line of Business...</option>
-                                                            {LINE_OF_BUSINESS_OPTIONS.map((opt) => (
-                                                                <option key={opt} value={opt} className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">{opt}</option>
-                                                            ))}
-                                                            <option value="Other" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Other...</option>
-                                                        </select>
-                                                        <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                                            <ChevronDown className="w-4 h-4" />
-                                                        </div>
+                                                            <SelectTrigger
+                                                                id="profile-lineOfBusiness-select"
+                                                                className={cn(
+                                                                    "w-full rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all shadow-sm hover:border-slate-300 dark:hover:border-white/20",
+                                                                    showValidationErrors && !formData.lineOfBusiness && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50"
+                                                                )}
+                                                            >
+                                                                <SelectValue placeholder="Select Line of Business..." />
+                                                            </SelectTrigger>
+                                                            <SelectContent>
+                                                                {LINE_OF_BUSINESS_OPTIONS.map((opt) => (
+                                                                    <SelectItem key={opt} value={opt} className="font-bold">{opt}</SelectItem>
+                                                                ))}
+                                                                <SelectItem value="Other" className="font-bold">Other...</SelectItem>
+                                                            </SelectContent>
+                                                        </Select>
                                                     </div>
                                                 ) : (
                                                     <div className="relative animate-in fade-in zoom-in-95 duration-200">
@@ -1745,23 +1753,26 @@ export default function BusinessPermitWizardPage() {
                                             <div className="space-y-2">
                                                 <Label className="text-[10px] font-black uppercase tracking-wider text-slate-500 italic">Branch of Business <span className="text-rose-500 ml-0.5">*</span></Label>
                                                 <div className="relative">
-                                                    <select
-                                                        id="profile-businessBranch"
+                                                    <Select
                                                         value={formData.businessBranch}
-                                                        onChange={e => handleInputChange("businessBranch", e.target.value)}
+                                                        onValueChange={val => handleInputChange("businessBranch", val)}
                                                         disabled={isAutofilledFromPrevious}
-                                                        className={cn(
-                                                            "w-full appearance-none rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 pr-10 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all cursor-pointer shadow-sm hover:border-slate-300 dark:hover:border-white/20",
-                                                            showValidationErrors && !formData.businessBranch && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
-                                                            isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
-                                                        )}
                                                     >
-                                                        <option value="MAIN" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Main</option>
-                                                        <option value="BRANCH" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">Branch</option>
-                                                    </select>
-                                                    <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                                        <ChevronDown className="w-4 h-4" />
-                                                    </div>
+                                                        <SelectTrigger
+                                                            id="profile-businessBranch"
+                                                            className={cn(
+                                                                "w-full rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all shadow-sm hover:border-slate-300 dark:hover:border-white/20",
+                                                                showValidationErrors && !formData.businessBranch && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50",
+                                                                isAutofilledFromPrevious && "bg-primary/[0.03] dark:bg-primary/[0.02] border-primary/25 text-slate-500 dark:text-slate-400 cursor-not-allowed select-none"
+                                                            )}
+                                                        >
+                                                            <SelectValue placeholder="Select Branch..." />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectItem value="MAIN" className="font-bold">Main</SelectItem>
+                                                            <SelectItem value="BRANCH" className="font-bold">Branch</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
                                                 </div>
                                             </div>
 
@@ -1833,21 +1844,24 @@ export default function BusinessPermitWizardPage() {
                                                     <div className="space-y-2">
                                                         <Label className="text-[10px] font-black uppercase tracking-wider text-slate-500 italic">Registration Type <span className="text-rose-500 ml-0.5">*</span></Label>
                                                         <div className="relative">
-                                                            <select
+                                                            <Select
                                                                 value={formData.registrationType}
-                                                                onChange={e => handleInputChange("registrationType", e.target.value)}
-                                                                className={cn(
-                                                                    "w-full appearance-none rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 pr-10 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all cursor-pointer shadow-sm hover:border-slate-300 dark:hover:border-white/20",
-                                                                    showValidationErrors && !formData.registrationType && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50"
-                                                                )}
+                                                                onValueChange={val => handleInputChange("registrationType", val)}
                                                             >
-                                                                <option value="DTI" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">DTI</option>
-                                                                <option value="SEC" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">SEC</option>
-                                                                <option value="COA" className="dark:bg-[#0c0d12] text-slate-900 dark:text-white font-bold">COA</option>
-                                                            </select>
-                                                            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                                                                <ChevronDown className="w-4 h-4" />
-                                                            </div>
+                                                                <SelectTrigger
+                                                                    className={cn(
+                                                                        "w-full rounded-xl h-12 border border-slate-200 dark:border-white bg-white dark:bg-[#0c0d12]/50 px-4 text-xs md:text-sm font-bold text-slate-900 dark:text-white focus:outline-none transition-all shadow-sm hover:border-slate-300 dark:hover:border-white/20",
+                                                                        showValidationErrors && !formData.registrationType && "border-red-500 ring-2 ring-red-500/20 dark:border-red-500/50"
+                                                                    )}
+                                                                >
+                                                                    <SelectValue placeholder="Select Type..." />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    <SelectItem value="DTI" className="font-bold">DTI</SelectItem>
+                                                                    <SelectItem value="SEC" className="font-bold">SEC</SelectItem>
+                                                                    <SelectItem value="COA" className="font-bold">COA</SelectItem>
+                                                                </SelectContent>
+                                                            </Select>
                                                         </div>
                                                     </div>
 

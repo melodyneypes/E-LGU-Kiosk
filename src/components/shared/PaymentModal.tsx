@@ -5,6 +5,7 @@ import { Building2, Check, CreditCard, Loader2, QrCode, ShieldCheck, Truck, Wall
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
 import lguConfig from "@/lgu.config.json";
 
@@ -232,16 +233,16 @@ function SelectField({ label, value, onChange, options }: { label: string; value
   return (
     <div className="space-y-2">
       <Label className="ml-1 text-[9px] font-black italic uppercase tracking-widest text-slate-400">{label}</Label>
-      <select
-        value={value}
-        onChange={event => onChange(event.target.value)}
-        className="h-11 w-full rounded-xl border border-white/10 bg-black/20 px-3 text-sm font-bold italic text-white outline-none"
-      >
-        <option value="">Select barangay</option>
-        {options.map(option => (
-          <option key={option} value={option}>{option}</option>
-        ))}
-      </select>
+      <Select value={value} onValueChange={onChange}>
+        <SelectTrigger className="h-11 w-full rounded-xl border border-white/10 bg-black/20 px-3 text-sm font-bold italic text-white outline-none">
+          <SelectValue placeholder="Select barangay" />
+        </SelectTrigger>
+        <SelectContent className="max-h-[300px]">
+          {options.map(option => (
+            <SelectItem key={option} value={option}>{option}</SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 }

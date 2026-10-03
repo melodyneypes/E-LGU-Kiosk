@@ -1099,6 +1099,25 @@ function PSTClock() {
   );
 }
 
+function replaceHotlines(text: string | null | undefined, hotlines: HotlineItem[]): string {
+  if (!text) return "";
+  let result = text;
+
+  if (result.includes("{{DISASTER_RESPONSE_HOTLINE}}")) {
+    const disaster = hotlines.find(h => h.category.toLowerCase().includes("disaster") || h.category.toLowerCase().includes("rescue") || h.category.toLowerCase().includes("ambulance"));
+    const number = disaster ? (disaster.mobileNumber || disaster.telephone || "(000) 000-0000") : "Emergency Desk";
+    result = result.replace(/\{\{DISASTER_RESPONSE_HOTLINE\}\}/g, number);
+  }
+
+  if (result.includes("{{POLICE_HOTLINE}}")) {
+    const police = hotlines.find(h => h.category.toLowerCase().includes("police") || h.category.toLowerCase().includes("safety"));
+    const number = police ? (police.mobileNumber || police.telephone || "(000) 000-0000") : "Police Desk";
+    result = result.replace(/\{\{POLICE_HOTLINE\}\}/g, number);
+  }
+
+  return result;
+}
+
 // ────────── Main Kiosk Slideshow Component ──────────
 export default function KioskSlideshow() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -1160,6 +1179,24 @@ export default function KioskSlideshow() {
     }, 100);
     return () => clearInterval(pTimer);
   }, [currentSlide]);
+
+  const processedNews = useMemo(() => {
+    if (!feed?.newsList) return [];
+    return feed.newsList.map((item) => ({
+      ...item,
+      title: replaceHotlines(item.title, feed.hotlines || []),
+      content: replaceHotlines(item.content, feed.hotlines || []),
+    }));
+  }, [feed]);
+
+  const processedAnnouncements = useMemo(() => {
+    if (!feed?.announcements) return [];
+    return feed.announcements.map((item) => ({
+      ...item,
+      title: replaceHotlines(item.title, feed.hotlines || []),
+      content: replaceHotlines(item.content, feed.hotlines || []),
+    }));
+  }, [feed]);
 
   return (
     <div className="kiosk-screen relative w-screen h-screen flex flex-col bg-[#050816] text-white overflow-hidden select-none">
@@ -1262,12 +1299,12 @@ export default function KioskSlideshow() {
 
         {/* Slide 4: Latest Municipal News & Press Releases */}
         <div className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === 4 ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"}`}>
-          <NewsSlideView news={feed?.newsList || []} />
+          <NewsSlideView news={processedNews.length > 0 ? processedNews : []} />
         </div>
 
         {/* Slide 5: Official Public Advisories & Circulars */}
         <div className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === 5 ? "opacity-100 z-10 pointer-events-auto" : "opacity-0 z-0 pointer-events-none"}`}>
-          <NoticesSlideView announcements={feed?.announcements || []} />
+          <NoticesSlideView announcements={processedAnnouncements.length > 0 ? processedAnnouncements : []} />
         </div>
 
         {/* Slide 6: Emergency Hotlines & Dispatch */}

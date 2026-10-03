@@ -38,6 +38,7 @@ import DocumentViewerModal from "@/components/shared/DocumentViewerModal";
 import SchedulePicker from "@/components/shared/SchedulePicker";
 import PrintQueueTicket from "@/components/shared/PrintQueueTicket";
 import { Separator } from "@/components/ui/separator";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -681,22 +682,27 @@ export default function RptAppointmentPage() {
                                                             <Label className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 italic">
                                                                 Barangay Location <span className="text-red-500">*</span>
                                                             </Label>
-                                                            <select
+                                                            <Select
                                                                 value={barangay}
-                                                                onChange={(e) => {
-                                                                    setBarangay(e.target.value);
+                                                                onValueChange={(val) => {
+                                                                    setBarangay(val);
                                                                     if (errors.barangay) setErrors(prev => ({ ...prev, barangay: "" }));
                                                                 }}
-                                                                className={cn(
-                                                                    "w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-2xl h-11 md:h-14 px-4 font-medium text-sm text-slate-800 dark:text-slate-200",
-                                                                    errors.barangay && "border-red-500 focus-visible:ring-red-500"
-                                                                )}
                                                             >
-                                                                <option value="" disabled>Select Barangay</option>
-                                                                {barangayList.map((b) => (
-                                                                    <option key={b} value={b} className="bg-slate-900 text-white">{b}</option>
-                                                                ))}
-                                                            </select>
+                                                                <SelectTrigger
+                                                                    className={cn(
+                                                                        "w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-2xl h-11 md:h-14 px-4 font-medium text-sm text-slate-800 dark:text-slate-200",
+                                                                        errors.barangay && "border-red-500 focus-visible:ring-red-500"
+                                                                    )}
+                                                                >
+                                                                    <SelectValue placeholder="Select Barangay" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    {barangayList.map((b) => (
+                                                                        <SelectItem key={b} value={b}>{b}</SelectItem>
+                                                                    ))}
+                                                                </SelectContent>
+                                                            </Select>
                                                             {errors.barangay && (
                                                                 <p className="text-[10px] text-red-500 font-medium">{errors.barangay}</p>
                                                             )}
@@ -707,23 +713,28 @@ export default function RptAppointmentPage() {
                                                             <Label className="text-[10px] md:text-xs font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 italic">
                                                                 Classification <span className="text-red-500">*</span>
                                                             </Label>
-                                                            <select
+                                                            <Select
                                                                 value={propertyType}
-                                                                onChange={(e) => {
-                                                                    setPropertyType(e.target.value);
+                                                                onValueChange={(val) => {
+                                                                    setPropertyType(val);
                                                                     if (errors.propertyType) setErrors(prev => ({ ...prev, propertyType: "" }));
                                                                 }}
-                                                                className={cn(
-                                                                    "w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-2xl h-11 md:h-14 px-4 font-medium text-sm text-slate-800 dark:text-slate-200",
-                                                                    errors.propertyType && "border-red-500 focus-visible:ring-red-500"
-                                                                )}
                                                             >
-                                                                <option value="" disabled>Select Classification</option>
-                                                                <option value="RESIDENTIAL" className="bg-slate-900 text-white">Residential Property</option>
-                                                                <option value="COMMERCIAL" className="bg-slate-900 text-white">Commercial Property</option>
-                                                                <option value="INDUSTRIAL" className="bg-slate-900 text-white">Industrial Property</option>
-                                                                <option value="AGRICULTURAL" className="bg-slate-900 text-white">Agricultural Property</option>
-                                                            </select>
+                                                                <SelectTrigger
+                                                                    className={cn(
+                                                                        "w-full bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-xl md:rounded-2xl h-11 md:h-14 px-4 font-medium text-sm text-slate-800 dark:text-slate-200",
+                                                                        errors.propertyType && "border-red-500 focus-visible:ring-red-500"
+                                                                    )}
+                                                                >
+                                                                    <SelectValue placeholder="Select Classification" />
+                                                                </SelectTrigger>
+                                                                <SelectContent>
+                                                                    <SelectItem value="RESIDENTIAL">Residential Property</SelectItem>
+                                                                    <SelectItem value="COMMERCIAL">Commercial Property</SelectItem>
+                                                                    <SelectItem value="INDUSTRIAL">Industrial Property</SelectItem>
+                                                                    <SelectItem value="AGRICULTURAL">Agricultural Property</SelectItem>
+                                                                </SelectContent>
+                                                            </Select>
                                                             {errors.propertyType && (
                                                                 <p className="text-[10px] text-red-500 font-medium">{errors.propertyType}</p>
                                                             )}
