@@ -150,7 +150,7 @@ export default function RptAppointmentPage() {
             } catch (error) {
                 console.error("Polling error", error);
             }
-        }, 2500);
+        }, 800);
         return () => window.clearInterval(poll);
     }, [handoffToken, handoffSessionSlot]);
 

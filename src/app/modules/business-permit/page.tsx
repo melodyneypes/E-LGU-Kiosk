@@ -341,7 +341,7 @@ export default function BusinessPermitWizardPage() {
             } catch (error) {
                 console.error("Business Permit upload handoff polling error:", error);
             }
-        }, 5000);
+        }, 800);
         return () => {
             cancelled = true;
             clearInterval(interval);

@@ -293,7 +293,7 @@ export default function OccupancyPermitPage() {
       } catch (error) {
         console.error("Upload handoff polling error:", error);
       }
-    }, 2500);
+    }, 800);
     return () => window.clearInterval(poll);
   }, [effectiveDocuments, handoffToken, uploadedRequirements]);
 

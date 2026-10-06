@@ -249,7 +249,7 @@ export default function MarriagePsaEndorsementPage() {
             } catch (error) {
                 console.error("Poller error:", error);
             }
-        }, 2500);
+        }, 800);
         return () => window.clearInterval(poll);
     }, [handoffToken, handoffSessionSlot, previews]);
 

@@ -127,17 +127,82 @@ export default function UploadHandoffPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.token]);
 
+  function compressImage(file: File): Promise<File> {
+    return new Promise((resolve) => {
+      if (!["image/jpeg", "image/png", "image/webp"].includes(file.type)) {
+        return resolve(file);
+      }
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const MAX_DIM = 1920;
+          let width = img.width;
+          let height = img.height;
+          if (width > MAX_DIM || height > MAX_DIM) {
+            if (width > height) {
+              height = Math.round((height * MAX_DIM) / width);
+              width = MAX_DIM;
+            } else {
+              width = Math.round((width * MAX_DIM) / height);
+              height = MAX_DIM;
+            }
+          }
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) return resolve(file);
+          ctx.drawImage(img, 0, 0, width, height);
+          canvas.toBlob(
+            (blob) => {
+              if (!blob || blob.size >= file.size) {
+                return resolve(file);
+              }
+              const compressed = new File([blob], file.name.replace(/\.[^/.]+$/, ".jpg"), {
+                type: "image/jpeg",
+                lastModified: Date.now(),
+              });
+              resolve(compressed);
+            },
+            "image/jpeg",
+            0.85
+          );
+        };
+        img.onerror = () => resolve(file);
+        img.src = e.target?.result as string;
+      };
+      reader.onerror = () => resolve(file);
+      reader.readAsDataURL(file);
+    });
+  }
+
   async function upload(slot: string, file: File) {
     setUploadingSlot(slot);
     setMessage("");
-    const body = new FormData();
-    body.append("slot", slot);
-    body.append("file", file);
-    const response = await fetch(endpoint, { method: "POST", body });
-    const result = await response.json();
-    if (!response.ok) setMessage(result.error || "Upload failed.");
-    else await refresh();
-    setUploadingSlot("");
+    try {
+      let fileToUpload = file;
+      if (file.type.startsWith("image/") && file.size > 500 * 1024) {
+        fileToUpload = await compressImage(file);
+      }
+      const body = new FormData();
+      body.append("slot", slot);
+      body.append("file", fileToUpload);
+      const response = await fetch(endpoint, { method: "POST", body });
+      const result = await response.json();
+      if (!response.ok) {
+        setMessage(result.error || "Upload failed.");
+      } else if (result.file) {
+        setUploaded(prev => ({ ...prev, [slot]: result.file }));
+      } else {
+        await refresh();
+      }
+    } catch (err) {
+      console.error(err);
+      setMessage("An unexpected error occurred during upload.");
+    } finally {
+      setUploadingSlot("");
+    }
   }
 
   const slots = (sessionSlot === "documents" || sessionSlot === "occupancy_documents")
@@ -225,12 +290,25 @@ export default function UploadHandoffPage() {
                           <span className="ml-2 text-[9px] font-black uppercase tracking-widest text-slate-400">Optional</span>
                         )}
                       </p>
-                      <p className="truncate text-xs text-slate-400">
-                        {uploadingSlot === item.slot ? "Scanning..." : file?.fileName || "Tap to choose file"}
-                      </p>
+                      <div className="truncate text-xs text-slate-400">
+                        {uploadingSlot === item.slot ? (
+                          <span className="inline-flex items-center gap-1.5 text-blue-600 font-bold animate-pulse">
+                            <span className="inline-block h-2.5 w-2.5 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+                            Uploading & Verifying...
+                          </span>
+                        ) : file ? (
+                          <span className="text-emerald-700 font-medium truncate flex items-center gap-1">
+                            <span>✓ Ready:</span> {file.fileName}
+                          </span>
+                        ) : (
+                          "Tap to choose file"
+                        )}
+                      </div>
                     </div>
-                    <span className="rounded-full bg-theme-primary px-3 py-2 text-[10px] font-black uppercase text-white">
-                      {file ? "Re-upload" : "Upload"}
+                    <span className={`rounded-full px-3 py-2 text-[10px] font-black uppercase text-white transition-all ${
+                      uploadingSlot === item.slot ? "bg-blue-500 animate-pulse" : file ? "bg-emerald-600" : "bg-theme-primary"
+                    }`}>
+                      {uploadingSlot === item.slot ? "Uploading" : file ? "Re-upload" : "Upload"}
                     </span>
                     <input
                       type="file"

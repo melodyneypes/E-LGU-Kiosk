@@ -279,7 +279,7 @@ export default function BirthCertificatePage() {
       } catch (error) {
         console.error("Upload handoff polling error:", error);
       }
-    }, 2500);
+    }, 800);
     return () => window.clearInterval(poll);
   }, [handoffToken, idFrontHandoffUrl, idBackHandoffUrl]);
 

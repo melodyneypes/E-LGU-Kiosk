@@ -78,24 +78,39 @@ export async function POST(request: NextRequest, context: RouteContext) {
       return NextResponse.json({ error: "File extension and content do not match." }, { status: 400 });
     }
     await scanWithClamAv(buffer);
-
     const folder = getHandoffStoragePrefix(payload);
-    const existing = await supabaseAdmin.storage.from(BUCKET).list(folder, { limit: 30 });
-    const previous = existing.data?.filter((item: { name: string }) => item.name.startsWith(`${uploadSlot}--`)) || [];
-    if (previous.length) {
-      await supabaseAdmin.storage.from(BUCKET).remove(previous.map((item: { name: string }) => `${folder}/${item.name}`));
-    }
-
     const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "_").slice(-100);
     const path = `${folder}/${uploadSlot}--${safeName || `document.${signature.extension}`}`;
     const { error } = await supabaseAdmin.storage.from(BUCKET).upload(path, buffer, {
       contentType: signature.mime,
-      upsert: false,
+      upsert: true,
       cacheControl: "private, no-store",
     });
     if (error) throw error;
 
-    return NextResponse.json({ success: true, slot: uploadSlot, message: "File passed malware scanning and was uploaded." });
+    // Asynchronously prune stale files for the same slot with differing filenames
+    try {
+      const existing = await supabaseAdmin.storage.from(BUCKET).list(folder, { limit: 30 });
+      const previous = existing.data?.filter((item: { name: string }) => item.name.startsWith(`${uploadSlot}--`) && `${folder}/${item.name}` !== path) || [];
+      if (previous.length) {
+        await supabaseAdmin.storage.from(BUCKET).remove(previous.map((item: { name: string }) => `${folder}/${item.name}`));
+      }
+    } catch {
+      // Non-blocking cleanup
+    }
+
+    const { data: publicData } = supabaseAdmin.storage.from(BUCKET).getPublicUrl(path);
+
+    return NextResponse.json({
+      success: true,
+      slot: uploadSlot,
+      message: "File verified and uploaded successfully.",
+      file: {
+        slot: uploadSlot,
+        fileName: file.name,
+        url: publicData.publicUrl,
+      },
+    });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Secure upload failed.";
     console.error("Secure handoff upload error:", error);

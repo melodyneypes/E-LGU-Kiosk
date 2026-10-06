@@ -574,7 +574,7 @@ export default function BuildingPermitPage() {
       } catch (error) {
         console.error("Upload handoff polling error:", error);
       }
-    }, 2500);
+    }, 800);
     return () => window.clearInterval(poll);
   // toast is intentionally omitted because it is recreated by the legacy page on each render.
   // eslint-disable-next-line react-hooks/exhaustive-deps

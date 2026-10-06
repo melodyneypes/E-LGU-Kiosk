@@ -239,7 +239,7 @@ export default function DeathPsaEndorsementPage() {
             } catch (error) {
                 console.error("Poller error:", error);
             }
-        }, 2500);
+        }, 800);
         return () => window.clearInterval(poll);
     }, [handoffToken, handoffSessionSlot, previews]);
 
