@@ -143,9 +143,9 @@ export async function GET(req: NextRequest) {
         barangay: resident.barangay,
         email: resident.email,
         role: role,
-        hasFaceAuth: !!facialRecognitionObject,
-        faceAuthSource: facialRecognitionObject?.mode || null,
-        faceReferenceUrl: facialRecognitionObject?.referenceImageUrl || facialRecognitionObject?.selfieUrl || null,
+        hasFaceAuth: Boolean(facialRecognitionObject || resident.imageUrl || resident.livenessUrl),
+        faceAuthSource: facialRecognitionObject?.mode || (resident.imageUrl ? "reference_image" : null),
+        faceReferenceUrl: facialRecognitionObject?.referenceImageUrl || facialRecognitionObject?.selfieUrl || resident.imageUrl || resident.livenessUrl || null,
         facialRecognition,
       },
     });

@@ -184,7 +184,7 @@ export default function BirthRegistrationPage() {
     const [existingRequests, setExistingRequests] = useState<any[]>([]);
     const [selectedApplication, setSelectedApplication] = useState<any>(null);
     const [mounted, setMounted] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const [themeColor, setThemeColor] = useState("var(--primary-theme)");
 
@@ -1221,13 +1221,7 @@ export default function BirthRegistrationPage() {
         }
     };
 
-    if (loading) {
-        return (
-            <div className="flex h-full items-center justify-center">
-                <Loader2 className="h-10 w-10 animate-spin text-theme-primary" />
-            </div>
-        );
-    }
+
 
     return (
         <div className="h-full overflow-y-auto bg-slate-50 dark:bg-[#09090b] font-sans text-slate-900 dark:text-white">

@@ -102,7 +102,7 @@ async function uploadFileClientSide(file: File, fieldName: string, userId: strin
 
 export default function DeathRegistrationPage() {
     const router = useRouter();
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [userId, setUserId] = useState<string>("");
     const [resident, setResident] = useState<any>(null);
     const [existingRequests, setExistingRequests] = useState<any[]>([]);
@@ -748,16 +748,7 @@ export default function DeathRegistrationPage() {
         ];
     };
 
-    if (loading) {
-        return (
-            <div className="flex h-full items-center justify-center bg-slate-50 dark:bg-slate-950">
-                <div className="text-center space-y-4">
-                    <div className="w-12 h-12 border-4 border-theme-primary border-t-transparent rounded-full animate-spin mx-auto" />
-                    <p className="text-xs font-bold uppercase tracking-widest text-slate-500">Loading Death Registration Portal...</p>
-                </div>
-            </div>
-        );
-    }
+
 
     const stepIndex = STEPS.findIndex(s => s.id === currentStep);
 

@@ -100,7 +100,7 @@ export default function MarriageCertificateRequestPage() {
   const [existingRequests, setExistingRequests] = useState<any[]>([]);
   const [selectedApplication, setSelectedApplication] = useState<any>(null);
   const [residentData, setResidentData] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [typeId, setTypeId] = useState<string>("");
   const [dbBaseFee, setDbBaseFee] = useState<number>(150);
@@ -854,15 +854,6 @@ export default function MarriageCertificateRequestPage() {
   const handlePrintReceipt = () => {
     window.print();
   };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950">
-        <Loader2 className="w-10 h-10 animate-spin mb-4" style={{ color: "var(--primary-theme)" }} />
-        <p className="font-black uppercase tracking-widest text-[10px] text-slate-700 dark:text-slate-400 italic">Syncing Registry Matrix...</p>
-      </div>
-    );
-  }
 
   return (
     <div ref={pageScrollRef} className="h-full overflow-y-auto px-4 py-8 md:px-12 md:py-12 bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-white">

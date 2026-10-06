@@ -345,7 +345,7 @@ export default function BuildingPermitPage() {
   const [existingApplications, setExistingApplications] = useState<any[]>([]);
   const [selectedApplication, setSelectedApplication] = useState<any>(null);
   const [residentData, setResidentData] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isRevision, setIsRevision] = useState(false);
   const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);

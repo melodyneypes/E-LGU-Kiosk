@@ -227,6 +227,22 @@ export default function FaceVerification({
           return;
         }
 
+        const targetUrl = referenceImageUrl || recognition?.referenceImageUrl || recognition?.selfieUrl;
+        if (targetUrl) {
+          try {
+            const img = await faceapi.fetchImage(targetUrl);
+            const detected = await detectReferenceFace(img);
+            if (detected && !cancelled) {
+              setReferenceDescriptor(detected.descriptor);
+              setReferenceLabel(residentName || "Resident");
+              setReferenceReady(true);
+              return;
+            }
+          } catch (fetchErr) {
+            console.error("Could not extract face descriptor from image:", fetchErr);
+          }
+        }
+
         if (!cancelled) {
           setError("No facial embedding/descriptor is available for this resident in the database. Please re-enroll their face.");
           setReferenceReady(false);

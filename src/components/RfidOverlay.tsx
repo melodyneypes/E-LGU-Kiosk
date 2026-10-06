@@ -324,27 +324,27 @@ export default function RfidOverlay() {
               <h2 className="text-3xl font-black text-white mb-2">Welcome Back, {resident.firstName}!</h2>
               <p className="text-white/40 mb-10">Select the service you wish to access today.</p>
 
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="w-full max-w-md mx-auto">
                 <button 
                   onClick={() => goToDashboard("municipal")}
-                  className="group relative h-48 overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-blue-800 p-6 text-left shadow-lg transition-transform hover:scale-[1.02]"
+                  className="group relative w-full h-44 overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-sky-600 to-blue-800 p-6 text-left shadow-2xl transition-transform hover:scale-[1.02] active:scale-[0.98] border border-sky-400/30"
                 >
                   <div className="absolute right-[-10px] top-[-10px] opacity-10 transition-transform group-hover:scale-110">
-                    <svg className="h-32 w-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v1h20V7L12 2zm0 18H2v-1h20v1h-10zM12 8c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2z" /></svg>
+                    <svg className="h-36 w-36" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7v1h20V7L12 2zm0 18H2v-1h20v1h-10zM12 8c1.1 0 2 .9 2 2v6c0 1.1-.9 2-2 2s-2-.9-2-2v-6c0-1.1.9-2 2-2z" /></svg>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Municipal<br/>Services</h3>
-                  <p className="mt-2 text-sm text-white/70">Permits, taxes, and town hall records.</p>
-                </button>
-
-                <button 
-                  onClick={() => goToDashboard("barangay")}
-                  className="group relative h-48 overflow-hidden rounded-2xl bg-gradient-to-br from-theme-secondary to-theme-primary p-6 text-left shadow-lg transition-transform hover:scale-[1.02]"
-                >
-                   <div className="absolute right-[-10px] top-[-10px] opacity-10 transition-transform group-hover:scale-110">
-                    <svg className="h-32 w-32" fill="currentColor" viewBox="0 0 24 24"><path d="M12 11.5A2.5 2.5 0 0114.5 14a2.5 2.5 0 01-2.5 2.5A2.5 2.5 0 019.5 14a2.5 2.5 0 012.5-2.5M12 2L3 7v6h2v6h14v-6h2V7L12 2z" /></svg>
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    <div>
+                      <span className="text-[10px] font-black uppercase tracking-[0.25em] text-sky-200 bg-sky-900/60 px-3 py-1 rounded-full border border-sky-300/20">
+                        Citizen Services Portal
+                      </span>
+                      <h3 className="text-2xl font-black text-white mt-2">Municipal Services</h3>
+                      <p className="mt-1 text-xs text-sky-100/80">Permits, taxes, civil registry, and municipal requests.</p>
+                    </div>
+                    <div className="flex items-center text-xs font-bold text-white uppercase tracking-wider gap-2">
+                      <span>Proceed to Services</span>
+                      <span>→</span>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-white">Barangay<br/>Services</h3>
-                  <p className="mt-2 text-sm text-white/70">Clearances, indigent certs, and local news.</p>
                 </button>
               </div>
             </div>

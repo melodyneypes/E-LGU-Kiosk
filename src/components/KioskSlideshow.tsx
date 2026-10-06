@@ -606,20 +606,18 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
     }
   }
   const displayNews = combinedNews.length > 0 ? combinedNews : DEFAULT_NEWS;
-  const leadArticle = displayNews[0];
-  const sideArticles = displayNews.slice(1, 3);
 
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-5 sm:p-7 md:p-10 lg:p-12 overflow-y-auto lg:overflow-hidden bg-gradient-to-br from-[#06142e] via-[#050816] to-[#0f1f38]">
+    <div className="relative w-full h-full flex flex-col justify-between p-4 sm:p-6 md:p-8 lg:p-10 overflow-hidden bg-gradient-to-br from-[#06142e] via-[#050816] to-[#0f1f38]">
       {/* Dynamic Background Glow Accent */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header */}
-      <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-4 md:pb-5 gap-2 flex-shrink-0 min-w-0">
+      <div className="relative z-10 flex flex-col sm:flex-row sm:items-end justify-between border-b border-white/10 pb-3 md:pb-4 gap-2 flex-shrink-0 min-w-0">
         <div className="min-w-0">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[10px] sm:text-[11px] font-black uppercase tracking-widest mb-1.5 shadow-lg shadow-blue-500/10">
-            <Newspaper className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-[10px] sm:text-[11px] font-black uppercase tracking-widest mb-1 shadow-lg shadow-blue-500/10">
+            <Newspaper className="w-3.5 h-3.5 text-blue-400" />
             Public Information & Press Releases
           </div>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-snug">
@@ -635,110 +633,54 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
         </div>
       </div>
 
-      {/* Main News Showcase (Full-height Flex Grid) */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 my-0 lg:my-auto py-3 flex-none lg:flex-1 lg:min-h-0 items-stretch">
-        {/* Left: Featured Lead Story (7 cols) */}
-        {leadArticle ? (
-          <div className="lg:col-span-7 flex min-w-0 flex-col rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-blue-500/30 shadow-2xl shadow-blue-950/40 backdrop-blur-xl overflow-hidden group">
-            {/* Lead Image Banner */}
-            <div className="relative h-40 sm:h-56 md:h-64 w-full bg-slate-950 overflow-hidden flex-shrink-0">
-              {leadArticle.imageUrl ? (
-                <Image
-                  src={leadArticle.imageUrl}
-                  alt={leadArticle.title}
-                  fill
-                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  unoptimized
-                />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-950 via-slate-900 to-slate-950 text-blue-400">
-                  <Newspaper className="w-16 h-16 opacity-30" />
-                </div>
-              )}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
-              
-              {/* Floating Meta Badges */}
-              <div className="absolute top-3 left-3 right-3 flex flex-wrap items-center gap-2">
-                <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-blue-600 text-white shadow-lg shadow-blue-950/50">
-                  ★ Lead Story
-                </span>
-                <span className="px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-slate-950/80 backdrop-blur-md border border-white/20 text-blue-300">
-                  {leadArticle.category}
-                </span>
-              </div>
-              <div className="absolute bottom-3 left-3 right-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-300">
-                <Calendar className="w-3.5 h-3.5 text-blue-400" />
-                <span>
-                  {new Date(leadArticle.publishDate).toLocaleDateString("en-PH", {
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </span>
-                {leadArticle.author && (
-                  <>
-                    <span>•</span>
-                    <span className="text-slate-400">{leadArticle.author}</span>
-                  </>
-                )}
-              </div>
-            </div>
-
-            {/* Lead Body Content */}
-            <div className="min-w-0 p-4 sm:p-6 flex-none lg:flex-1 flex flex-col justify-between overflow-visible lg:overflow-y-auto">
-              <div className="min-w-0">
-                <h3 className="break-words text-base sm:text-xl md:text-2xl font-black text-white leading-snug tracking-tight mb-2.5 group-hover:text-blue-200 transition-colors">
-                  {leadArticle.title}
-                </h3>
-                <p className="break-words text-xs sm:text-sm text-slate-300/90 leading-relaxed line-clamp-3 sm:line-clamp-4">
-                  {leadArticle.content}
-                </p>
-              </div>
-
-              <div className="mt-4 pt-3 sm:pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 text-xs text-slate-400">
-                <span className="font-semibold text-blue-400">
-                  Official Public Release
-                </span>
-                <span className="break-words">Verified by Public Information Office</span>
-              </div>
-            </div>
-          </div>
-        ) : null}
-
-        {/* Right: Secondary Stories Stack (5 cols) */}
-        <div className="lg:col-span-5 flex flex-col gap-4 justify-between">
-          {sideArticles.map((item, idx) => (
+      {/* Main News Showcase (3-Column Balanced Magazine Grid) */}
+      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 my-auto py-2 flex-1 min-h-0 items-stretch">
+        {displayNews.slice(0, 3).map((item, idx) => {
+          const isLead = idx === 0;
+          return (
             <div
               key={item.id || idx}
-              className="min-w-0 flex-none lg:flex-1 flex flex-col rounded-2xl bg-gradient-to-b from-slate-900/80 to-slate-950/80 border border-white/10 hover:border-blue-500/30 backdrop-blur-md overflow-hidden shadow-lg transition-all duration-300"
+              className={`min-w-0 flex flex-col rounded-2xl backdrop-blur-xl overflow-hidden transition-all duration-300 group shadow-2xl ${
+                isLead
+                  ? "bg-gradient-to-b from-blue-950/50 via-slate-900/90 to-slate-950/95 border-2 border-sky-400/50 shadow-blue-950/60 ring-1 ring-sky-400/20"
+                  : "bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-white/10 hover:border-sky-500/30 shadow-slate-950/50"
+              }`}
             >
-              {/* Top Banner Cover Image (Matching Left Card Style) */}
-              <div className="relative h-28 sm:h-32 w-full bg-slate-950 overflow-hidden flex-shrink-0">
+              {/* Photo Banner */}
+              <div className="relative h-44 sm:h-48 md:h-52 lg:h-56 w-full bg-slate-950 overflow-hidden flex-shrink-0">
                 {item.imageUrl ? (
                   <Image
                     src={item.imageUrl}
                     alt={item.title}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                     unoptimized
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-950/60 via-slate-900 to-slate-950 text-blue-400">
-                    <Newspaper className="w-10 h-10 opacity-30" />
+                    <Newspaper className="w-12 h-12 opacity-30" />
                   </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent" />
 
-                {/* Floating Category & Date Badges on Banner */}
-                <div className="absolute top-2.5 left-3 right-3 flex flex-wrap items-center gap-2">
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-blue-500/30 backdrop-blur-md border border-blue-400/40 text-blue-200">
-                    {item.category}
-                  </span>
+                {/* Top Floating Badges */}
+                <div className="absolute top-2.5 left-3 right-3 flex flex-wrap items-center justify-between gap-2">
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {isLead && (
+                      <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-blue-600 text-white shadow-md shadow-blue-950/50">
+                        ★ Lead Story
+                      </span>
+                    )}
+                    <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-950/80 backdrop-blur-md border border-white/20 text-blue-200">
+                      {item.category}
+                    </span>
+                  </div>
                 </div>
 
-                <div className="absolute bottom-2 left-3 flex items-center gap-1.5 text-[11px] text-slate-300">
-                  <Calendar className="w-3 h-3 text-blue-400" />
-                  <span>
+                {/* Bottom Floating Date */}
+                <div className="absolute bottom-2.5 left-3 right-3 flex items-center gap-1.5 text-xs text-slate-300">
+                  <Calendar className="w-3.5 h-3.5 text-sky-400 flex-shrink-0" />
+                  <span className="font-medium">
                     {new Date(item.publishDate).toLocaleDateString("en-PH", {
                       month: "short",
                       day: "numeric",
@@ -749,31 +691,37 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
               </div>
 
               {/* Card Body */}
-              <div className="min-w-0 p-4 flex-none lg:flex-1 flex flex-col justify-between overflow-visible lg:overflow-y-auto">
+              <div className="min-w-0 p-4 sm:p-5 flex-1 flex flex-col justify-between">
                 <div className="min-w-0">
-                  <h4 className="break-words text-sm sm:text-base font-bold text-white leading-snug mb-1.5 line-clamp-2">
+                  <h3
+                    className={`break-words font-black text-white leading-snug mb-2 group-hover:text-sky-300 transition-colors ${
+                      isLead ? "text-base sm:text-lg lg:text-xl" : "text-sm sm:text-base lg:text-lg"
+                    } line-clamp-2`}
+                  >
                     {item.title}
-                  </h4>
-                  <p className="break-words text-xs text-slate-300/90 leading-relaxed line-clamp-3">
+                  </h3>
+                  <p className="break-words text-xs sm:text-sm text-slate-300/90 leading-relaxed line-clamp-3 sm:line-clamp-4">
                     {item.content}
                   </p>
                 </div>
 
-                {/* Clean Non-Clickable Metadata Footer */}
-                <div className="mt-3 pt-2.5 border-t border-white/5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] text-slate-400">
-                  <span className="break-words">{item.author || "Municipal Press Office"}</span>
-                  <span className="text-blue-400/90 font-medium break-words">
-                    Verified Press Release
+                {/* Metadata & Verification Footer */}
+                <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between gap-2 text-[11px] sm:text-xs text-slate-400">
+                  <span className="truncate font-semibold text-sky-400/90">
+                    {item.author || "Municipal Press Office"}
+                  </span>
+                  <span className="text-slate-400/90 flex-shrink-0">
+                    {isLead ? "Official Release" : "Verified Press"}
                   </span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
 
       {/* Footer Meta */}
-      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-xs text-slate-400 pt-3 border-t border-white/10 flex-shrink-0">
+      <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 text-[11px] sm:text-xs text-slate-400 pt-2.5 border-t border-white/10 flex-shrink-0">
         <span className="break-words">Information & Communications Technology Office (ICTO)</span>
         <span className="font-semibold text-blue-400">Official Municipal Gazette & Press Feed</span>
       </div>

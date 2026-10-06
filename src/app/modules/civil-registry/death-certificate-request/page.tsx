@@ -195,7 +195,7 @@ export default function DeathCertificatePage() {
     const [selectedApplication, setSelectedApplication] = useState<any>(null);
     const [residentData, setResidentData] = useState<any>(null);
     const [barangaysList, setBarangaysList] = useState<string[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isUploadingId, setIsUploadingId] = useState(false);
     const [dbBaseFee, setDbBaseFee] = useState<number>(100);
@@ -705,13 +705,6 @@ export default function DeathCertificatePage() {
         window.print();
     };
 
-    if (loading) {
-        return (
-            <div className="flex h-[80vh] flex-col items-center justify-center gap-6">
-                <LoaderComponent />
-            </div>
-        );
-    }
 
     return (
         <div ref={pageScrollRef} className="h-full overflow-y-auto px-4 py-8 md:px-12 md:py-12 bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-white">

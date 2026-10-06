@@ -72,7 +72,7 @@ export default function AppointmentDeathCertifiedTrueCopyPage() {
     const [userId, setUserId] = useState<string>("");
     const [currentStep, setCurrentStep] = useState<Step>("INFORMANT");
     const [mounted, setMounted] = useState(false);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const [themeColor, setThemeColor] = useState("var(--primary-theme)");
     const [appointmentConfig, setAppointmentConfig] = useState<any>(null);
@@ -510,14 +510,6 @@ export default function AppointmentDeathCertifiedTrueCopyPage() {
         }
     };
 
-    if (loading) {
-        return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950">
-                <Loader2 className="w-10 h-10 animate-spin mb-4" style={{ color: "var(--primary-theme)" }} />
-                <p className="font-black uppercase tracking-widest text-[10px] text-slate-400 italic">Initializing Appointment Form...</p>
-            </div>
-        );
-    }
 
     return (
         <>

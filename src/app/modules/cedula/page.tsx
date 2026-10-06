@@ -60,7 +60,7 @@ export default function CedulaPage() {
   const [residentData, setResidentData] = useState<any>(null);
   const [existingApplications, setExistingApplications] = useState<any[]>([]);
   const [selectedApplication, setSelectedApplication] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // QR Handoff states
@@ -122,6 +122,7 @@ export default function CedulaPage() {
         }
 
         const resident = JSON.parse(savedResident);
+        setResidentData(resident);
         const userId = resident.userId || resident.id;
 
         // Fetch types, existing applications, and settings
@@ -519,17 +520,7 @@ export default function CedulaPage() {
     }
   };
 
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#f8fafc] gap-6">
-        <div className="w-20 h-20 border-8 border-slate-100 border-t-theme-primary rounded-full animate-spin"></div>
-        <div className="text-center">
-          <p className="text-theme-primary font-black text-xs uppercase tracking-[0.4em] animate-pulse">Initializing Portal</p>
-          <p className="text-slate-400 text-[10px] font-bold uppercase mt-2">Connecting to municipal database</p>
-        </div>
-      </div>
-    );
-  }
+
 
   const hasActiveIndividual = existingApplications.some(app => 
     (app.type?.code === "CEDULA_IND" || app.isStudent) &&

@@ -129,7 +129,7 @@ const BARANGAY_SERVICES = (lang: "en" | "fil" | "pang" | "ilo"): Service[] => [
 ];
 
 const CATEGORIES = {
-  municipal: ["All", "Permits", "Taxes", "Records", "Health"],
+  municipal: ["All", "Permits", "Taxes", "Records"],
   barangay: ["All", "Certification", "News"]
 };
 

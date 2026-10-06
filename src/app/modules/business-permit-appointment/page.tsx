@@ -16,10 +16,16 @@ import { BusinessPermitAppointmentClient } from "./BusinessPermitAppointmentClie
 
 function BusinessPermitAppointmentWrapper() {
   const router = useRouter();
-  const [loading, setLoading] = useState(true);
   const [residentData, setResidentData] = useState<any>(null);
   const [permitTypes, setPermitTypes] = useState<any[]>([]);
-  const [appointmentConfig, setAppointmentConfig] = useState<any>(null);
+  const [appointmentConfig, setAppointmentConfig] = useState<any>({
+    department: "BPLO",
+    maxSlots: 50,
+    maxSlotsAM: 25,
+    maxSlotsPM: 25,
+    blockedDates: [],
+    activeDays: [1, 2, 3, 4, 5]
+  });
   const [bookedSlots, setBookedSlots] = useState<any[]>([]);
   const [hasActiveNew, setHasActiveNew] = useState(false);
   const [hasActiveRenew, setHasActiveRenew] = useState(false);
@@ -28,15 +34,24 @@ function BusinessPermitAppointmentWrapper() {
   const [bploSettings, setBploSettings] = useState<Record<string, string> | null>(null);
 
   useEffect(() => {
+    const savedResident = sessionStorage.getItem("active_resident");
+    if (!savedResident) {
+      router.push("/");
+      return;
+    }
+
+    try {
+      const resident = JSON.parse(savedResident);
+      setResidentData(resident);
+    } catch (e) {
+      console.error(e);
+    }
+
     async function init() {
       try {
-        const savedResident = sessionStorage.getItem("active_resident");
-        if (!savedResident) {
-          router.push("/");
-          return;
-        }
-
-        const resident = JSON.parse(savedResident);
+        const saved = sessionStorage.getItem("active_resident");
+        if (!saved) return;
+        const resident = JSON.parse(saved);
         const userId = resident.userId || resident.id;
 
         const [typesRes, configRes, bookedRes, residentRes, permitsRes, themeRes, settingsRes, activeRes] = await Promise.all([
@@ -50,20 +65,20 @@ function BusinessPermitAppointmentWrapper() {
           checkActivePermits(userId)
         ]);
 
-        if (typesRes.success) {
-          setPermitTypes(typesRes.data || []);
+        if (typesRes.success && typesRes.data) {
+          setPermitTypes(typesRes.data);
         }
-        if (configRes.success) {
+        if (configRes.success && configRes.data) {
           setAppointmentConfig(configRes.data);
         }
-        if (bookedRes.success) {
-          setBookedSlots(bookedRes.data || []);
+        if (bookedRes.success && bookedRes.data) {
+          setBookedSlots(bookedRes.data);
         }
         if (residentRes.success && residentRes.data) {
           setResidentData(residentRes.data);
         }
-        if (permitsRes.success) {
-          setPreviousPermits(permitsRes.data || []);
+        if (permitsRes.success && permitsRes.data) {
+          setPreviousPermits(permitsRes.data);
         }
         if (themeRes && themeRes.success && themeRes.data) {
           setThemeColor(themeRes.data);
@@ -77,25 +92,11 @@ function BusinessPermitAppointmentWrapper() {
         }
       } catch (err) {
         console.error("Initialization error:", err);
-      } finally {
-        setLoading(false);
       }
     }
 
     init();
   }, [router]);
-
-  if (loading) {
-    return (
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-slate-50 gap-6 select-none">
-        <div className="w-20 h-20 border-8 border-slate-100 border-t-theme-primary rounded-full animate-spin"></div>
-        <div className="text-center">
-          <p className="text-theme-primary font-black text-xs uppercase tracking-[0.4em] animate-pulse">Loading Config</p>
-          <p className="text-slate-400 text-[10px] font-bold uppercase mt-2">Checking slot availability...</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <BusinessPermitAppointmentClient
@@ -114,11 +115,7 @@ function BusinessPermitAppointmentWrapper() {
 
 export default function BusinessPermitAppointmentPage() {
   return (
-    <Suspense fallback={
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-slate-50 gap-6">
-        <div className="w-20 h-20 border-8 border-slate-100 border-t-theme-primary rounded-full animate-spin"></div>
-      </div>
-    }>
+    <Suspense fallback={<div className="min-h-screen bg-slate-50 dark:bg-[#070b14]" />}>
       <BusinessPermitAppointmentWrapper />
     </Suspense>
   );

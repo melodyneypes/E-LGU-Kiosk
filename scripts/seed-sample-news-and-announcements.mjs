@@ -209,7 +209,7 @@ async function main() {
         location: "Barangay Poblacion",
         budget: "₱28,500,000.00",
         progress: 60,
-        imageUrl: "/images/lgu-community-illustration.svg",
+        imageUrl: "/images/projects/evacuation-civic-center.jpg",
         isPublished: true,
       },
     });
@@ -223,7 +223,7 @@ async function main() {
         location: "Barangay Poblacion",
         budget: "₱28,500,000.00",
         progress: 60,
-        imageUrl: "/images/lgu-community-illustration.svg",
+        imageUrl: "/images/projects/evacuation-civic-center.jpg",
         isPublished: true,
       },
     });
@@ -244,7 +244,7 @@ async function main() {
         location: "Major Municipal Corridors",
         budget: "₱12,200,000.00",
         progress: 100,
-        imageUrl: "/images/lgu-services-illustration.svg",
+        imageUrl: "/images/projects/solar-street-lighting.jpg",
         isPublished: true,
       },
     });
@@ -258,7 +258,7 @@ async function main() {
         location: "Major Municipal Corridors",
         budget: "₱12,200,000.00",
         progress: 100,
-        imageUrl: "/images/lgu-services-illustration.svg",
+        imageUrl: "/images/projects/solar-street-lighting.jpg",
         isPublished: true,
       },
     });

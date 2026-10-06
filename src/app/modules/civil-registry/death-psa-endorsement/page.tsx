@@ -104,7 +104,7 @@ export default function DeathPsaEndorsementPage() {
     const [currentStep, setCurrentStep] = useState<Step>("EXISTING");
     const [existingRequests, setExistingRequests] = useState<any[]>([]);
     const [selectedApplication, setSelectedApplication] = useState<any>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [resident, setResident] = useState<any>(null);
     const [typeId, setTypeId] = useState<string>("");
@@ -746,14 +746,6 @@ export default function DeathPsaEndorsementPage() {
         window.print();
     };
 
-    if (loading) {
-        return (
-            <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950">
-                <Loader2 className="w-10 h-10 animate-spin mb-4" style={{ color: "var(--primary-theme)" }} />
-                <p className="font-black uppercase tracking-widest text-[10px] text-slate-400 italic">Initializing Endorsement Form...</p>
-            </div>
-        );
-    }
 
     return (
         <div className="h-full overflow-y-auto px-4 py-8 md:px-12 md:py-12 bg-slate-50 dark:bg-slate-950 font-sans text-slate-900 dark:text-white">

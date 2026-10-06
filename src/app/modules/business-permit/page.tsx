@@ -240,7 +240,7 @@ export default function BusinessPermitWizardPage() {
     const contactInputRef = useRef<HTMLInputElement>(null);
 
     const [currentStep, setCurrentStep] = useState<Step>("PATHWAY");
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [submitting, setSubmitting] = useState(false);
     const [isSuspended, setIsSuspended] = useState(false); // 3-Strike Penalty Flag
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -1105,16 +1105,6 @@ export default function BusinessPermitWizardPage() {
             setSubmitting(false);
         }
     };
-
-    // --- UI LOADING STATE ---
-    if (loading) {
-        return (
-            <div className="min-h-[70vh] flex flex-col items-center justify-center gap-6">
-                <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin shadow-lg shadow-primary/20" />
-                <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 italic animate-pulse">Synchronizing Business Portal...</p>
-            </div>
-        );
-    }
 
     // --- 3-STRIKE REJECTION BLOCK RENDER ---
     if (isSuspended) {
