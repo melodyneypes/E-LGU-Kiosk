@@ -1358,8 +1358,9 @@ export function BusinessPermitAppointmentClient({
                                       else if (item.field === "sanitaryPermitFile") { setExistingSanitaryPermitUrl(null); setSanitaryPermitFileName(""); }
                                       else if (item.field === "fireSafetyFile") { setExistingFireSafetyUrl(null); setFireSafetyFileName(""); }
                                       else if (item.field === "previousPermitFile") { setExistingPreviousPermitUrl(null); setPreviousPermitFileName(""); }
+                                      toast.success(`${item.label} removed.`);
                                     }}
-                                    className="flex-1 font-black italic uppercase tracking-widest text-[9px] h-10 rounded-2xl border-rose-200 text-rose-500 bg-transparent"
+                                    className="flex-1 font-black italic uppercase tracking-widest text-[9px] h-10 rounded-2xl border-rose-200 text-rose-500 bg-transparent hover:bg-rose-500/10 cursor-pointer"
                                   >
                                     Remove
                                   </Button>

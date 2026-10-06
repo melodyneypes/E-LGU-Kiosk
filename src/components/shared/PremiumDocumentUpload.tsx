@@ -29,6 +29,7 @@ export default function PremiumDocumentUpload({
     previewUrl,
     existingUrl,
     onFileSelect,
+    onClear,
     onView,
     error = false,
     infoText = "PDF / IMAGE (MAX 5MB)",
@@ -224,6 +225,18 @@ export default function PremiumDocumentUpload({
                             >
                                 Change
                             </label>
+                        )}
+                        {onClear && (
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    if (inputRef.current) inputRef.current.value = "";
+                                    onClear();
+                                }}
+                                className="font-black italic uppercase tracking-widest text-[8px] md:text-[9px] px-2 md:px-3 h-8 rounded-full border border-rose-500/30 text-rose-500 hover:bg-rose-500/10 flex-1 transition-all duration-300 cursor-pointer text-center flex items-center justify-center select-none"
+                            >
+                                Remove
+                            </button>
                         )}
                     </div>
                 </>

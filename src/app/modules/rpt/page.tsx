@@ -20,7 +20,8 @@ import {
     ShieldCheck,
     Check,
     QrCode,
-    Printer
+    Printer,
+    Trash2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -862,6 +863,20 @@ export default function RptAppointmentPage() {
                                                                 </label>
                                                             </Button>
                                                         </div>
+                                                        {validIdFile && (
+                                                            <Button
+                                                                type="button"
+                                                                variant="outline"
+                                                                onClick={() => {
+                                                                    setValidIdFile(null);
+                                                                    toast.success("Valid ID removed.");
+                                                                }}
+                                                                className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                            >
+                                                                <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                <span>Remove</span>
+                                                            </Button>
+                                                        )}
                                                     </div>
                                                     {errors.validIdFile && (
                                                         <p className="text-[10px] text-red-500 font-medium">{errors.validIdFile}</p>
@@ -905,6 +920,20 @@ export default function RptAppointmentPage() {
                                                                     </label>
                                                                 </Button>
                                                             </div>
+                                                            {previousOrFile && (
+                                                                <Button
+                                                                    type="button"
+                                                                    variant="outline"
+                                                                    onClick={() => {
+                                                                        setPreviousOrFile(null);
+                                                                        toast.success("Previous O.R. removed.");
+                                                                    }}
+                                                                    className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                                >
+                                                                    <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                    <span>Remove</span>
+                                                                </Button>
+                                                            )}
                                                         </div>
                                                     </div>
                                                 )}
@@ -946,6 +975,20 @@ export default function RptAppointmentPage() {
                                                                     </label>
                                                                 </Button>
                                                             </div>
+                                                            {buildingPermitFile && (
+                                                                <Button
+                                                                    type="button"
+                                                                    variant="outline"
+                                                                    onClick={() => {
+                                                                        setBuildingPermitFile(null);
+                                                                        toast.success("Building Permit removed.");
+                                                                    }}
+                                                                    className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                                >
+                                                                    <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                    <span>Remove</span>
+                                                                </Button>
+                                                            )}
                                                         </div>
                                                     </div>
                                                 )}
@@ -988,6 +1031,20 @@ export default function RptAppointmentPage() {
                                                                         </label>
                                                                     </Button>
                                                                 </div>
+                                                                {deedOfSaleFile && (
+                                                                    <Button
+                                                                        type="button"
+                                                                        variant="outline"
+                                                                        onClick={() => {
+                                                                            setDeedOfSaleFile(null);
+                                                                            toast.success("Deed of Sale removed.");
+                                                                        }}
+                                                                        className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                                    >
+                                                                        <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                        <span>Remove</span>
+                                                                    </Button>
+                                                                )}
                                                             </div>
                                                         </div>
 
@@ -1026,6 +1083,20 @@ export default function RptAppointmentPage() {
                                                                         </label>
                                                                     </Button>
                                                                 </div>
+                                                                {titleFile && (
+                                                                    <Button
+                                                                        type="button"
+                                                                        variant="outline"
+                                                                        onClick={() => {
+                                                                            setTitleFile(null);
+                                                                            toast.success("Land Title removed.");
+                                                                        }}
+                                                                        className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                                    >
+                                                                        <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                        <span>Remove</span>
+                                                                    </Button>
+                                                                )}
                                                             </div>
                                                         </div>
 
@@ -1064,6 +1135,20 @@ export default function RptAppointmentPage() {
                                                                         </label>
                                                                     </Button>
                                                                 </div>
+                                                                {birEcarFile && (
+                                                                    <Button
+                                                                        type="button"
+                                                                        variant="outline"
+                                                                        onClick={() => {
+                                                                            setBirEcarFile(null);
+                                                                            toast.success("BIR eCAR removed.");
+                                                                        }}
+                                                                        className="w-full sm:w-auto rounded-xl font-black text-xs uppercase tracking-widest border-rose-500/30 text-rose-500 hover:bg-rose-500/10 h-11"
+                                                                    >
+                                                                        <Trash2 className="w-3.5 h-3.5 mr-1" />
+                                                                        <span>Remove</span>
+                                                                    </Button>
+                                                                )}
                                                             </div>
                                                         </div>
                                                     </>

@@ -1003,21 +1003,33 @@ export function CedulaAppointmentClient({
                                 )}
                               </div>
 
-                              <div className="flex items-center gap-3 pt-2 w-full">
+                              <div className="flex items-center gap-2 pt-2 w-full">
                                 <button
                                   type="button"
                                   onClick={() => handleViewFile(null, existingIdUrl, "Valid ID Card")}
-                                  className="px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-white/10 hover:bg-slate-300 text-slate-800 dark:text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                  className="px-3 py-2.5 rounded-xl bg-slate-200 dark:bg-white/10 hover:bg-slate-300 text-slate-800 dark:text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
                                 >
                                   View Document
                                 </button>
                                 <button
                                   type="button"
                                   onClick={() => startHandoff("idFile")}
-                                  className="px-4 py-2.5 rounded-xl bg-theme-primary text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                  className="px-3 py-2.5 rounded-xl bg-theme-primary text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
                                   style={{ backgroundColor: themeColor }}
                                 >
                                   Change
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setExistingIdUrl(null);
+                                    setIdFileName("");
+                                    setIdFile(null);
+                                    toast.success("Valid ID removed.");
+                                  }}
+                                  className="px-3 py-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/20 font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                >
+                                  Remove
                                 </button>
                               </div>
                             </div>
@@ -1079,21 +1091,33 @@ export function CedulaAppointmentClient({
                                 )}
                               </div>
 
-                              <div className="flex items-center gap-3 pt-2 w-full">
+                              <div className="flex items-center gap-2 pt-2 w-full">
                                 <button
                                   type="button"
                                   onClick={() => handleViewFile(null, existingProofUrl, "Proof of Income")}
-                                  className="px-4 py-2.5 rounded-xl bg-slate-200 dark:bg-white/10 hover:bg-slate-300 text-slate-800 dark:text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                  className="px-3 py-2.5 rounded-xl bg-slate-200 dark:bg-white/10 hover:bg-slate-300 text-slate-800 dark:text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
                                 >
                                   View Document
                                 </button>
                                 <button
                                   type="button"
                                   onClick={() => startHandoff("proofFile")}
-                                  className="px-4 py-2.5 rounded-xl bg-theme-primary text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                  className="px-3 py-2.5 rounded-xl bg-theme-primary text-white font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
                                   style={{ backgroundColor: themeColor }}
                                 >
                                   Change
+                                </button>
+                                <button
+                                  type="button"
+                                  onClick={() => {
+                                    setExistingProofUrl(null);
+                                    setProofFileName("");
+                                    setProofFile(null);
+                                    toast.success("Proof of Income removed.");
+                                  }}
+                                  className="px-3 py-2.5 rounded-xl bg-rose-500/10 hover:bg-rose-500/20 text-rose-600 dark:text-rose-400 border border-rose-500/20 font-black text-[10px] md:text-xs uppercase tracking-wider transition-all flex-1 cursor-pointer"
+                                >
+                                  Remove
                                 </button>
                               </div>
                             </div>

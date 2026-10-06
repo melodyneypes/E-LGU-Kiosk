@@ -2095,6 +2095,37 @@ export default function BusinessPermitWizardPage() {
                                                                                 ? "Re-upload QR"
                                                                                 : "QR Upload"}
                                                                     </Button>
+                                                                    {(file || (item.field === "ownerIdFile" && formData.residentData?.idFrontUrl) || revisionTx?.additionalData?.[`${item.field.replace("File", "Url")}`]) && (
+                                                                        <Button
+                                                                            type="button"
+                                                                            variant="outline"
+                                                                            onClick={() => {
+                                                                                setFormData(prev => ({
+                                                                                    ...prev,
+                                                                                    [item.field]: null,
+                                                                                    ...(item.field === "ownerIdFile" && prev.residentData ? {
+                                                                                        residentData: {
+                                                                                            ...prev.residentData,
+                                                                                            idFrontUrl: undefined
+                                                                                        }
+                                                                                    } : {})
+                                                                                }));
+                                                                                if (revisionTx?.additionalData) {
+                                                                                    setRevisionTx((prev: any) => ({
+                                                                                        ...prev,
+                                                                                        additionalData: {
+                                                                                            ...prev?.additionalData,
+                                                                                            [`${item.field.replace("File", "Url")}`]: undefined
+                                                                                        }
+                                                                                    }));
+                                                                                }
+                                                                                toast.success(`${item.label.replace(/^\d+\.\s*/, "")} removed.`);
+                                                                            }}
+                                                                            className="font-black italic uppercase tracking-widest text-[9px] sm:text-xs h-10 px-4 rounded-2xl border-rose-500/30 text-rose-500 hover:bg-rose-500/10 transition-all select-none cursor-pointer"
+                                                                        >
+                                                                            Remove
+                                                                        </Button>
+                                                                    )}
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -1213,7 +1213,7 @@ export default function CedulaPage() {
                             <span className="block text-xs font-black text-emerald-600 uppercase tracking-widest">Upload Complete</span>
                             <p className="text-slate-700 text-[10px] font-bold truncate max-w-[180px]">{handoffDocuments.idFile.fileName}</p>
                           </div>
-                          <div className="flex items-center gap-3 w-full justify-center pt-2">
+                          <div className="flex items-center gap-2 w-full justify-center pt-2 flex-wrap">
                             <button
                               type="button"
                               onClick={() => {
@@ -1221,16 +1221,30 @@ export default function CedulaPage() {
                                 setViewerTitle("Valid ID Card Preview");
                                 setViewerOpen(true);
                               }}
-                              className="px-5 py-2.5 rounded-full bg-theme-primary hover:bg-emerald-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                              className="px-4 py-2.5 rounded-full bg-theme-primary hover:bg-emerald-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                             >
                               Preview
                             </button>
                             <button
                               type="button"
                               onClick={() => startHandoff("idFile")}
-                              className="px-5 py-2.5 rounded-full bg-[#334155] hover:bg-slate-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                              className="px-4 py-2.5 rounded-full bg-[#334155] hover:bg-slate-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                             >
                               Re-upload
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setHandoffDocuments(prev => {
+                                  const next = { ...prev };
+                                  delete (next as any).idFile;
+                                  return next;
+                                });
+                                toast.success("Valid ID removed.");
+                              }}
+                              className="px-4 py-2.5 rounded-full border border-rose-500/30 text-rose-500 hover:bg-rose-500/10 font-black text-[9px] uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
+                            >
+                              Remove
                             </button>
                           </div>
                         </div>
@@ -1271,7 +1285,7 @@ export default function CedulaPage() {
                           <span className="block text-xs font-black text-emerald-600 uppercase tracking-widest">Upload Complete</span>
                           <p className="text-slate-700 text-[10px] font-bold truncate max-w-[180px]">{handoffDocuments.proofFile.fileName}</p>
                         </div>
-                        <div className="flex items-center gap-3 w-full justify-center pt-2">
+                        <div className="flex items-center gap-2 w-full justify-center pt-2 flex-wrap">
                           <button
                             type="button"
                             onClick={() => {
@@ -1279,16 +1293,30 @@ export default function CedulaPage() {
                               setViewerTitle(isStudent ? "Student ID / Enrollment Form Preview" : "Proof of Income Preview");
                               setViewerOpen(true);
                             }}
-                            className="px-5 py-2.5 rounded-full bg-theme-primary hover:bg-emerald-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="px-4 py-2.5 rounded-full bg-theme-primary hover:bg-emerald-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                           >
                             Preview
                           </button>
                           <button
                             type="button"
                             onClick={() => startHandoff("proofFile")}
-                            className="px-5 py-2.5 rounded-full bg-[#334155] hover:bg-slate-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="px-4 py-2.5 rounded-full bg-[#334155] hover:bg-slate-700 text-white font-black text-[9px] uppercase tracking-wider shadow-md transition-all active:scale-95 cursor-pointer"
                           >
                             Re-upload
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setHandoffDocuments(prev => {
+                                const next = { ...prev };
+                                delete (next as any).proofFile;
+                                return next;
+                              });
+                              toast.success("Proof of Income removed.");
+                            }}
+                            className="px-4 py-2.5 rounded-full border border-rose-500/30 text-rose-500 hover:bg-rose-500/10 font-black text-[9px] uppercase tracking-wider shadow-sm transition-all active:scale-95 cursor-pointer"
+                          >
+                            Remove
                           </button>
                         </div>
                       </div>

@@ -33,7 +33,8 @@ import {
   Hash,
   UserCheck,
   Camera,
-  BadgeCheck
+  BadgeCheck,
+  Trash2
 } from "lucide-react";
 
 import {
@@ -2211,10 +2212,44 @@ export default function OccupancyPermitPage() {
                         <button
                           type="button"
                           onClick={() => startHandoff("documents")}
-                          className="px-5 py-2 text-xs font-black uppercase bg-theme-primary text-white rounded-full hover:bg-theme-primary/90 flex items-center gap-1.5 shadow-md transition-all"
+                          className="px-5 py-2 text-xs font-black uppercase bg-theme-primary text-white rounded-full hover:bg-theme-primary/90 flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                         >
                           <UploadCloud className="w-3.5 h-3.5" />
                           {hasFile ? "Re-upload" : "Upload"}
+                        </button>
+                      )}
+                      {isEditable && hasFile && (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setUploadedRequirements(prev => {
+                              const next = { ...prev };
+                              delete next[idx];
+                              return next;
+                            });
+                            setHandoffDocuments(prev => {
+                              const next = { ...prev };
+                              delete next[`req_${idx}`];
+                              return next;
+                            });
+                            if (selectedApplication?.additionalData?.documents?.[`req_${idx}`]) {
+                              setSelectedApplication((prev: any) => ({
+                                ...prev,
+                                additionalData: {
+                                  ...prev?.additionalData,
+                                  documents: {
+                                    ...prev?.additionalData?.documents,
+                                    [`req_${idx}`]: undefined
+                                  }
+                                }
+                              }));
+                            }
+                            toast.success(`${docName} removed.`);
+                          }}
+                          className="px-4 py-2 text-xs font-bold border border-rose-500/30 text-rose-500 hover:bg-rose-500/10 rounded-full transition-colors flex items-center gap-1 cursor-pointer"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          Remove
                         </button>
                       )}
                     </div>
