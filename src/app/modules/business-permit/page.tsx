@@ -1146,7 +1146,7 @@ export default function BusinessPermitWizardPage() {
                 <div className="space-y-4 md:space-y-10">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 px-1 md:px-0">
                         <div className="space-y-1 md:space-y-2">
-                            <h1 className="text-4xl md:text-7xl font-black text-white uppercase italic tracking-tighter leading-none select-none">
+                            <h1 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter leading-none select-none">
                                 BUSINESS <span className="text-theme-primary underline decoration-[6px] md:decoration-8 decoration-theme-primary/20 underline-offset-[6px] md:underline-offset-[12px]">PERMIT</span>
                             </h1>
                             <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em] ml-1 md:ml-2 italic">Streamlined Permitting & Compliance Portal</p>

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import fs from "fs";
+import path from "path";
 
 export async function GET() {
   try {
@@ -37,7 +39,12 @@ export async function GET() {
 
     const resolveImg = (url: string | null) => {
       if (!url) return null;
-      if (url.startsWith('/images/')) return `https://e-lgu.vercel.app${url}`;
+      if (url.startsWith('http://') || url.startsWith('https://')) return url;
+      if (url.startsWith('/')) {
+        const localPath = path.join(process.cwd(), 'public', url);
+        if (fs.existsSync(localPath)) return url;
+        return `https://e-lgu.vercel.app${url}`;
+      }
       return url;
     };
 

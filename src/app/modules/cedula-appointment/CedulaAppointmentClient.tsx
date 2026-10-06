@@ -829,13 +829,13 @@ export function CedulaAppointmentClient({
                                   type="button"
                                   onClick={() => setFormState(p => ({ ...p, incomeSource: opt.id }))}
                                   className={cn(
-                                    "px-6 py-4 md:py-5 rounded-2xl border-2 transition-all duration-300 text-left relative overflow-hidden flex items-center justify-between gap-4 group select-none shadow-sm cursor-pointer min-h-[72px]",
+                                    "px-6 py-4 md:py-5 rounded-2xl border-2 transition-all duration-300 text-left relative overflow-hidden flex flex-col items-stretch justify-center gap-2 lg:flex-row lg:items-center lg:justify-between lg:gap-4 group select-none shadow-sm cursor-pointer min-h-[72px]",
                                     isSelected
                                       ? "border-theme-primary bg-theme-primary/[0.06] dark:bg-theme-primary/[0.12] shadow-md scale-[1.01]"
                                       : "border-slate-200 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-sm hover:border-theme-primary/30 hover:bg-slate-50 dark:hover:bg-white/10"
                                   )}
                                 >
-                                  <div className="flex items-center gap-3">
+                                  <div className="flex min-w-0 items-center gap-3">
                                     <div className={cn(
                                       "w-3.5 h-3.5 rounded-full border-2 transition-all flex items-center justify-center",
                                       isSelected ? "border-theme-primary bg-theme-primary" : "border-slate-300 dark:border-white/20"
@@ -843,14 +843,14 @@ export function CedulaAppointmentClient({
                                       {isSelected && <div className="w-1.5 h-1.5 rounded-full bg-white" />}
                                     </div>
                                     <h4 className={cn(
-                                      "text-base md:text-lg font-black uppercase italic tracking-wider whitespace-nowrap",
+                                      "shrink-0 text-base md:text-lg font-black uppercase italic tracking-wider whitespace-nowrap",
                                       isSelected ? "text-theme-primary" : "text-slate-800 dark:text-slate-200"
                                     )}>
                                       {opt.label}
                                     </h4>
                                   </div>
                                   <p className={cn(
-                                    "text-xs md:text-sm font-bold uppercase tracking-tight text-right",
+                                    "min-w-0 text-xs md:text-sm font-bold uppercase tracking-tight text-left lg:flex-1 lg:text-right",
                                     isSelected ? "text-theme-primary/80" : "text-slate-500 dark:text-slate-400"
                                   )}>
                                     {opt.desc}

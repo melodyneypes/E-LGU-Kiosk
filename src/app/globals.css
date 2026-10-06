@@ -87,7 +87,7 @@ body {
 }
 
 body {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 h1,

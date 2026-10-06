@@ -72,12 +72,22 @@ export function SelectContent({ className, children, ...props }: React.Component
       const trigger = triggerRef?.current;
       if (!trigger) return;
       const rect = trigger.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const verticalMargin = 8;
+      const gap = 6;
+      const maxHeight = 240;
+      const spaceBelow = Math.max(0, viewportHeight - rect.bottom - verticalMargin);
+      const spaceAbove = Math.max(0, rect.top - verticalMargin);
+      const openAbove = spaceBelow < maxHeight && spaceAbove > spaceBelow;
+      const availableHeight = openAbove ? spaceAbove : spaceBelow;
+      const contentHeight = Math.min(maxHeight, availableHeight);
+
       setStyle({
         position: "fixed",
-        top: rect.bottom + 6,
+        top: openAbove ? rect.top - contentHeight - gap : rect.bottom + gap,
         left: rect.left,
         width: rect.width,
-        maxHeight: "240px",
+        maxHeight: `${contentHeight}px`,
         zIndex: 9999,
       });
     }

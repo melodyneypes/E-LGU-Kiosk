@@ -335,27 +335,27 @@
     "news": [
       {
         "id": "news-1",
-        "title": "Demo: Online Service Portal Opens",
+        "title": "Municipal Government Enhances Public Services with Digital Portal",
         "content": "Residents can explore sample services and test the online request process in this demonstration portal.",
-        "author": "Demo Information Office",
+        "author": "Municipal Information Office",
         "category": "Public Service",
-        "imageUrl": "/images/lgu-services-illustration.svg"
+        "imageUrl": "/images/municipality-digital-services-news.webp"
       },
       {
         "id": "news-2",
-        "title": "Demo: Community Center Improvement",
-        "content": "A fictional project update showing how local project announcements may appear.",
-        "author": "Demo Projects Office",
-        "category": "Infrastructure",
-        "imageUrl": "/images/lgu-community-illustration.svg"
+        "title": "Expanded Civic Health Caravan & Mobile Clinic Schedule Announced",
+        "content": "Free medical check-ups, dental services, and essential medicines will be provided across all barangays.",
+        "author": "Municipal Health Office",
+        "category": "Public Health",
+        "imageUrl": "/images/news/health-caravan.jpg"
       },
       {
         "id": "news-3",
-        "title": "Demo: Digital Access Program",
-        "content": "Sample news content for testing the kiosk information display.",
-        "author": "Demo Information Office",
-        "category": "Digital Services",
-        "imageUrl": "/images/lgu-welcome-illustration.svg"
+        "title": "Express One-Stop Business Licensing and Cashless Payment Windows Open",
+        "content": "Modernized payment kiosks and accelerated verification counters to support local entrepreneurs.",
+        "author": "Business Permits & Licensing Office",
+        "category": "Commerce",
+        "imageUrl": "/images/news/business-licensing.jpg"
       }
     ],
     "announcements": [

@@ -1130,20 +1130,20 @@ export default function CedulaPage() {
                                     else setPropertyValue("");
                                   }}
                                   className={cn(
-                                    "px-5 py-4 rounded-xl border-2 transition-all duration-300 text-left relative overflow-hidden flex items-center justify-between gap-4 group select-none shadow-sm cursor-pointer",
+                                    "px-5 py-4 rounded-xl border-2 transition-all duration-300 text-left relative overflow-hidden flex flex-col items-stretch justify-between gap-2 lg:flex-row lg:items-center lg:gap-4 group select-none shadow-sm cursor-pointer",
                                     isSelected
                                       ? "border-theme-primary bg-theme-primary/5"
                                       : "border-slate-200 bg-white/40 hover:border-theme-primary/30"
                                   )}
                                 >
                                   <h4 className={cn(
-                                    "text-sm font-black uppercase italic tracking-wider whitespace-nowrap",
+                                    "shrink-0 text-sm font-black uppercase italic tracking-wider whitespace-nowrap",
                                     isSelected ? "text-theme-primary" : "text-slate-800"
                                   )}>
                                     {opt.label}
                                   </h4>
                                   <p className={cn(
-                                    "text-[10px] font-bold uppercase tracking-tighter text-right",
+                                    "min-w-0 text-[10px] font-bold uppercase tracking-tighter text-left lg:flex-1 lg:text-right",
                                     isSelected ? "text-theme-primary/70" : "text-slate-500"
                                   )}>
                                     {opt.desc}

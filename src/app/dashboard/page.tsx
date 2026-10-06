@@ -26,7 +26,8 @@ import {
   Volume2,
   X,
   Sun,
-  Moon
+  Moon,
+  Newspaper
 } from "lucide-react";
 import lguConfig from "@/lgu.config.json";
 import { useTheme } from "next-themes";
@@ -117,6 +118,13 @@ const BARANGAY_SERVICES = (lang: "en" | "fil" | "pang" | "ilo"): Service[] => [
     title: lang === "en" ? "Announcements" : (lang === "fil" ? "Mga Anunsyo" : (lang === "pang" ? "Saray Anunsyo" : "Dagiti Pakdaar")),
     desc: lang === "en" ? "Latest barangay updates and events" : (lang === "fil" ? "Mga pinakabagong balita at kaganapan sa barangay" : (lang === "pang" ? "Saray bago ya balita tan kaganapan ed barangay" : "Kababaroan a damdamag ken pasken iti barangay")),
     icon: <Megaphone className="w-10 h-10" />
+  },
+  {
+    id: "b5",
+    category: "News",
+    title: lang === "en" ? "Barangay News & Bulletins" : (lang === "fil" ? "Balita at Ulat sa Barangay" : (lang === "pang" ? "Balita tan Ulat ed Barangay" : "Damdamag ken Pakaammo ti Barangay")),
+    desc: lang === "en" ? "Community advisories, projects, and public information" : (lang === "fil" ? "Mga anunsyo sa komunidad, proyekto, at pampublikong impormasyon" : (lang === "pang" ? "Saray pampublikong anunsyo, proyekto, tan impormasyon" : "Dagiti pakaammo iti komunidad, proyekto, ken publiko nga impormasion")),
+    icon: <Newspaper className="w-10 h-10" />
   },
 ];
 

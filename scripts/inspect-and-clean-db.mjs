@@ -31,6 +31,18 @@ async function main() {
   });
   console.log("=== BRANDING SETTINGS ===");
   settings.forEach(s => console.log(`SETTING [${s.key}]: "${s.value}"`));
+
+  const publishedNews = await prisma.news.findMany({ where: { isPublished: true } });
+  console.log("=== PUBLISHED NEWS (" + publishedNews.length + ") ===");
+  console.log(JSON.stringify(publishedNews, null, 2));
+
+  const activeAnnouncements = await prisma.announcement.findMany({ where: { isActive: true } });
+  console.log("=== ACTIVE ANNOUNCEMENTS (" + activeAnnouncements.length + ") ===");
+  console.log(JSON.stringify(activeAnnouncements, null, 2));
+
+  const projects = await prisma.project.findMany({ where: { isPublished: true } });
+  console.log("=== PUBLISHED PROJECTS (" + projects.length + ") ===");
+  console.log(JSON.stringify(projects, null, 2));
 }
 
 main()

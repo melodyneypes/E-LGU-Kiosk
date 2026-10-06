@@ -474,7 +474,15 @@ function LeadershipSlideView({ officials }: { officials: OfficialItem[] }) {
 
 // ────────── Sub-Slide 4: Dedicated Public Works & Transparency Projects ──────────
 function ProjectsSlideView({ projects }: { projects: ProjectItem[] }) {
-  const allProjects = projects && projects.length > 0 ? projects : DEFAULT_PROJECTS;
+  // Ensure multiple project cards are always shown by filling with DEFAULT_PROJECTS if needed
+  const combinedProjects = [...(projects || [])];
+  for (const fallback of DEFAULT_PROJECTS) {
+    if (combinedProjects.length >= 4) break;
+    if (!combinedProjects.some((p) => p.id === fallback.id || p.title === fallback.title)) {
+      combinedProjects.push(fallback);
+    }
+  }
+  const allProjects = combinedProjects.length > 0 ? combinedProjects : DEFAULT_PROJECTS;
 
   return (
     <div className="relative w-full h-full flex flex-col justify-between p-4 sm:p-7 md:p-9 lg:p-10 overflow-y-auto lg:overflow-hidden bg-gradient-to-br from-[#031533] via-[#050816] to-[#06183a]">
@@ -589,7 +597,15 @@ function ProjectsSlideView({ projects }: { projects: ProjectItem[] }) {
 
 // ────────── Sub-Slide 4: Latest Municipal News & Press Releases ──────────
 function NewsSlideView({ news }: { news: NewsItem[] }) {
-  const displayNews = news.length > 0 ? news : DEFAULT_NEWS;
+  // Ensure multiple articles (lead + side stories) are always available
+  const combinedNews = [...news];
+  for (const fallback of DEFAULT_NEWS) {
+    if (combinedNews.length >= 3) break;
+    if (!combinedNews.some((n) => n.id === fallback.id || n.title === fallback.title)) {
+      combinedNews.push(fallback);
+    }
+  }
+  const displayNews = combinedNews.length > 0 ? combinedNews : DEFAULT_NEWS;
   const leadArticle = displayNews[0];
   const sideArticles = displayNews.slice(1, 3);
 
@@ -767,7 +783,15 @@ function NewsSlideView({ news }: { news: NewsItem[] }) {
 
 // ────────── Sub-Slide 5: Official Public Advisories & Circulars ──────────
 function NoticesSlideView({ announcements }: { announcements: AnnouncementItem[] }) {
-  const displayAnnouncements = announcements.length > 0 ? announcements : DEFAULT_ANNOUNCEMENTS;
+  // Ensure multiple bulletin notices are always displayed by filling with DEFAULT_ANNOUNCEMENTS if needed
+  const combinedAnnouncements = [...announcements];
+  for (const fallback of DEFAULT_ANNOUNCEMENTS) {
+    if (combinedAnnouncements.length >= 4) break;
+    if (!combinedAnnouncements.some((a) => a.id === fallback.id || a.title === fallback.title)) {
+      combinedAnnouncements.push(fallback);
+    }
+  }
+  const displayAnnouncements = combinedAnnouncements.length > 0 ? combinedAnnouncements : DEFAULT_ANNOUNCEMENTS;
   // Display top 4 notices in a 2x2 spacious civic grid
   const notices = displayAnnouncements.slice(0, 4);
 
