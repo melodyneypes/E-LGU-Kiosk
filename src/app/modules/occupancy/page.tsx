@@ -46,15 +46,6 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { submitOccupancyPermit, saveTransactionSignature, getExistingOccupancyPermits, resubmitOccupancyPermit, submitOccupancyPermitPaymentProof, checkActivePropertyPermit, cancelTransaction, getSecureUploadUrlsAction } from "./actions";
 import { useRouter } from "next/navigation";
@@ -1091,10 +1082,7 @@ export default function OccupancyPermitPage() {
   };
 
   return (
-    <div className="flex h-screen w-full bg-[var(--page-bg)] overflow-hidden font-sans select-none transition-colors duration-300 ease-out">
-      <main className="flex-1 overflow-y-auto relative p-4 md:p-8">
-        <div className="max-w-5xl mx-auto space-y-12 pb-32 font-sans">
-      <SecureIdleTimer />
+    <div className="h-full max-w-5xl mx-auto overflow-y-auto overscroll-y-contain touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 sm:px-6 py-8 space-y-12 pb-32 font-sans relative">
       <DocumentViewerModal
         key="doc-viewer-modal"
         isOpen={viewerOpen}
@@ -1115,41 +1103,14 @@ export default function OccupancyPermitPage() {
         themeColor={themeColor}
       />
 
-      {/* Header / Breadcrumb */}
+      {/* Header */}
       <div className="space-y-4 md:space-y-10">
-        <div className="sticky top-[64px] sm:top-[80px] z-40 md:static -mx-4 md:mx-0 px-4 md:px-0 pt-2 md:pt-0">
-          <Breadcrumb>
-            <BreadcrumbList className="flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none max-w-full bg-white/80 dark:bg-white/5 backdrop-blur-md px-4 md:px-6 py-2 md:py-2.5 rounded-xl md:rounded-2xl border border-slate-200 dark:border-white/10 w-fit shadow-sm">
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-theme-primary transition-colors italic">
-                    <Home className="w-3.5 h-3.5 mb-0.5" />
-                    Home
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-300 dark:text-white/10" />
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href="/user/services" className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-theme-primary transition-colors italic">
-                    Services
-                  </Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator className="text-slate-300 dark:text-white/10" />
-              <BreadcrumbItem>
-                <BreadcrumbPage className="text-[10px] font-black uppercase tracking-widest italic text-theme-primary">Occupancy Permit</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-        </div>
-
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 px-1 md:px-0">
           <div className="space-y-1 md:space-y-2">
-            <h1 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter leading-none select-none">
+            <h1 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter leading-none select-none transition-colors duration-300 ease-out">
               OCCUPANCY <span className="text-theme-primary underline decoration-[6px] md:decoration-8 decoration-theme-primary/20 underline-offset-[6px] md:underline-offset-[12px]">PERMIT</span>
             </h1>
-            <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em] ml-1 md:ml-2 italic">Construction & Building Compliance Portal</p>
+            <p className="text-[9px] md:text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.4em] ml-1 md:ml-2 italic transition-colors duration-300 ease-out">Construction & Building Compliance Portal</p>
           </div>
         </div>
       </div>
@@ -3370,8 +3331,6 @@ You cancelled this occupancy permit application. You can still view your details
           </div>
         </DialogContent>
       </Dialog>
-        </div>
-      </main>
     </div>
   );
 }

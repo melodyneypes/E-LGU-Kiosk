@@ -25,14 +25,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import PrivacyTermsModal from "@/components/shared/PrivacyTermsModal";
 import DocumentViewerModal from "@/components/shared/DocumentViewerModal";
 import SchedulePicker from "@/components/shared/SchedulePicker";
@@ -40,7 +32,6 @@ import PrintQueueTicket from "@/components/shared/PrintQueueTicket";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { toast } from "sonner";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { submitRptAppointment, fetchPropertyByTdnOrPin } from "./actions";
 import lguConfig from "@/lgu.config.json";
@@ -364,84 +355,52 @@ export default function RptAppointmentPage() {
     };
 
     return (
-        <div className="flex h-screen w-full bg-[var(--page-bg)] overflow-hidden font-sans select-none transition-colors duration-300 ease-out">
-            <main className="flex-1 overflow-y-auto relative p-4 md:p-8">
-                <div className="max-w-5xl mx-auto space-y-12 pb-32 font-sans">
-                    <PrivacyTermsModal
-                        isOpen={isPrivacyModalOpen}
-                        onClose={() => setIsPrivacyModalOpen(false)}
-                        onAccept={() => {
-                            setPrivacyAccepted(true);
-                            setIsPrivacyModalOpen(false);
-                        }}
-                        themeColor={themeColor}
-                    />
+        <div className="h-full max-w-5xl mx-auto overflow-y-auto overscroll-y-contain touch-pan-y [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden px-4 sm:px-6 py-8 space-y-12 pb-32 font-sans relative">
+            <PrivacyTermsModal
+                isOpen={isPrivacyModalOpen}
+                onClose={() => setIsPrivacyModalOpen(false)}
+                onAccept={() => {
+                    setPrivacyAccepted(true);
+                    setIsPrivacyModalOpen(false);
+                }}
+                themeColor={themeColor}
+            />
 
-                    <DocumentViewerModal
-                        isOpen={viewerOpen}
-                        onClose={() => setViewerOpen(false)}
-                        file={viewerFile}
-                        fileUrl={viewerUrl}
-                        title={viewerTitle}
-                    />
-                    <SecureQrUploadModal
-                        isOpen={isHandoffOpen}
-                        onClose={() => {
-                            setIsHandoffOpen(false);
-                            setHandoffToken("");
-                            setHandoffQrCode("");
-                            setHandoffExpiresAt(0);
-                        }}
-                        qrCode={handoffQrCode}
-                        qrCodeUrl={handoffQrCode}
-                        expiresAt={handoffExpiresAt}
-                        documentName={handoffSessionSlot === "validId" ? "Valid ID" : handoffSessionSlot === "previousOr" ? "Previous O.R." : handoffSessionSlot === "buildingPermit" ? "Building Permit" : handoffSessionSlot === "deedOfSale" ? "Deed of Sale" : handoffSessionSlot === "title" ? "Land Title" : "BIR eCAR"}
-                        themeColor={themeColor}
-                    />
+            <DocumentViewerModal
+                isOpen={viewerOpen}
+                onClose={() => setViewerOpen(false)}
+                file={viewerFile}
+                fileUrl={viewerUrl}
+                title={viewerTitle}
+            />
+            <SecureQrUploadModal
+                isOpen={isHandoffOpen}
+                onClose={() => {
+                    setIsHandoffOpen(false);
+                    setHandoffToken("");
+                    setHandoffQrCode("");
+                    setHandoffExpiresAt(0);
+                }}
+                qrCode={handoffQrCode}
+                qrCodeUrl={handoffQrCode}
+                expiresAt={handoffExpiresAt}
+                documentName={handoffSessionSlot === "validId" ? "Valid ID" : handoffSessionSlot === "previousOr" ? "Previous O.R." : handoffSessionSlot === "buildingPermit" ? "Building Permit" : handoffSessionSlot === "deedOfSale" ? "Deed of Sale" : handoffSessionSlot === "title" ? "Land Title" : "BIR eCAR"}
+                themeColor={themeColor}
+            />
 
-
-                    {/* Header / Breadcrumb */}
-                    <div className="space-y-4 md:space-y-10 print:hidden">
-                        <div className="sticky top-[64px] sm:top-[80px] z-40 md:static -mx-4 md:mx-0 px-4 md:px-0 pt-2 md:pt-0">
-                            <Breadcrumb>
-                                <BreadcrumbList className="flex-nowrap whitespace-nowrap overflow-x-auto scrollbar-none max-w-full bg-white/80 dark:bg-white/5 backdrop-blur-md px-4 md:px-6 py-2 md:py-2.5 rounded-xl md:rounded-2xl border border-slate-200 dark:border-white/10 w-fit shadow-sm">
-                                    <BreadcrumbItem>
-                                        <BreadcrumbLink asChild>
-                                            <Link href="/" className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-theme-primary transition-colors italic">
-                                                <Home className="w-3.5 h-3.5 mb-0.5" />
-                                                Home
-                                            </Link>
-                                        </BreadcrumbLink>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbSeparator className="text-slate-300 dark:text-white/10" />
-                                    <BreadcrumbItem>
-                                        <BreadcrumbLink asChild>
-                                            <Link href="/user/services" className="text-[10px] font-black uppercase tracking-widest text-slate-500 hover:text-theme-primary transition-colors italic">
-                                                Services
-                                            </Link>
-                                        </BreadcrumbLink>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbSeparator className="text-slate-300 dark:text-white/10" />
-                                    <BreadcrumbItem>
-                                        <BreadcrumbPage className="text-[10px] font-black uppercase tracking-widest italic" style={{ color: "var(--primary-theme)" }}>
-                                            Real Property Tax (Amilyar)
-                                        </BreadcrumbPage>
-                                    </BreadcrumbItem>
-                                </BreadcrumbList>
-                            </Breadcrumb>
-                        </div>
-
-                        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 px-1 md:px-0">
-                            <div className="space-y-1 md:space-y-2">
-                                <h1 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white uppercase italic tracking-tighter leading-tight select-none">
-                                    Real Property Tax <span className="text-theme-primary underline decoration-[4px] md:decoration-[6px] decoration-theme-primary/20 underline-offset-[4px] md:underline-offset-[8px]">(Amilyar)</span>
-                                </h1>
-                                <p className="text-[9px] md:text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em] ml-1 md:ml-2 italic">
-                                    Appointment Booking, Tax Assessment & Clearance Services
-                                </p>
-                            </div>
-                        </div>
+            {/* Header */}
+            <div className="space-y-4 md:space-y-10 print:hidden">
+                <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 md:gap-6 px-1 md:px-0">
+                    <div className="space-y-1 md:space-y-2">
+                        <h1 className="text-4xl md:text-7xl font-black text-slate-900 dark:text-white uppercase italic tracking-tighter leading-none select-none transition-colors duration-300 ease-out">
+                            REAL PROPERTY <span className="text-theme-primary underline decoration-[6px] md:decoration-8 decoration-theme-primary/20 underline-offset-[6px] md:underline-offset-[12px]">TAX (AMILYAR)</span>
+                        </h1>
+                        <p className="text-[9px] md:text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.4em] ml-1 md:ml-2 italic transition-colors duration-300 ease-out">
+                            Appointment Booking, Tax Assessment & Clearance Services
+                        </p>
                     </div>
+                </div>
+            </div>
 
                     {/* Progress Stepper */}
                     {currentStep !== "SUCCESS" && (
@@ -1327,8 +1286,6 @@ export default function RptAppointmentPage() {
                             </div>
                         )}
                     </div>
-                </div>
-            </main>
         </div>
     );
 }
