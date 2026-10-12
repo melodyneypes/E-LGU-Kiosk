@@ -3,9 +3,11 @@
 import React, { useState, useRef, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 
 import {
+  Activity,
   FileText,
   CreditCard,
   Users,
@@ -805,6 +807,30 @@ function DashboardContent() {
                             </button>
                           ))}
                         </div>
+                      </div>
+
+                      {/* Option: Telemetry Dashboard */}
+                      <div className="pt-1.5 border-t border-slate-100 dark:border-slate-800/80 mt-1.5">
+                        <Link
+                          href="/telemetry"
+                          onClick={() => setProfileMenuOpen(false)}
+                          className="w-full flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-800/60 text-left transition-colors group cursor-pointer active:scale-98"
+                        >
+                          <div className="flex items-center gap-3.5">
+                            <div className="w-11 h-11 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 shadow-sm">
+                              <Activity className="w-5 h-5 animate-pulse" />
+                            </div>
+                            <div>
+                              <p className="text-sm font-black text-slate-900 dark:text-white group-hover:text-theme-primary transition-colors">
+                                Kiosk Telemetry
+                              </p>
+                              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                                Fleet Health & Queues
+                              </p>
+                            </div>
+                          </div>
+                          <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-theme-primary group-hover:translate-x-0.5 transition-all" />
+                        </Link>
                       </div>
 
                       {/* Option 3: Logout */}

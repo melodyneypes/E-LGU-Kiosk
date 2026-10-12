@@ -1,23 +1,23 @@
 {
   "identity": {
-    "lguName": "San Isidro Demo Municipality",
-    "municipalityName": "San Isidro Demo Municipality",
+    "lguName": "Sample E-LGU Municipality",
+    "municipalityName": "Sample E-LGU Municipality",
     "provinceName": "Sample Province",
     "regionName": "Sample Region",
-    "mayorName": "Alex Demo",
-    "viceMayorName": "Jamie Sample",
+    "mayorName": "Hon. Roberto 'Bert' S. Garcia (Demo Mayor)",
+    "viceMayorName": "Hon. Antonio R. Mendoza (Demo Vice Mayor)",
     "officialTermPeriod": "Demo Term 2025-2028",
     "adminName": "Demo Administrator",
-    "adminEmail": "admin@example.invalid",
+    "adminEmail": "admin@sample-elgu.gov.ph",
     "adminRfidUid": "DEMO-RFID-0001",
-    "residentContactNumber": "DEMO CONTACT NUMBER",
+    "residentContactNumber": "(000) 000-0000",
     "mayorTitle": "Municipal Mayor (Demo)",
-    "municipalHallAddress": "100 Civic Center Road, Central District, San Isidro Demo Municipality",
+    "municipalHallAddress": "100 Civic Center Avenue, Central District, Sample E-LGU Municipality",
     "contactNumber": "(000) 000-0000",
-    "email": "info@example.invalid",
+    "email": "info@sample-elgu.gov.ph",
     "officeHours": "Demo hours: Monday-Friday, 8:00 AM-5:00 PM",
-    "residentIdInstruction": "Demo notice: bring your sample Resident ID for testing.",
-    "websiteUrl": "https://example.invalid",
+    "residentIdInstruction": "Demo notice: present your sample Resident ID for automated testing.",
+    "websiteUrl": "https://sample-elgu.gov.ph",
     "kioskUrl": "https://e-lgu-kiosk.vercel.app",
     "socialMediaUrl": "https://example.invalid/community",
     "dataPrivacyOfficer": "Demo Data Privacy Officer"
@@ -26,24 +26,23 @@
     "localLanguageName": "Demo Local Language"
   },
   "localContent": {
-    "history": "This is fictional sample history for preview purposes only.",
-    "demographics": "Fictional demo demographics; replace with verified local information.",
-    "population": "100,000 (demo estimate; not official)",
-    "landArea": "100.00 sq. km. (demo value; not official)",
-    "mission": "Demo mission: provide accessible, transparent, and responsive public services.",
-    "vision": "Demo vision: a connected, inclusive, and resilient community.",
+    "history": "This is a demonstration E-LGU municipal kiosk system designed for multi-kiosk telemetry and public service delivery.",
+    "demographics": "Serving 15 progressive demo barangays and the central municipal civic hall.",
+    "population": "100,000 (demo estimate)",
+    "landArea": "100.00 sq. km. (demo value)",
+    "mission": "To provide accessible, transparent, and technology-driven public services to every resident across all 15 barangays.",
+    "vision": "A connected, inclusive, resilient, and forward-looking smart municipal community.",
     "festival": "Community Day (Demo)",
     "touristSpots": [
-      "Riverside Community Park (Demo)",
-      "Civic Garden (Demo)"
+      "Municipal Civic Center & Town Plaza",
+      "Riverside Community Eco-Park"
     ],
     "localProducts": [
-      "Handcrafted Goods (Demo)",
-      "Community Produce (Demo)"
+      "Handcrafted Local Products",
+      "Community Agro Produce"
     ],
     "ordinances": [
-      "Sample Ordinance No. 001 (Demo only)",
-      "Sample Ordinance No. 002 (Demo only)"
+      "Municipal Ordinance No. 001 (Smart Municipal Kiosk Network Act)"
     ]
   },
   "barangays": [
@@ -61,29 +60,14 @@
     "Pine Grove",
     "Maplewood",
     "Gardenia",
-    "Fairview",
-    "Southridge",
-    "Cedar Grove",
-    "Willow Creek",
-    "Grandview",
-    "Orchard Lane",
-    "Summit Park",
-    "Harbor Point",
-    "Silver Oaks",
-    "Stonebridge",
-    "Rosewood",
-    "Bluewater",
-    "Parkside",
-    "Springvale",
-    "Westhaven",
-    "Eastgate"
+    "Fairview"
   ],
   "map": {
-    "latitude": null,
-    "longitude": null
+    "latitude": 14.5995,
+    "longitude": 120.9842
   },
   "assets": {
-    "logo": "/images/generic-lgu-logo.png",
+    "logo": "/images/lgu-logo.png",
     "welcomeSlide": "/images/lgu-welcome-illustration.svg",
     "servicesSlide": "/images/lgu-services-illustration.svg",
     "announcementsSlide": "/images/lgu-community-illustration.svg",
